@@ -16,6 +16,7 @@
     "@hookform/resolvers": "^2.8.8",
     "@mui/material": "^5.2.7",
     "@react-native-async-storage/async-storage": "^1.15.16",
+    "@react-native-community/checkbox": "^0.5.9",
     "@react-native-picker/picker": "^2.2.1",
     "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/drawer": "^6.1.8",
@@ -37,6 +38,7 @@
     "react-native-reanimated": "2.2.4",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.10.1",
+    "react-native-social-buttons": "^1.2.0",
     "react-native-unordered-list": "^1.0.4",
     "react-native-vector-icons": "^9.0.0",
     "yup": "^0.32.11"
