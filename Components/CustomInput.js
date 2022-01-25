@@ -1,8 +1,9 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
+import {Alert} from 'react-native';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 
-const CustomInput = ({value, setValue, placeholder, secureTextEntry}) => {
+const CustomInput = ({value, setValue, placeholder, secureTextEntry, mode}) => {
   return (
     <View style={styles.container}>
       <TextInput
@@ -11,6 +12,7 @@ const CustomInput = ({value, setValue, placeholder, secureTextEntry}) => {
         placeholder={placeholder}
         style={styles.input}
         secureTextEntry={secureTextEntry}
+        autoCapitalize={mode}
       />
     </View>
   );
