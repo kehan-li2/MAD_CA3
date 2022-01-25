@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 // // P2111575
 // // LI KEHAN
@@ -440,62 +441,24 @@
 //   </TouchableOpacity>
 // </View>   */
 
-import React, {useEffect, useState, useMemo} from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  ImageBackground,
-  TextInput,
-  TouchableOpacity,
-  Alert,
-  SafeAreaView,
-} from 'react-native';
+// P2111575
+// LI KEHAN
+// DIT1B04
+// The WHOLE app Start place
+// /* eslint-disable react-native/no-inline-styles  */
 
-import AuthStack from '../Navigation/AuthStack';
-import {AuthContext} from '../Components/context';
+import {LogBox} from 'react-native';
+LogBox.ignoreLogs(['Reanimated 2']);
 
-function Login() {
-  const [isLoading, setIsLoading] = React.useState(true);
-  const [userToken, setUserToken] = React.useState(null);
+import * as React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
 
-  const authContext = React.useMemo(() => ({
-    signIn: () => {
-      setUserToken('abc');
-      setIsLoading(false);
-    },
-    signOut: () => {
-      setUserToken(null);
-      setIsLoading(false);
-    },
-    signUp: () => {
-      setUserToken('123');
-      setIsLoading(false);
-    },
-  }));
+import WholeStack from '../Navigation/WholeStack';
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <AuthContext.Provider value={authContext}>
-        <SafeAreaView style={styles.root}>
-          <AuthStack />
-        </SafeAreaView>
-      </AuthContext.Provider>
-    );
-  }
+export default function App() {
+  return (
+    <NavigationContainer>
+      <WholeStack />
+    </NavigationContainer>
+  );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-});
-
-export default Login;
