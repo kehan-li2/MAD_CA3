@@ -16,6 +16,7 @@ import {
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {auth} from '../firebase';
 
 const background = require('../image/background.png');
 const Item = ({item}) => {

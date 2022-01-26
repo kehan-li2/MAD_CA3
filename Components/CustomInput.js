@@ -3,7 +3,14 @@ import React from 'react';
 import {Alert} from 'react-native';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 
-const CustomInput = ({value, setValue, placeholder, secureTextEntry, mode}) => {
+const CustomInput = ({
+  value,
+  setValue,
+  placeholder,
+  secureTextEntry,
+  mode,
+  onEndEditing,
+}) => {
   return (
     <View style={styles.container}>
       <TextInput
@@ -13,6 +20,7 @@ const CustomInput = ({value, setValue, placeholder, secureTextEntry, mode}) => {
         style={styles.input}
         secureTextEntry={secureTextEntry}
         autoCapitalize={mode}
+        onEndEditing={onEndEditing}
       />
     </View>
   );

@@ -46,62 +46,100 @@ import CustomButton from '../Components/CustomButton';
 import {TwitterSocialButton} from 'react-native-social-buttons';
 import {FacebookSocialButton} from 'react-native-social-buttons';
 
-import AsyncStorage from '@react-native-community/async-storage';
+// import firebase
+// import {auth} from '../firebase';
+import {auth} from '../firebase';
+import {signInWithPopup, GoogleAuthProvider} from 'firebase/auth';
 
-const userInfo = {username: 'admin', password: 'pass12345'};
+import * as Animatable from 'react-native-animatable';
 
 export default function LoginPage({navigation}) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
 
-  const STORAGE_KEY_USERNAME = '@save_username';
-  const STORAGE_KEY_PASSWORD = '@save_password';
-
-  const saveInfo = async () => {
-    try {
-      await AsyncStorage.setItem(STORAGE_KEY_USERNAME, username);
-      await AsyncStorage.setItem(STORAGE_KEY_PASSWORD, password);
-      Alert.alert('Successfully Saved Data. Welcome!');
-    } catch (e) {
-      Alert.alert('Failed to save data to database...');
-    }
+  const signInWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then(re => {
+        console.log(re);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
-  const LoginHandler = async () => {
-    if (userInfo.username === username && userInfo.password === password) {
-      Alert.alert('Logged In');
-      saveInfo(username, password);
-      setUsername('');
-      setPassword('');
-      navigation.navigate('AppStackScreen');
-    } else {
-      Alert.alert('Username or Password is incorrect.');
-    }
-  };
-
-  const RetrieveData = async () => {
-    try {
-      const UserName = await AsyncStorage.getItem(STORAGE_KEY_USERNAME);
-      const PassWord = await AsyncStorage.getItem(STORAGE_KEY_PASSWORD);
-
-      if (username !== null) {
-        setUsername(username);
-      }
-
-      if (password !== null) {
-        setPassword(password);
-      }
-    } catch (e) {
-      Alert.alert('Failed to retrieve data from Storage...');
-    }
-  };
+  const [data, setData] = React.useState({
+    email: '',
+    password: '',
+    secureTextEntry: true,
+    isValidUser: true,
+    isValidPassword: true,
+  });
 
   useEffect(() => {
-    RetrieveData();
+    const login = auth.onAuthStateChanged(user => {
+      if (user) {
+        navigation.replace('AppStackScreen');
+      }
+    });
+    return login;
   }, []);
 
-  const onChangeTextUsername = UserName => setUsername(UserName);
-  const onChangeTextPassword = PassWord => setPassword(PassWord);
+  const handleEmailChange = val => {
+    if (val.trim().length >= 10) {
+      setData({
+        ...data,
+        email: val,
+        isValidUser: true,
+      });
+    } else {
+      setData({
+        ...data,
+        email: val,
+        isValidUser: false,
+      });
+    }
+  };
+
+  const handlePasswordChange = val => {
+    if (val.trim().length >= 8) {
+      setData({
+        ...data,
+        password: val,
+        isValidPassword: true,
+      });
+    } else {
+      setData({
+        ...data,
+        password: val,
+        isValidPassword: false,
+      });
+    }
+  };
+
+  const handleValidUser = val => {
+    if (val.trim().length >= 4) {
+      setData({
+        ...data,
+        isValidUser: true,
+      });
+    } else {
+      setData({
+        ...data,
+        isValidUser: false,
+      });
+    }
+  };
+
+  const handleLogin = () => {
+    auth
+      .signInWithEmailAndPassword(data.email, data.password)
+      .then(userCredentials => {
+        const user = userCredentials.user;
+        console.log('Logged in with: ', user.email);
+      })
+      .catch(error => Alert.alert(error.message));
+  };
 
   const onForgotPasswordPressed = () => {
     console.warn('onForgotPressed');
@@ -155,21 +193,38 @@ export default function LoginPage({navigation}) {
           <Text style={styles.textInputName}>Email</Text>
           <CustomInput
             placeholder="example@email.com"
-            value={username}
-            setValue={onChangeTextUsername}
             autoCapitalize="none"
+            setValue={val => handleEmailChange(val)}
+            onEndEditing={e => {
+              handleValidUser(e.nativeEvent.text);
+            }}
           />
+          {data.isValidUser ? null : (
+            <Animatable.View animation="fadeInLeft" duration={500}>
+              <Text style={styles.errorMsg}>Invalid Email format.</Text>
+            </Animatable.View>
+          )}
 
           <Text style={{...styles.textInputName, marginTop: 20}}>Password</Text>
           <CustomInput
-            value={password}
-            setValue={onChangeTextPassword}
+            setValue={val => handlePasswordChange(val)}
             secureTextEntry={true}
           />
+          {data.isValidPassword ? null : (
+            <Animatable.View animation="fadeInLeft" duration={500}>
+              <Text style={styles.errorMsg}>
+                Password must be 8 characters long.
+              </Text>
+            </Animatable.View>
+          )}
 
-          <CustomButton text="Sign In" onPress={LoginHandler} type="PRIMARY" />
+          <CustomButton text="Sign In" onPress={handleLogin} type="PRIMARY" />
+
+          {/* <TouchableOpacity onPress={handleLogin}>
+            <Text> Sign in</Text>
+          </TouchableOpacity> */}
           <View
-            style={{flexDirection: 'row', marginTop: 30, marginHorizontal: 20}}>
+            style={{flexDirection: 'row', marginTop: 30, marginHorizontal: 36}}>
             <TwitterSocialButton
               buttonText={'Twitter'}
               textStyle={{
@@ -178,9 +233,7 @@ export default function LoginPage({navigation}) {
                 paddingBottom: 6,
               }}
               buttonViewStyle={{width: 150}}
-              onPress={() => {
-                Alert.alert('Logged In Using Twitter!');
-              }}
+              onPress={signInWithGoogle}
             />
             <FacebookSocialButton
               buttonText={'Facebook'}
@@ -233,5 +286,12 @@ const styles = StyleSheet.create({
     color: '#f76d76',
     fontFamily: 'Quicksand-Bold',
     marginLeft: 23,
+    marginTop: 20,
+  },
+  errorMsg: {
+    color: '#FF0000',
+    fontSize: 14,
+    marginLeft: 21,
+    marginTop: 5,
   },
 });

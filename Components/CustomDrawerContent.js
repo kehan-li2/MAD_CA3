@@ -12,14 +12,27 @@ import {
   ImageBackground,
   StyleSheet,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 const background = require('../image/background.png');
 import {useNavigation} from '@react-navigation/native'; //useNavigation() returns the navigation prop of the screen it's inside.
 // import HomeStack from '../Navigation/StackNavigators';
 // import SettingsPage from '../Screens/8.0-SettingsPage';
 
+// import firebase
+import {auth} from '../firebase';
+
 export default function CustomDrawerContent(props) {
   const navigation = useNavigation();
+
+  const handleSignOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        navigation.replace('AuthStackScreen');
+      })
+      .catch(error => Alert.alert(error.message));
+  };
 
   return (
     <View style={styles.container}>
@@ -78,7 +91,7 @@ export default function CustomDrawerContent(props) {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => navigation.goBack()}>
+          <TouchableOpacity onPress={handleSignOut}>
             <View
               style={{
                 flexDirection: 'row',
