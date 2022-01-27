@@ -18,7 +18,7 @@ import * as Animatable from 'react-native-animatable';
 import CustomInput from '../Components/CustomInput';
 import CustomButton from '../Components/CustomButton';
 
-import CheckBox from '@react-native-community/checkbox';
+import BouncyCheckbox from 'react-native-bouncy-checkbox';
 
 // import firebase
 import {auth} from '../firebase';
@@ -35,6 +35,8 @@ export default function SignUp({navigation}) {
   //   password,
   //   passwordRepeat,
   // };
+
+  const [checkboxState, setCheckboxState] = React.useState(false);
 
   const [data, setData] = React.useState({
     username: '',
@@ -158,16 +160,18 @@ export default function SignUp({navigation}) {
   //   return errors;
   // };
 
-  const [isSelected, setSelection] = useState(false);
-
   const handleSignUp = () => {
-    auth
-      .createUserWithEmailAndPassword(data.email, data.password)
-      .then(userCredentials => {
-        const user = userCredentials.user;
-        console.log('Registered with: ', user.email);
-      })
-      .catch(error => Alert.alert(error.message));
+    if (checkboxState) {
+      auth
+        .createUserWithEmailAndPassword(data.email, data.password)
+        .then(userCredentials => {
+          const user = userCredentials.user;
+          console.log('Registered with: ', user.email);
+        })
+        .catch(error => Alert.alert(error.message));
+    } else {
+      Alert.alert('Agree to our terms & conditions to continue.');
+    }
   };
 
   const onSigninPressed = () => {
@@ -256,11 +260,18 @@ export default function SignUp({navigation}) {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <CheckBox
+            {/* <CheckBox
               value={isSelected}
               onValueChange={setSelection}
               require="required"
               style={{marginRight: 10}}
+            /> */}
+            <BouncyCheckbox
+              iconStyle={{
+                borderRadius: 6,
+              }}
+              fillColor="red"
+              onPress={() => setCheckboxState(!checkboxState)}
             />
             <Text style={styles.text}>
               By registering, you confirm that you accept to our
@@ -268,6 +279,13 @@ export default function SignUp({navigation}) {
               <Text style={styles.link}>Privacy Policy</Text>
             </Text>
           </View>
+          {checkboxState ? null : (
+            <Animatable.View animation="fadeInLeft" duration={500}>
+              <Text style={{...styles.errorMsg, marginLeft: 12}}>
+                Please accept our terms and conditions to proceed
+              </Text>
+            </Animatable.View>
+          )}
 
           <View style={{marginTop: 30, marginBottom: 30}}>
             <CustomButton

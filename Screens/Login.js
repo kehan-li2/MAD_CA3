@@ -49,7 +49,7 @@ import {FacebookSocialButton} from 'react-native-social-buttons';
 // import firebase
 // import {auth} from '../firebase';
 import {auth} from '../firebase';
-import {signInWithPopup, GoogleAuthProvider} from 'firebase/auth';
+// import {signInWithPopup, GoogleAuthProvider} from 'firebase/auth';
 
 import * as Animatable from 'react-native-animatable';
 
@@ -57,16 +57,16 @@ export default function LoginPage({navigation}) {
   // const [email, setEmail] = useState('');
   // const [password, setPassword] = useState('');
 
-  const signInWithGoogle = () => {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-      .then(re => {
-        console.log(re);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+  // const signInWithGoogle = () => {
+  //   const provider = new GoogleAuthProvider();
+  //   signInWithPopup(auth, provider)
+  //     .then(re => {
+  //       console.log(re);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // };
 
   const [data, setData] = React.useState({
     email: '',
@@ -144,7 +144,7 @@ export default function LoginPage({navigation}) {
   const onForgotPasswordPressed = () => {
     console.warn('onForgotPressed');
     // validate user
-    navigation.navigate('ForgotPassword');
+    navigation.navigate('ForgotPasswordScreen');
   };
 
   const onSignUpPressed = () => {
@@ -233,7 +233,9 @@ export default function LoginPage({navigation}) {
                 paddingBottom: 6,
               }}
               buttonViewStyle={{width: 150}}
-              onPress={signInWithGoogle}
+              onPress={() => {
+                Alert.alert('sign in using google');
+              }}
             />
             <FacebookSocialButton
               buttonText={'Facebook'}

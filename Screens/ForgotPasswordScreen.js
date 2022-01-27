@@ -9,8 +9,8 @@ import {
   ImageBackground,
 } from 'react-native';
 
-import CustomInput from '../components/CustomInput/CustomInput';
-import CustomButton from '../components/CustomButton/CustomButton';
+import CustomInput from '../Components/CustomInput';
+import CustomButton from '../Components/CustomButton';
 import {useNavigation} from '@react-navigation/native';
 const ForgotPassWordScreen = () => {
   const [code, setCode] = useState('');
@@ -20,18 +20,18 @@ const ForgotPassWordScreen = () => {
 
   const onSubmitPressed = () => {
     console.warn('onConfirmPressed');
-    navigation.navigate('Home');
+    navigation.navigate('AppStackScreen');
   };
 
   const onSigninPressed = () => {
     console.warn('onSignInPressed');
-    navigation.navigate('SignIn');
+    navigation.navigate('LoginScreen');
   };
 
   return (
     <ScrollView>
       <ImageBackground
-        source={require('../../assets/background.png')}
+        source={require('../image/background.png')}
         imageStyle={{
           opacity: 0.2,
           resizeMode: 'cover',
