@@ -37,6 +37,7 @@ import {
   ScrollView,
   ImageBackground,
   Image,
+  Button,
 } from 'react-native';
 
 import CustomInput from '../Components/CustomInput';
@@ -48,25 +49,30 @@ import {FacebookSocialButton} from 'react-native-social-buttons';
 
 // import firebase
 // import {auth} from '../firebase';
-import {auth} from '../firebase';
+import {authenication} from '../firebase';
 // import {signInWithPopup, GoogleAuthProvider} from 'firebase/auth';
 
 import * as Animatable from 'react-native-animatable';
 
-export default function LoginPage({navigation}) {
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
+// import auth from '@react-native-firebase/auth';
+// import {GoogleSignin} from '@react-native-google-signin/google-signin';
 
-  // const signInWithGoogle = () => {
-  //   const provider = new GoogleAuthProvider();
-  //   signInWithPopup(auth, provider)
-  //     .then(re => {
-  //       console.log(re);
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // };
+export default function LoginPage({navigation}) {
+  // GoogleSignin.configure({
+  //   webClientId:
+  //     '577222033697-ssnh0fusb7ndl0v819o2i4ad085gkils.apps.googleusercontent.com',
+  // });
+
+  // async function onGoogleButtonPress() {
+  //   // Get the users ID token
+  //   const {idToken} = await GoogleSignin.signIn();
+
+  //   // Create a Google credential with the token
+  //   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+  //   // Sign-in the user with the credential
+  //   return auth().signInWithCredential(googleCredential);
+  // }
 
   const [data, setData] = React.useState({
     email: '',
@@ -77,7 +83,7 @@ export default function LoginPage({navigation}) {
   });
 
   useEffect(() => {
-    const login = auth.onAuthStateChanged(user => {
+    const login = authenication.onAuthStateChanged(user => {
       if (user) {
         navigation.replace('AppStackScreen');
       }
@@ -132,7 +138,7 @@ export default function LoginPage({navigation}) {
   };
 
   const handleLogin = () => {
-    auth
+    authenication
       .signInWithEmailAndPassword(data.email, data.password)
       .then(userCredentials => {
         const user = userCredentials.user;
@@ -233,9 +239,7 @@ export default function LoginPage({navigation}) {
                 paddingBottom: 6,
               }}
               buttonViewStyle={{width: 150}}
-              onPress={() => {
-                Alert.alert('sign in using google');
-              }}
+              // onPress={signInWithGoogleAsync}
             />
             <FacebookSocialButton
               buttonText={'Facebook'}

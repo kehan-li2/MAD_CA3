@@ -21,9 +21,9 @@ if (firebase.apps.length === 0) {
   app = firebase.app();
 }
 
-const auth = firebase.auth();
+const authenication = firebase.auth();
 
-export {auth};
+export {authenication};
 
 // import {initializeApp} from 'firebase/app';
 // import {getAuth} from 'firebase/auth';

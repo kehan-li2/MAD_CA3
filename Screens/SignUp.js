@@ -21,7 +21,7 @@ import CustomButton from '../Components/CustomButton';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 
 // import firebase
-import {auth} from '../firebase';
+import {authenication} from '../firebase';
 
 export default function SignUp({navigation}) {
   // const [username, setUsername] = useState('');
@@ -162,7 +162,7 @@ export default function SignUp({navigation}) {
 
   const handleSignUp = () => {
     if (checkboxState) {
-      auth
+      authenication
         .createUserWithEmailAndPassword(data.email, data.password)
         .then(userCredentials => {
           const user = userCredentials.user;

@@ -20,13 +20,13 @@ import {useNavigation} from '@react-navigation/native'; //useNavigation() return
 // import SettingsPage from '../Screens/8.0-SettingsPage';
 
 // import firebase
-import {auth} from '../firebase';
+import {authenication} from '../firebase';
 
 export default function CustomDrawerContent(props) {
   const navigation = useNavigation();
 
   const handleSignOut = () => {
-    auth
+    authenication
       .signOut()
       .then(() => {
         navigation.replace('AuthStackScreen');
