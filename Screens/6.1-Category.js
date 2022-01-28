@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles  */
 
 import * as React from 'react';
-import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 
 import {Icon} from 'react-native-elements';
 import {FlatList} from 'react-native-gesture-handler';
@@ -24,7 +24,6 @@ const Item = ({item}) => {
             backgroundColor: 'white',
             alignItems: 'center',
             paddingTop: '10%',
-            flex: 2,
           }}>
           <Text>GI: {item.GI}</Text>
           <Text>Calorie: {item.Calorie}</Text>
