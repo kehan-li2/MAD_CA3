@@ -81,7 +81,7 @@ export default function BMIcalculator({navigation}) {
             size={38}
             style={styles.arrow}
             type="materialIcons"
-            onPress={() => console.log('hhh')}
+            onPress={() => navigation.navigate('HomeScreen')}
           />
         </View>
         <Text style={styles.title}>BMI Calculator</Text>
