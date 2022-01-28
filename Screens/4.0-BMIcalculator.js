@@ -126,6 +126,7 @@ export default function BMIcalculator({navigation}) {
                       onBlur={onBlur}
                       onChangeText={onChange}
                       value={value}
+                      keyboardType="number-pad"
                     />
                   </View>
                 )}
@@ -205,6 +206,7 @@ export default function BMIcalculator({navigation}) {
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
+                    keyboardType="number-pad"
                   />
                   <Text style={styles.unit}>kg</Text>
                 </View>
@@ -237,6 +239,7 @@ export default function BMIcalculator({navigation}) {
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
+                    keyboardType="number-pad"
                   />
                   <Text style={styles.unit}>cm</Text>
                 </View>

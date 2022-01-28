@@ -19,6 +19,9 @@ import {Icon} from 'react-native-elements';
 import MyRatingBar from '../Components/RatingBar';
 import addComment, {commentData} from '../DATA/commentData';
 
+// import firebase
+import * as firebase from 'firebase';
+
 const background = require('../image/background.png');
 
 const Item = ({item}) => {
@@ -90,6 +93,11 @@ export default function CommentPage({route, navigation}) {
   const [DATA, setDATA] = useState(commentData);
   const [comment, onChangecomment] = useState('');
   const {recipeName, recipeImage} = route.params;
+
+  const user = firebase.auth().currentUser;
+
+  // The user object has basic properties such as display name, email, etc.
+  const displayName = user.displayName;
 
   /* allow user to send comment */
   <View
@@ -194,7 +202,7 @@ export default function CommentPage({route, navigation}) {
               type="fontAwesome"
               onPress={() =>
                 addComment({
-                  name: 'Linda',
+                  name: displayName,
                   time: new Date().toLocaleString(),
                   comment: comment,
                 })
