@@ -40,23 +40,23 @@ export default function Category({navigation}) {
     //   <Text>Category</Text>
     // </View>
     <View style={{flex: 1, alignContent: 'center'}}>
-      <View
-        style={{alignSelf: 'flex-start', paddingLeft: '5%', paddingTop: '5%'}}>
-        {/* here should be link to another page*/}
+      <View style={{alignSelf: 'flex-start', paddingLeft: '5%'}}>
+        {/* here should be link to home page*/}
         <Icon
           name="arrow-back"
           size={38}
+          style={styles.arrow}
           type="materialIcons"
-          onPress={() => navigation.navigate('FoodListScreen')}
+          onPress={() => navigation.goBack()}
         />
         <Text style={styles.title}>Low GI Fruits</Text>
-        <View>
-          <FlatList
-            data={Categorydb}
-            renderItem={({item}) => <Item item={item} />}
-            contentContainerStyle={{flexGrow: 1}}
-          />
-        </View>
+      </View>
+      <View>
+        <FlatList
+          data={Categorydb}
+          renderItem={({item}) => <Item item={item} />}
+          contentContainerStyle={{flexGrow: 1}}
+        />
       </View>
     </View>
   );

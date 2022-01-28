@@ -20,9 +20,9 @@ const breakfastDATA = [
       serving: '4',
       calories: '150 kcal',
       ingredients:
-        'Tortilla wrap 4 slices;Bottled pizza sauce 80g;Marinated capsicums 160g;Pitted olives 40g;Processed mozzarella cheese 40g',
+        'Salmon fillet, 100g-120g each 4;Honey, ready in bottle 3 tbsp;Garlic powder ½tsp;Olive oil 1 tbsp;Hot water 2 tbsp;Lemon peel, grated 1 tsp;Lemon, sliced 12;Spring Onion, shredded;Salt & pepper, to taste',
       method:
-        'Spread pizza sauce on tortilla.;Line with marinated capsicums and olives,top with mozzarella.;Roll into a wrap, then bake in pre-heated,oven at 250°C for 7 minutes.;Serve hot.',
+        'Place honey, lemon peel, garlic powder and hot water in a small bowl and whisk until well blended.;Brush the mixture to coat the salmon fillets on both sides.;Marinate for 45 minutes in the refrigerator.;Season the salmon fillets with salt and pepper. • Heat olive oil in a skillet over medium heat.;Carefully place the salmon fillets on the skillet and cook for 4–5 minutes.;Using tongs, turn the salmon fillets.;Reduce heat to medium-low if necessary. Cook salmon fillets until they flake easily using a fork.;Garnish salmon fillets with shredded spring onion and sliced lemon. Serve hot.',
     },
   },
   {
@@ -128,7 +128,7 @@ const dinnerDATA = [
       serving: '4',
       calories: '150 kcal',
       ingredients:
-        'ready in bottle 3 tbsp;Garlic powder ½tsp;Olive oil 1 tbsp;Hot water 2 tbsp;Lemon peel, grated 1 tsp;Lemon, sliced 12;Spring Onion, shredded;Salt & pepper, to taste',
+        'Salmon fillet ready in bottle 3 tbsp;Garlic powder ½tsp;Olive oil 1 tbsp;Hot water 2 tbsp;Lemon peel, grated 1 tsp;Lemon, sliced 12;Spring Onion, shredded;Salt & pepper, to taste',
       method:
         'Place honey, lemon peel, garlic powder and hot water in a small bowl and whisk until well blended.;Brush the mixture to coat the salmon fillets on both sides.;Marinate for 45 minutes in the refrigerator.;Season the salmon fillets with salt and pepper. • Heat olive oil in a skillet over medium heat.;Carefully place the salmon fillets on the skillet and cook for 4–5 minutes.;Using tongs, turn the salmon fillets.;Reduce heat to medium-low if necessary. Cook salmon fillets until they flake easily using a fork.;Garnish salmon fillets with shredded spring onion and sliced lemon. Serve hot.',
     },

@@ -13,6 +13,7 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from 'react-native';
+import {Icon} from 'react-native-elements';
 
 import {FoodListdb} from '../DATA/FoodListdb';
 
@@ -49,13 +50,16 @@ export default function FoodList({navigation}) {
           opacity: 0.1,
           resizeMode: 'cover',
         }}>
-        <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
-          <Image
-            source={require('../image/Icons/backArrow.png')}
-            resizeMode="contain"
-            style={{width: 38, height: 38, marginTop: 15, marginHorizontal: 15}}
+        <View style={{alignSelf: 'flex-start', paddingLeft: '5%'}}>
+          {/* here should be link to home page*/}
+          <Icon
+            name="arrow-back"
+            size={38}
+            style={styles.arrow}
+            type="materialIcons"
+            onPress={() => navigation.navigate('HomeScreen')}
           />
-        </TouchableOpacity>
+        </View>
 
         <View style={styles.TextInput}>
           <Image
