@@ -18,23 +18,31 @@ import {
   Image,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
+import {set} from 'react-native-reanimated';
 import UnorderedList from '../Components/UnorderedList';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const background = require('../image/background.png');
-// const salmon_image = require('../image/salmon2.png');
-
-// let ingredientsDATA =
-//   'Salmon fillet, 100g-120g each 4;Honey, ready in bottle 3 tbsp;Garlic powder ½tsp;Olive oil 1 tbsp;Hot water 2 tbsp;Lemon peel, grated 1 tsp;Lemon, sliced 12;Spring Onion, shredded;Salt & pepper, to taste';
-// let methodDATA =
-//   'Place honey, lemon peel, garlic powder and hot water in a small bowl and whisk until well blended.;Brush the mixture to coat the salmon fillets on both sides.;Marinate for 45 minutes in the refrigerator.;Season the salmon fillets with salt and pepper. • Heat olive oil in a skillet over medium heat.;Carefully place the salmon fillets on the skillet and cook for 4–5 minutes.;Using tongs, turn the salmon fillets.;Reduce heat to medium-low if necessary. Cook salmon fillets until they flake easily using a fork.;Garnish salmon fillets with shredded spring onion and sliced lemon. Serve hot.';
 
 export default function Recipe({route, navigation}) {
   const {recipeName, recipeImage, ingredientsDATA, methodDATA} = route.params;
-  // console.log(ingredientsDATA);
-  console.log(recipeImage);
   const [DATA, setDATA] = useState(ingredientsDATA);
   const [activeButton, setActiveButton] = useState('Ingredients');
+  const [liked, setLiked] = useState(false);
+  const isLiked = () => {
+    if (liked) {
+      setLiked(false);
+    } else {
+      setLiked(true);
+    }
+  };
+  const [saved, setSaved] = useState(false);
+  const isSaved = () => {
+    if (saved) {
+      setSaved(false);
+    } else {
+      setSaved(true);
+    }
+  };
 
   // to onchange to data for flatlist and onchange the active button
   const onRefresh = (whichButton, displayedDATA) => {
@@ -133,17 +141,21 @@ export default function Recipe({route, navigation}) {
               justifyContent: 'space-around',
               paddingHorizontal: 10,
               paddingVertical: 5,
-              borderWidth: 1,
+              borderWidth: 1.5,
               marginTop: 20,
-              backgroundColor: 'lightgrey',
+              borderStyle: 'dashed',
+              borderColor: '#fab255',
+              backgroundColor: '#ffe0b3',
             }}>
             <Icon
-              name="heart"
+              color={liked ? '#ffb8f8' : 'grey'}
+              name={'heart'}
               size={37}
               type="antdesign"
-              onPress={() => console.log('hhh')}
+              onPress={() => isLiked()}
             />
             <Icon
+              color="grey"
               name="comment"
               size={40}
               type="materialIcons"
@@ -155,10 +167,11 @@ export default function Recipe({route, navigation}) {
               }}
             />
             <Icon
+              color={saved ? '#ffb8f8' : 'grey'}
               name="stars"
               size={40}
               type="materialIcons"
-              onPress={() => console.log('hhh')}
+              onPress={() => isSaved()}
             />
           </View>
         </ScrollView>
@@ -184,13 +197,7 @@ const styles = StyleSheet.create({
   arrow: {
     paddingTop: 10,
   },
-  lineStyle: {
-    width: '95%',
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderColor: 'grey',
-    margin: 10,
-  },
+
   button: {
     flex: 1,
     width: '28%',
