@@ -4,7 +4,7 @@ let commentData = [
     data: {
       userImage: require('../image/user2.png'),
       name: 'Mike',
-      time: '19-10-2021 10:58am',
+      time: 'Mon Jan 12 13:45:08 2021',
       comment: 'Berry and yoghurt are so tasty',
     },
   },
@@ -13,7 +13,7 @@ let commentData = [
     data: {
       userImage: require('../image/user3.png'),
       name: 'Mary',
-      time: '20-11-2021 9:58am',
+      time: 'Wed Jan 24 12:24:23 2021',
       comment: 'I like this recipe! Taste good!',
     },
   },
@@ -22,7 +22,7 @@ let commentData = [
     data: {
       userImage: require('../image/user4.png'),
       name: 'Lisa',
-      time: '23-12-2021 5:38pm',
+      time: 'Fri Feb 25 05:02:24 2021',
       comment: 'Easy made recipe, taste good!',
     },
   },
@@ -31,7 +31,7 @@ let commentData = [
     data: {
       userImage: require('../image/user5.png'),
       name: 'Harry',
-      time: '01-01-2022 4:23pm',
+      time: 'Mon May 18 08:23:45 2022',
       comment: 'Delicious to the core! My favourite recipe!',
     },
   },
