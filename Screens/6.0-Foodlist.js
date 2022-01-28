@@ -14,111 +14,10 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import {FoodListdb} from '../DATA/FoodListdb';
+
 export default function FoodList({navigation}) {
   const [userInput, onChangeText] = React.useState('');
-
-  const db = [
-    {
-      title: 'Reduce weight',
-      horizontal: true,
-      data: [
-        {
-          key: '1',
-          text: 'Low GI - Main Food',
-          image: require('../image/FoodListScreen/chowMein.jpg'),
-        },
-        // {
-        //   key: '2',
-        //   text: 'Low GI - Fruits',
-        //   image: require('../assets/FoodListScreen/avocado.jpg'),
-        // },
-        {
-          key: '3',
-          text: 'Low Calorie - Fruits',
-          image: require('../image/FoodListScreen/fruits.jpg'),
-        },
-      ],
-    },
-    {
-      title: 'Calcium Supplement',
-      horizontal: true,
-      data: [
-        {
-          key: '1',
-          text: 'Milk',
-          image: require('../image/FoodListScreen/Milk.jpg'),
-        },
-        {
-          key: '2',
-          text: 'Cheese',
-          image: require('../image/FoodListScreen/cheeseBoard.jpg'),
-        },
-        // {
-        //   key: '3',
-        //   text: 'Yoghurt',
-        //   image: require('../assets/FoodListScreen/almondSoyMilk.jpg'),
-        // },
-      ],
-    },
-    {
-      title: 'Anti Anaemic',
-      horizontal: true,
-      data: [
-        {
-          key: '1',
-          text: 'Kale',
-          image: require('../image/FoodListScreen/kale.jpg'),
-        },
-        {
-          key: '2',
-          text: 'Pomegranate',
-          image: require('../image/FoodListScreen/pomegranate.jpeg'),
-        },
-        {
-          key: '3',
-          text: 'Swiss Chard',
-          image: require('../image/FoodListScreen/swissChard.jpg'),
-        },
-      ],
-    },
-    {
-      title: 'Hypertension',
-      horizontal: true,
-      data: [
-        {
-          key: '1',
-          text: 'Salmon',
-          image: require('../image/FoodListScreen/salmon.jpg'),
-        },
-        {
-          key: '2',
-          text: 'Citrus Fruits',
-          image: require('../image/FoodListScreen/citrusFruits.jpg'),
-        },
-        {
-          key: '3',
-          text: 'Berries',
-          image: require('../image/FoodListScreen/berries.jpg'),
-        },
-      ],
-    },
-    {
-      title: 'Diabetes',
-      horizontal: true,
-      data: [
-        {
-          key: '1',
-          text: 'Trans Fats',
-          image: require('../image/FoodListScreen/transFats.jpg'),
-        },
-        {
-          key: '2',
-          text: 'High Carb Foods',
-          image: require('../image/FoodListScreen/highCarbs.png'),
-        },
-      ],
-    },
-  ];
 
   const ListItem = ({item}) => {
     return (
@@ -150,7 +49,7 @@ export default function FoodList({navigation}) {
           opacity: 0.1,
           resizeMode: 'cover',
         }}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
           <Image
             source={require('../image/Icons/backArrow.png')}
             resizeMode="contain"
@@ -178,7 +77,7 @@ export default function FoodList({navigation}) {
           <SectionList
             contentContainerStyle={{paddingHorizontal: 10}}
             stickySectionHeadersEnabled={false}
-            sections={db}
+            sections={FoodListdb}
             renderSectionHeader={({section}) => (
               <>
                 <Text
