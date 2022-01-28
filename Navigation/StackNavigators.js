@@ -10,7 +10,7 @@ import BMIresult from '../Screens/4.1-BMIresult';
 import FoodList from '../Screens/6.0-Foodlist';
 import Category from '../Screens/6.1-Category';
 import Elaborated from '../Screens/6.2-Elaborated';
-
+import CommentPage from '../Screens/Comment';
 // import MyDrawer from './MyDrawer';
 
 const Stack = createNativeStackNavigator(); // create stack navigator
@@ -19,14 +19,27 @@ const HomeStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        // headerShown: false,
+        headerShown: false,
         headerTransparent: true,
         headerShadowVisible: false, // to hide shadow when header is set to transparent
         headerTitle: '', // to set title as empty
         // header:layout,back
       }}>
-      <Stack.Screen name="HomeScreen" component={Homepage} />
-      <Stack.Screen name="RecipeScreen" component={RecipePage} />
+      <Stack.Screen
+        name="HomeScreen"
+        component={Homepage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="RecipeScreen"
+        component={RecipePage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="CommentScreen"
+        component={CommentPage}
+        options={{headerShown: false}}
+      />
       <Stack.Screen name="SettingsScreen" component={SettingsPage} />
     </Stack.Navigator>
   );
