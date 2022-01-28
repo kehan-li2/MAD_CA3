@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -7,25 +7,39 @@ import {
   TouchableOpacity,
   ScrollView,
   ImageBackground,
+  Alert,
 } from 'react-native';
 
 import CustomInput from '../Components/CustomInput';
 import CustomButton from '../Components/CustomButton';
 import {useNavigation} from '@react-navigation/native';
+
+// import firebase authentication
+// import {authentication} from '../firebase';
+import * as firebase from 'firebase';
+
 const ForgotPassWordScreen = () => {
   const [code, setCode] = useState('');
   const [newPassword, setNewPassword] = useState('');
+  const [email, setEmail] = useState('');
 
   const navigation = useNavigation();
 
-  const onSubmitPressed = () => {
-    console.warn('onConfirmPressed');
-    navigation.navigate('AppStackScreen');
+  const onSigninPressed = () => {
+    navigation.navigate('LoginScreen');
   };
 
-  const onSigninPressed = () => {
-    console.warn('onSignInPressed');
-    navigation.navigate('LoginScreen');
+  const resetPassword = () => {
+    firebase
+      .auth()
+      .sendPasswordResetEmail(email)
+      .then(function (user) {
+        Alert.alert('Please check your email.');
+        navigation.navigate('LoginScreen');
+      })
+      .catch(function (e) {
+        Alert.alert(e.message);
+      });
   };
 
   return (
@@ -50,12 +64,21 @@ const ForgotPassWordScreen = () => {
             placeholder="Enter your new password"
             value={newPassword}
             setValue={setNewPassword}
+            secureTextEntry={true}
+            mode="none"
+          />
+          <CustomInput
+            placeholder="Enter your Email"
+            value={email}
+            setValue={setEmail}
+            secureTextEntry={false}
+            mode="none"
           />
 
           <View style={{marginTop: 30, marginBottom: 30}}>
             <CustomButton
-              text="Send"
-              onPress={onSubmitPressed}
+              text="Change Password"
+              onPress={resetPassword}
               type="PRIMARY"
             />
           </View>

@@ -20,13 +20,19 @@ import {useNavigation} from '@react-navigation/native'; //useNavigation() return
 // import SettingsPage from '../Screens/8.0-SettingsPage';
 
 // import firebase
-import {authenication} from '../firebase';
+import {authentication} from '../firebase';
+import * as firebase from 'firebase';
 
 export default function CustomDrawerContent(props) {
   const navigation = useNavigation();
 
+  const user = firebase.auth().currentUser;
+
+  // The user object has basic properties such as display name, email, etc.
+  const displayName = user.displayName;
+
   const handleSignOut = () => {
-    authenication
+    authentication
       .signOut()
       .then(() => {
         navigation.replace('AuthStackScreen');
@@ -60,7 +66,7 @@ export default function CustomDrawerContent(props) {
               fontSize: 22,
               paddingBottom: 40,
             }}>
-            Lauren
+            {/* Lauren */} {displayName}
           </Text>
           <DrawerItemList {...props} />
         </DrawerContentScrollView>
@@ -72,7 +78,10 @@ export default function CustomDrawerContent(props) {
             borderTopWidth: 1.5,
             borderTopColor: 'lightgrey',
           }}>
-          <TouchableOpacity onPress={() => console.log('Go to setting page')}>
+          <TouchableOpacity
+            onPress={() => {
+              console.log('go to settings page');
+            }}>
             <View
               style={{
                 flexDirection: 'row',

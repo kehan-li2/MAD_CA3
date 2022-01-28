@@ -10,7 +10,6 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
-import {useState, useEffect} from 'react';
 
 import * as Animatable from 'react-native-animatable';
 
@@ -21,7 +20,8 @@ import CustomButton from '../Components/CustomButton';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 
 // import firebase
-import {authenication} from '../firebase';
+import {authentication} from '../firebase';
+import * as firebase from 'firebase';
 
 export default function SignUp({navigation}) {
   // const [username, setUsername] = useState('');
@@ -42,13 +42,11 @@ export default function SignUp({navigation}) {
     username: '',
     email: '',
     password: '',
-    passwordRepeat: '',
     check_textInputChange: false,
     secureTextEntry: true,
     isValidUser: true,
     isValidEmail: true,
     isValidPassword: true,
-    isValidRepeatpassword: true,
   });
 
   const textInputChange = val => {
@@ -95,22 +93,6 @@ export default function SignUp({navigation}) {
         ...data,
         password: val,
         isValidPassword: false,
-      });
-    }
-  };
-
-  const handleRepeatPasswordChange = val => {
-    if (val.trim().length >= 8) {
-      setData({
-        ...data,
-        passwordRepeat: val,
-        isValidRepeatpassword: true,
-      });
-    } else {
-      setData({
-        ...data,
-        passwordRepeat: val,
-        isValidRepeatpassword: false,
       });
     }
   };
@@ -162,11 +144,17 @@ export default function SignUp({navigation}) {
 
   const handleSignUp = () => {
     if (checkboxState) {
-      authenication
+      authentication
         .createUserWithEmailAndPassword(data.email, data.password)
         .then(userCredentials => {
           const user = userCredentials.user;
           console.log('Registered with: ', user.email);
+        })
+        .then(res => {
+          const user = firebase.auth().currentUser;
+          return user.updateProfile({
+            displayName: data.username,
+          });
         })
         .catch(error => Alert.alert(error.message));
     } else {
@@ -238,19 +226,6 @@ export default function SignUp({navigation}) {
             </Animatable.View>
           )}
 
-          <Text style={{...styles.textInputName, marginTop: 20}}>
-            Repeat Password
-          </Text>
-          <CustomInput
-            placeholder="Repeat Password"
-            secureTextEntry={true}
-            setValue={val => handleRepeatPasswordChange(val)}
-          />
-          {data.isValidRepeatpassword ? null : (
-            <Animatable.View animation="fadeInLeft" duration={500}>
-              <Text style={styles.errorMsg}>Password does not match.</Text>
-            </Animatable.View>
-          )}
           <View
             style={{
               flexDirection: 'row',

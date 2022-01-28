@@ -49,7 +49,7 @@ import {FacebookSocialButton} from 'react-native-social-buttons';
 
 // import firebase
 // import {auth} from '../firebase';
-import {authenication} from '../firebase';
+import {authentication} from '../firebase';
 // import {signInWithPopup, GoogleAuthProvider} from 'firebase/auth';
 
 import * as Animatable from 'react-native-animatable';
@@ -83,7 +83,7 @@ export default function LoginPage({navigation}) {
   });
 
   useEffect(() => {
-    const login = authenication.onAuthStateChanged(user => {
+    const login = authentication.onAuthStateChanged(user => {
       if (user) {
         navigation.replace('AppStackScreen');
       }
@@ -138,7 +138,7 @@ export default function LoginPage({navigation}) {
   };
 
   const handleLogin = () => {
-    authenication
+    authentication
       .signInWithEmailAndPassword(data.email, data.password)
       .then(userCredentials => {
         const user = userCredentials.user;
@@ -148,13 +148,10 @@ export default function LoginPage({navigation}) {
   };
 
   const onForgotPasswordPressed = () => {
-    console.warn('onForgotPressed');
-    // validate user
     navigation.navigate('ForgotPasswordScreen');
   };
 
   const onSignUpPressed = () => {
-    console.warn('onSignUpPressed');
     navigation.navigate('SignUpScreen');
   };
 
