@@ -17,17 +17,14 @@ const Item = ({item}) => {
           justifyContent: 'center',
           flexDirection: 'row',
         }}>
-        <View>
-          <Image source={item.imagePath} style={{width: 50, height: 50}} />
-          <Text>{item.Category}</Text>
-        </View>
-
+        <Image source={item.imagePath} style={{width: 50, height: 50}} />
+        <Text>{item.Category}</Text>
         <View
           style={{
             backgroundColor: 'white',
             alignItems: 'center',
             paddingTop: '10%',
-            flex: 1,
+            flex: 2,
           }}>
           <Text>GI: {item.GI}</Text>
           <Text>Calorie: {item.Calorie}</Text>
@@ -54,11 +51,13 @@ export default function Category({navigation}) {
           onPress={() => console.log('go back')}
         />
         <Text style={styles.title}>Low GI Fruits</Text>
-        <FlatList
-          data={Categorydb}
-          renderItem={({item}) => <Item item={item} />}
-          contentContainerStyle={{flexGrow: 1}}
-        />
+        <View>
+          <FlatList
+            data={Categorydb}
+            renderItem={({item}) => <Item item={item} />}
+            contentContainerStyle={{flexGrow: 1}}
+          />
+        </View>
       </View>
     </View>
   );
