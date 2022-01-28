@@ -23,7 +23,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  text: {
+    fontFamily: 'Quicksand-Bold',
+    fontSize: 22,
+    color: 'white',
+    paddingBottom: 6,
+  },
   container_PRIMARY: {},
+  text_PRIMARY: {},
   container_TERTIARY: {backgroundColor: null},
   text_TERTIARY: {
     fontSize: 15,
@@ -31,12 +38,9 @@ const styles = StyleSheet.create({
   },
   container_SECONDARY: {},
   text_SECONDARY: {fontSize: 17, color: 'red'},
-  text: {
-    fontFamily: 'Quicksand-Bold',
-    fontSize: 22,
-    color: 'white',
-    paddingBottom: 6,
-  },
+
+  container_quaternary: {backgroundColor: '#78ffce', width: 200},
+  text_quaternary: {fontFamily: 'Quicksand-Bold', color: 'black'},
 });
 
 export default CustomButton;
