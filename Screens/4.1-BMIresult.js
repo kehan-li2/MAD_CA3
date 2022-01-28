@@ -116,7 +116,8 @@ export default function BMIResult({route, navigation}) {
           width: '100%',
         }}>
         <View style={{flexDirection: 'row'}}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('BMICalculatorScreen')}>
             <Image
               source={require('../image/Icons/backArrow.png')}
               resizeMode="contain"
