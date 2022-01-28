@@ -18,6 +18,7 @@ import {Icon} from 'react-native-elements';
 // import AsyncStorage from '@react-native-async-storage/async-storage';
 // import saveRecipe from '../DATA/RecipeData';
 import {breakfastDATA, lunchDATA, dinnerDATA} from '../DATA/RecipeData';
+import {auth} from '../firebase';
 const background = require('../image/background.png');
 const Item = ({item}) => {
   return (
@@ -274,20 +275,26 @@ export default function Homepage({navigation}) {
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
-            paddingHorizontal: 13,
-            paddingTop: 10,
+            marginHorizontal: 13,
           }}>
           {/* use onPress to test */}
           <Icon
+            reverse
+            color="transparent"
+            iconStyle={{color: 'black'}}
             name="person"
-            size={50}
+            size={40}
             type="ionicon"
             onPress={() => navigation.openDrawer()}
           />
+
           <Icon
-            name="player-settings"
-            size={45}
-            type="fontisto"
+            reverse
+            color="transparent"
+            iconStyle={{color: 'black'}}
+            name="settings"
+            size={40}
+            type="materialIcons"
             onPress={() => navigation.navigate('SettingsScreen')}
           />
         </View>
@@ -382,7 +389,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Quicksand-Bold',
     position: 'absolute',
     left: 15,
-    top: 55,
+    top: 75,
   },
   lineStyle: {
     width: '95%',
