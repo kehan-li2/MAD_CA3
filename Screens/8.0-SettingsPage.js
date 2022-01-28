@@ -19,42 +19,69 @@ export default function SettingsPage({navigation}) {
   const db = [
     {
       title: 'Profile',
-      icon: 'account_circle',
+      type: 'ionicon',
+      icon: 'person-circle-outline',
     },
-    {title: 'Email', icon: 'email'},
-    {title: 'Notifications', icon: 'notifications'},
-    {title: 'Privacy', icon: 'lock'},
-    {title: 'Security', icon: 'security'},
-    {title: 'Display Mode', icon: 'brightness_4'},
-    {title: 'Text Size', icon: 'font_download'},
-    {title: 'Language', icon: 'language'},
-    {title: 'Contact', icon: 'chat'},
-    {title: 'Terms of Service', icon: 'library_books'},
+    {title: 'Email', type: 'material-icons', icon: 'email'},
+    {title: 'Notifications', type: 'material-icons', icon: 'notifications'},
+    {title: 'Privacy', type: 'material-icons', icon: 'lock'},
+    {title: 'Security', type: 'material-icons', icon: 'security'},
+    {title: 'Display Mode', type: 'material-community', icon: 'brightness-6'},
+    {
+      title: 'Text Size',
+      type: 'material-community',
+      icon: 'format-annotation-plus',
+    },
+    {title: 'Language', type: 'material-icons', icon: 'language'},
+    {title: 'Contact', type: 'material-icons', icon: 'chat'},
+    {
+      title: 'Terms of Service',
+      type: 'material-community',
+      icon: 'book-open-variant',
+    },
   ];
 
-  const DisplayFlatList = ({icon, title}) => (
-    <View style={{flexDirection: 'row'}}>
-      <Icon
-        reverse
-        color="transparent"
-        iconStyle={{color: 'black'}}
-        size={20}
-        type="material-icons"
-        name={icon}
-      />
-      <Text
-        style={{
-          fontFamily: 'Quicksand-Regular',
-          fontSize: 12,
-          color: 'black',
-        }}>
-        {title}
-      </Text>
-    </View>
+  const DisplayFlatList = ({icon, title, type}) => (
+    <TouchableOpacity style={{marginTop: 5}}>
+      <View style={{flexDirection: 'row', flex: 1}}>
+        <Icon
+          reverse
+          color="transparent"
+          iconStyle={{color: 'black', flex: 1}}
+          size={25}
+          type={type}
+          name={icon}
+        />
+        <Text
+          style={{
+            fontFamily: 'Quicksand-SemiBold',
+            fontSize: 16,
+            color: 'black',
+            flex: 1,
+            marginTop: 7,
+          }}>
+          {title}
+        </Text>
+        <Icon
+          reverse
+          color="transparent"
+          iconStyle={{
+            color: 'black',
+            marginBottom: 1,
+            marginLeft: 20,
+            flex: 1,
+          }}
+          size={30}
+          type="material-community"
+          name="chevron-right"
+        />
+        {/* Unable to get arrows to style towards the end of the flatlist */}
+      </View>
+    </TouchableOpacity>
   );
 
   const renderItem = ({item}) => (
-    <DisplayFlatList icon={item.icon} title={item.title} />
+    <DisplayFlatList icon={item.icon} title={item.title} type={item.type} />
   );
 
   const FlatListItemSeparator = () => {
