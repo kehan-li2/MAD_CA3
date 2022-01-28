@@ -1,5 +1,3 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
 const breakfastDATA = [
   {
     id: '1',
@@ -59,7 +57,7 @@ const lunchDATA = [
     id: '1',
     data: {
       imagePath: require('../image/salmon.png'),
-      name: 'Salmon Fillet with Honey Spice Sauce',
+      name: 'Spicy Salmon Fillet',
       serving: '4',
       calories: '205 kcal',
       ingredients:
