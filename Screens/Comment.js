@@ -195,7 +195,10 @@ export default function CommentPage({route, navigation}) {
               onPress={() =>
                 addComment({
                   name: 'Linda',
-                  time: new Date().toLocaleString(),
+                  time:
+                    new Date().toLocaleString() +
+                    ' ' +
+                    new Date().toLocaleTimeString(),
                   comment: comment,
                 })
               }
