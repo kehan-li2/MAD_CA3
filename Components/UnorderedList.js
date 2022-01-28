@@ -8,6 +8,7 @@ import Unorderedlist from 'react-native-unordered-list';
 // recipeDATA = recipeDATA.split(';');
 
 function renderList(recipeDATA) {
+  console.log(recipeDATA);
   recipeDATA = recipeDATA.split(';'); // to split ingredients into an array
 
   return recipeDATA.map((eachPart, index) => {

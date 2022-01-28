@@ -15,6 +15,7 @@ import {
   Image,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
+import {Rating, AirbnbRating} from 'react-native-ratings';
 
 const background = require('../image/background.png');
 
@@ -85,48 +86,49 @@ const Item = ({item}) => {
 // ])
 // data[0]
 // }
-export default function CommentPage({navigation}) {
-  const [DATA, setDATA] = useState([
-    {
-      id: '1',
-      data: {
-        imagePath: require('../image/salmon.png'),
-        name: 'Salmon Fillet with Honey Spice Sauce',
-        comment:
-          'I love this recipe! I added garlic powder, Italian seasoning, a few flakes of nutritional yeast, half a bottle of kombucha, dried onion, and lemon grass to mine. Great idea!',
-      },
-    },
-    {
-      id: '2',
-      data: {
-        imagePath: require('../image/wrap.png'),
-        name: 'Vegetarian Wrap',
-        comment:
-          'Have someone considered making a version of this wrap for the readers who are trying to avoid gluten, dairy and nightshades?',
-      },
-    },
-    {
-      id: '3',
-      data: {
-        imagePath: require('../image/chicken.png'),
-        name: 'Tomato Herb Chicken',
-        serving: '4',
-        calories: '158 kcal',
-        comment:
-          'I am actually a supertaster, so I can’t eat anything that isn’t get the salt off the top of saltines, but this recipe really work for me!',
-      },
-    },
-    // {
-    //   id: '4',
-    //   data: {
-    //     imagePath: require('../image/yoghurt.png'),
-    //     name: 'Berry Yoghurt',
-    //     serving: '4',
-    //     calories: '58 kcal',
-    //     comment: 'Delicious to the core!',
-    //   },
-    // },
-  ]);
+export default function CommentPage({route, navigation}) {
+  // const [DATA, setDATA] = useState([
+  //   {
+  //     id: '1',
+  //     data: {
+  //       imagePath: require('../image/salmon.png'),
+  //       name: 'Salmon Fillet with Honey Spice Sauce',
+  //       comment:
+  //         'I love this recipe! I added garlic powder, Italian seasoning, a few flakes of nutritional yeast, half a bottle of kombucha, dried onion, and lemon grass to mine. Great idea!',
+  //     },
+  //   },
+  //   {
+  //     id: '2',
+  //     data: {
+  //       imagePath: require('../image/wrap.png'),
+  //       name: 'Vegetarian Wrap',
+  //       comment:
+  //         'Have someone considered making a version of this wrap for the readers who are trying to avoid gluten, dairy and nightshades?',
+  //     },
+  //   },
+  //   {
+  //     id: '3',
+  //     data: {
+  //       imagePath: require('../image/chicken.png'),
+  //       name: 'Tomato Herb Chicken',
+  //       serving: '4',
+  //       calories: '158 kcal',
+  //       comment:
+  //         'I am actually a supertaster, so I can’t eat anything that isn’t get the salt off the top of saltines, but this recipe really work for me!',
+  //     },
+  //   },
+  //   // {
+  //   //   id: '4',
+  //   //   data: {
+  //   //     imagePath: require('../image/yoghurt.png'),
+  //   //     name: 'Berry Yoghurt',
+  //   //     serving: '4',
+  //   //     calories: '58 kcal',
+  //   //     comment: 'Delicious to the core!',
+  //   //   },
+  //   // },
+  // ]);
+  const {recipeName, recipeImage} = route.params;
 
   return (
     <View style={styles.container}>
@@ -135,20 +137,44 @@ export default function CommentPage({navigation}) {
         resizeMode="cover"
         style={styles.background}
         imageStyle={{opacity: 0.1}}>
-        <View style={{alignSelf: 'flex-start', paddingLeft: '4%'}}>
-          {/* here should be link to another page*/}
-          <Icon
-            name="arrow-back"
-            size={38}
-            style={styles.arrow}
-            type="materialIcons"
-            onPress={() => console.log('hhh')}
-          />
-        </View>
-        <Text style={[styles.title]}>Your Leaved Comment</Text>
         {/* <View style={[styles.lineStyle, {position: 'absolute', top: '14%'}]} /> */}
+        <ImageBackground
+          source={recipeImage}
+          style={{
+            width: '100%',
+            height: '60%',
+            position: 'absolute',
+          }}
+          imageStyle={{
+            borderBottomLeftRadius: 60,
+            borderBottomRightRadius: 60,
+          }}>
+          <View style={{alignSelf: 'flex-start', paddingLeft: '4%'}}>
+            {/* here should be link to another page*/}
+            <Icon
+              name="arrow-back"
+              size={38}
+              color="black"
+              style={styles.arrow}
+              type="materialIcons"
+              onPress={() => navigation.goBack()}
+            />
+          </View>
+          {/* <Image
+            style={{
+              width: '30%',
+              alignSelf: 'flex-start',
+              height: '20%',
+              top: 35,
+            }}
+            source={require('../image/comment.gif')}
+          /> */}
+        </ImageBackground>
+        <View style={{alignContent: 'center'}}>
+          <Text style={styles.title}>{recipeName}</Text>
+        </View>
 
-        {/* recipes display */}
+        {/* recipes display
         <View style={{maxHeight: '80%', paddingTop: '22%'}}>
           <FlatList
             persistentScrollbar={true}
@@ -159,37 +185,7 @@ export default function CommentPage({navigation}) {
               flexGrow: 1,
             }}
           />
-        </View>
-
-        {/* bottom part */}
-        <View style={{position: 'absolute', top: '90%', width: '100%'}}>
-          <View style={styles.lineStyle} />
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-              paddingHorizontal: 10,
-            }}>
-            <Icon
-              name="bowl"
-              size={40}
-              type="entypo"
-              onPress={() => console.log('hhh')}
-            />
-            <Icon
-              name="home"
-              size={42}
-              type="ionicons"
-              onPress={() => console.log('hhh')}
-            />
-            <Icon
-              name="calculate"
-              size={40}
-              type="materialIcons"
-              onPress={() => console.log('hhh')}
-            />
-          </View>
-        </View>
+        </View> */}
       </ImageBackground>
     </View>
   );
@@ -206,13 +202,14 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   title: {
+    color: 'black',
+    fontFamily: 'Quicksand-Italic',
+    fontSize: 30,
     position: 'absolute',
     margin: '8%',
-    fontSize: 30,
-    color: '#ff6624',
-    fontFamily: 'Quicksand-Bold',
     alignSelf: 'center',
     textAlign: 'center',
+    paddingTop: '85%',
   },
   lineStyle: {
     width: '90%',

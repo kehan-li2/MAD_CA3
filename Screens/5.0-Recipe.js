@@ -22,7 +22,7 @@ import UnorderedList from '../Components/UnorderedList';
 // import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const background = require('../image/background.png');
-const salmon_image = require('../image/salmon2.png');
+// const salmon_image = require('../image/salmon2.png');
 
 // let ingredientsDATA =
 //   'Salmon fillet, 100g-120g each 4;Honey, ready in bottle 3 tbsp;Garlic powder ½tsp;Olive oil 1 tbsp;Hot water 2 tbsp;Lemon peel, grated 1 tsp;Lemon, sliced 12;Spring Onion, shredded;Salt & pepper, to taste';
@@ -49,17 +49,16 @@ export default function Recipe({route, navigation}) {
         resizeMode="cover"
         style={styles.background}
         imageStyle={{opacity: 0.1}}>
-        {/* <TouchableOpacity
-          style={{alignSelf: 'flex-start', paddingLeft: '3%'}}
-          // onPress={navigation.navigate('HomeScreen')}
-        >
+        <View style={{alignSelf: 'flex-start', paddingLeft: '4%'}}>
+          {/* here should be link to another page*/}
           <Icon
             name="arrow-back"
             size={38}
             style={styles.arrow}
             type="materialIcons"
+            onPress={() => navigation.goBack()}
           />
-        </TouchableOpacity> */}
+        </View>
         <View style={{alignContent: 'center'}}>
           <Text
             style={[styles.title, {textAlign: 'center', alignSelf: 'center'}]}>
@@ -148,7 +147,12 @@ export default function Recipe({route, navigation}) {
               name="comment"
               size={40}
               type="materialIcons"
-              onPress={() => console.log('hhh')}
+              onPress={() => {
+                navigation.navigate('CommentScreen', {
+                  recipeName: recipeName,
+                  recipeImage: recipeImage,
+                });
+              }}
             />
             <Icon
               name="stars"

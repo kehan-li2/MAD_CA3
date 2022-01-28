@@ -16,26 +16,29 @@ import {
   Image,
   Dimensions,
   ScrollView,
+  useEffect,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 import {useForm, Controller} from 'react-hook-form';
-import {yupResolver} from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 import {Picker} from '@react-native-picker/picker';
 import {RadioButton} from 'react-native-paper';
-// import {ScrollView} from 'react-native-gesture-handler';
+import {yupResolver} from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
+const schema = yup.object({
+  age: yup.number().positive().integer().required(),
+  weight: yup.number().positive().required(),
+  height: yup.number().positive().required(),
+});
+
+const inputDefaultValues = {
+  age: '',
+  weight: '',
+  height: '',
+};
 const background = require('../image/background.png');
 
-const schema = yup
-  .object({
-    age: yup.number().positive().integer().required(),
-    weight: yup.number().positive().required(),
-    height: yup.number().positive().required(),
-  })
-  .required();
-
-export default function BMIcalculator() {
+export default function BMIcalculator({navigation}) {
   const {
     control,
     register,
@@ -45,19 +48,24 @@ export default function BMIcalculator() {
   } = useForm({
     resolver: yupResolver(schema),
 
-    defaultValues: {
-      age: '',
-      weight: '',
-      height: '',
-      gender: 'F',
-      activityLevel: '<3',
-    },
+    defaultValues: inputDefaultValues,
   });
 
-  const [selectedLevel, setSelectedLevel] = useState(); // actibity level
-  const [gender, setGender] = React.useState('F'); // gender selection
+  const [activityLevel, setactivityLevel] = useState('<3'); // actibity level
+  const [gender, setGender] = useState('F'); // gender selection
 
-  const onSubmit = data => console.log(data);
+  const onSubmit = data => {
+    let submitData = {
+      age: data.age,
+      weight: data.weight,
+      height: data.height,
+      gender: gender,
+      activityLevel: activityLevel,
+    };
+    console.log(data);
+    // return submitData;
+    navigation.navigate('BMIresultScreen', submitData);
+  };
 
   return (
     <View style={styles.container}>
@@ -66,7 +74,7 @@ export default function BMIcalculator() {
         resizeMode="cover"
         style={styles.background}
         imageStyle={{opacity: 0.1}}>
-        <View style={{alignSelf: 'flex-start', paddingLeft: '4%'}}>
+        <View style={{alignSelf: 'flex-start', paddingLeft: '5%'}}>
           {/* here should be link to another page*/}
           <Icon
             name="arrow-back"
@@ -76,55 +84,66 @@ export default function BMIcalculator() {
             onPress={() => console.log('hhh')}
           />
         </View>
-
         <Text style={styles.title}>BMI Calculator</Text>
         <Text style={styles.description}>
           Our calculator will provide you with daily recommended calories intake
           based on your personal information.
         </Text>
+        <View style={styles.lineStyle} />
 
         <ScrollView
           style={{
+            flex: 1,
             width: '100%',
-            maxHeight: '60%',
-            position: 'absolute',
-            top: '25%',
+            maxHeight: '55%',
+            paddingHorizontal: 30,
+            alignSelf: 'center',
           }}>
-          {/* age input */}
           <View
             style={{
-              // position: 'absolute',
-              alignSelf: 'center',
-              // top: '22%',
-              // left: '6%',
+              flex: 1,
+              flexDirection: 'row',
             }}>
-            <Text style={styles.label}>Enter your age:</Text>
-            <Controller
-              control={control}
-              render={({field: {onChange, onBlur, value}}) => (
-                <TextInput
-                  {...register('age')}
-                  style={[styles.input, {width: 150}]}
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  value={value}
-                />
-              )}
-              name="age"
-            />
-            <Text style={{maxWidth: '40%', color: 'red'}}>
-              {errors.age?.message}
-            </Text>
-
+            {/* age input */}
+            <View style={{flex: 2}}>
+              <Text style={[styles.label, {paddingTop: 25, minWidth: '100%'}]}>
+                Enter your age:
+              </Text>
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                }}
+                render={({field: {onChange, onBlur, value}}) => (
+                  <View
+                    style={[
+                      styles.input,
+                      {flexDirection: 'row', justifyContent: 'center'},
+                    ]}>
+                    <TextInput
+                      {...register('age')}
+                      style={{width: '100%', fontSize: 17, paddingTop: 10}}
+                      onBlur={onBlur}
+                      onChangeText={onChange}
+                      value={value}
+                    />
+                  </View>
+                )}
+                name="age"
+              />
+              <Text style={{maxWidth: '84%', color: 'red'}}>
+                {errors.age?.message}
+              </Text>
+            </View>
             {/* gender selection */}
-            <View
-              style={{
-                alignSelf: 'flex-end',
-                paddingRight: 10,
-              }}>
+            <View style={{flex: 1}}>
               <Image
                 source={require('../image/gender.png')}
-                style={{width: 100, height: 100}}
+                style={{
+                  width: 100,
+                  height: 100,
+                  marginLeft: 20,
+                }}
               />
               <RadioButton.Group
                 onValueChange={newValue => setGender(newValue)}
@@ -134,6 +153,7 @@ export default function BMIcalculator() {
                     flexDirection: 'row',
                     justifyContent: 'center',
                     paddingTop: 5,
+                    paddingLeft: 30,
                   }}>
                   <View>
                     <Text
@@ -162,11 +182,11 @@ export default function BMIcalculator() {
                 </View>
               </RadioButton.Group>
             </View>
+          </View>
 
-            {/* weight input */}
-            <Text style={[styles.label, {paddingTop: 20}]}>
-              Enter your weight:
-            </Text>
+          {/* weight input */}
+          <View>
+            <Text style={styles.label}>Enter your weight:</Text>
             <Controller
               control={control}
               rules={{
@@ -180,7 +200,8 @@ export default function BMIcalculator() {
                     {flexDirection: 'row', justifyContent: 'center'},
                   ]}>
                   <TextInput
-                    style={{width: '85%', fontSize: 17, paddingTop: 10}}
+                    {...register('weight')}
+                    style={{width: '86%', fontSize: 17}}
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
@@ -190,9 +211,13 @@ export default function BMIcalculator() {
               )}
               name="weight"
             />
-
-            {/* height input */}
-            <Text style={[styles.label, {paddingTop: 20.5}]}>
+            <Text style={{maxWidth: '60%', color: 'red'}}>
+              {errors.weight?.message}
+            </Text>
+          </View>
+          {/* height input */}
+          <View>
+            <Text style={[styles.label, {paddingTop: 32}]}>
               Enter your height:
             </Text>
             <Controller
@@ -207,7 +232,8 @@ export default function BMIcalculator() {
                     {flexDirection: 'row', justifyContent: 'center'},
                   ]}>
                   <TextInput
-                    style={{width: '85%', fontSize: 17, paddingTop: 10}}
+                    {...register('height')}
+                    style={{width: '82%', fontSize: 17, paddingTop: 10}}
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
@@ -217,52 +243,61 @@ export default function BMIcalculator() {
               )}
               name="height"
             />
+            <Text style={{maxWidth: '60%', color: 'red'}}>
+              {errors.height?.message}
+            </Text>
+          </View>
 
-            {/* activityLevel picker */}
-            <Text style={[styles.label, {paddingTop: 20.5}]}>
+          {/* activityLevel picker */}
+          <View>
+            <Text style={[styles.label, {paddingTop: 32}]}>
               Select your weekly exercise time {'\n'}range (in hours):
             </Text>
-            <Controller
-              control={control}
-              render={({value}) => (
-                <View style={styles.pickerContainer}>
-                  <Picker
-                    mode="dropdown"
-                    selectedValue={selectedLevel}
-                    onValueChange={(itemValue, itemIndex) =>
-                      setSelectedLevel(itemValue)
-                    }>
-                    <Picker.Item label="< 3" value="< 3" />
-                    <Picker.Item label="3 to 6" value="3 to 6" />
-                    <Picker.Item label="> 3" value="> 3" />
-                  </Picker>
-                </View>
-              )}
-              name="activityLevel"
-            />
-          </View>
 
-          {/* Two Buttons */}
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-              paddingHorizontal: 20,
-            }}>
-            <TouchableOpacity style={styles.button}>
-              <Text style={[styles.buttonText, {color: '#f23a3a'}]}>
-                Cancel
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={handleSubmit(onSubmit)}>
-              <Text style={[styles.buttonText, {color: '#1ac74e'}]}>
-                Submit
-              </Text>
-            </TouchableOpacity>
+            <View style={styles.pickerContainer}>
+              <Picker
+                mode="dropdown"
+                selectedValue={activityLevel}
+                onValueChange={(itemValue, itemIndex) =>
+                  setactivityLevel(itemValue)
+                }>
+                <Picker.Item label="< 3" value="< 3" />
+                <Picker.Item label="3 to 6" value="3 to 6" />
+                <Picker.Item label="> 3" value="> 3" />
+              </Picker>
+            </View>
           </View>
         </ScrollView>
+        <View style={styles.lineStyle} />
+
+        {/* Two Buttons */}
+        <View
+          style={{
+            width: '100%',
+            position: 'absolute',
+            top: '26%',
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            paddingHorizontal: 20,
+          }}>
+          <TouchableOpacity style={styles.button}>
+            <Text
+              style={[styles.buttonText, {color: '#f23a3a'}]}
+              onPress={() => [
+                reset(inputDefaultValues),
+                setGender('F'),
+                setactivityLevel('<3'),
+              ]}>
+              Cancel
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            // onSubmit --> function
+            onPress={handleSubmit(onSubmit)}>
+            <Text style={[styles.buttonText, {color: '#1ac74e'}]}>Submit</Text>
+          </TouchableOpacity>
+        </View>
       </ImageBackground>
     </View>
   );
@@ -277,6 +312,14 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
   },
+  lineStyle: {
+    width: '88%',
+    borderWidth: 1,
+    alignSelf: 'center',
+    borderStyle: 'dashed',
+    borderColor: '#fab255',
+    marginTop: 20,
+  },
   title: {
     position: 'absolute',
     margin: '8%',
@@ -287,25 +330,19 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   description: {
-    fontSize: 16,
+    fontSize: 17,
     textAlign: 'center',
     color: '#ff7b00',
     backgroundColor: '#f9f9fb',
-    margin: '8%',
-    paddingVertical: 10,
+    marginHorizontal: '8%',
+    marginTop: '8%',
+    paddingTop: 10,
     fontWeight: '500',
     textDecorationLine: 'underline',
     fontStyle: 'italic',
   },
   arrow: {
     paddingTop: 10,
-  },
-  lineStyle: {
-    width: '95%',
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderColor: 'grey',
-    margin: 10,
   },
   button: {
     backgroundColor: '#e8e8e8', //#8cffe8
@@ -352,36 +389,3 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
 });
-
-// previous version
-
-/*
-  // const defaultValues= {
-//   // firstName: '',
-//   // lastName: '',
-//   title: "",
-//   content: "",
-//   activityLevel: "<3",
-// }
-
-
-  genderButton: {
-    backgroundColor: '#e8e8e8',
-    width: 50,
-    height: 45,
-    borderColor: '#e8e8e8',
-    borderWidth: 1,
-    borderRadius: 5,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-<View style={{position:"absolute", top:"18%", left:"65%"}}>
-<Image source={require('./image/gender.png')} style={{width: 110, height: 110}}/>    
-<View style={{ flexDirection: 'row', justifyContent:'space-between'}}>
-  <TouchableOpacity style={styles.genderButton}> 
-    <Text style={{color:"black", fontSize: 18}}>F</Text> 
-  </TouchableOpacity>
-  <TouchableOpacity style={styles.genderButton}> 
-    <Text style={{color:"black", fontSize: 18}}>M</Text> 
-  </TouchableOpacity>
-</View>   */

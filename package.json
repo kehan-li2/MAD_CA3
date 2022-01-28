@@ -23,6 +23,7 @@
     "@react-navigation/native-stack": "^6.2.5",
     "expo-font": "^10.0.4",
     "form-schema-validation": "^1.17.5",
+    "image-to-base64": "^2.2.0",
     "react": "17.0.2",
     "react-components-form": "^4.0.0",
     "react-hook-form": "^7.22.5",
