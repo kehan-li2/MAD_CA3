@@ -30,7 +30,7 @@ let commentData = [
     id: '4',
     data: {
       userImage: require('../image/user5.png'),
-      name: 'Harry',
+      name: 'Harryyyyyyy',
       time: 'Mon May 18 08:23:45 2022',
       comment: 'Delicious to the core! My favourite recipe!',
     },

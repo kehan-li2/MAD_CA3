@@ -46,8 +46,10 @@ const Item = ({item}) => {
             }}
           />
           <Text
+            numberOfLines={1}
+            ellipsizeMode="tail"
             style={{
-              width: '48%',
+              width: '45%',
               color: 'black',
               fontSize: 17,
               marginLeft: 21,
@@ -111,7 +113,6 @@ export default function CommentPage({route, navigation}) {
       top: '91%',
     }}>
     <TextInput
-      style={styles.input}
       onChangeText={onChangecomment}
       value={comment}
       placeholder="Leave your comment for this recipe!"
@@ -189,6 +190,7 @@ export default function CommentPage({route, navigation}) {
             flexDirection: 'row',
           }}>
           <TextInput
+            maxLength={30}
             style={{fontSize: 16}}
             onChangeText={onChangecomment}
             value={comment}
