@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 
 import {Icon} from 'react-native-elements';
+const background = require('../image/background.png');
 
 // should use sectionlist
 export default function SettingsPage({navigation}) {
@@ -99,33 +100,47 @@ export default function SettingsPage({navigation}) {
 
   return (
     <View style={styles.container}>
-      <Text
-        style={{
-          fontFamily: 'Quicksand-Bold',
-          fontSize: 28,
-          color: 'black',
-          marginTop: 20,
-          alignSelf: 'center',
-        }}>
-        Settings
-      </Text>
+      <ImageBackground
+        source={background}
+        resizeMode="cover"
+        style={styles.background}
+        imageStyle={{opacity: 0.1}}>
+        <View style={{alignSelf: 'flex-start', paddingLeft: '4.5%'}}>
+          {/* here should be link to another page*/}
+          <Icon
+            name="arrow-back"
+            size={38}
+            type="materialIcons"
+            onPress={() => navigation.navigate('HomeScreen')}
+          />
+        </View>
+        <Text
+          style={{
+            fontFamily: 'Quicksand-Bold',
+            fontSize: 28,
+            color: 'black',
+            alignSelf: 'center',
+          }}>
+          Settings
+        </Text>
 
-      <Text
-        style={{
-          fontFamily: 'Quicksand-Bold',
-          fontSize: 20,
-          marginTop: 40,
-          marginLeft: 20,
-        }}>
-        Account Settings
-      </Text>
-      <View style={{marginTop: 4}}>
-        <FlatListItemSeparator />
-      </View>
-      <FlatList data={db} renderItem={renderItem} />
-      {/* <Button title="go back" onPress={() => navigation.navigate('HomeScreen')}>
+        <Text
+          style={{
+            fontFamily: 'Quicksand-Bold',
+            fontSize: 20,
+            marginTop: 35,
+            marginLeft: 25,
+          }}>
+          Account Settings
+        </Text>
+        <View style={{marginTop: 4}}>
+          <FlatListItemSeparator />
+        </View>
+        <FlatList data={db} renderItem={renderItem} />
+        {/* <Button title="go back" onPress={() => navigation.navigate('HomeScreen')}>
         Go back
       </Button> */}
+      </ImageBackground>
     </View>
   );
 }

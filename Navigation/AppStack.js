@@ -16,6 +16,7 @@ import CommentPage from '../Screens/Comment';
 import RatedPage from '../Screens/Rated';
 import SavedPage from '../Screens/Saved';
 import CustomDrawerContent from '../Components/CustomDrawerContent';
+import SettingsPage from '../Screens/8.0-SettingsPage';
 // import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const Drawer = createDrawerNavigator();
@@ -42,16 +43,7 @@ export default function AppDrawer() {
         }}
       />
       <Drawer.Screen
-        name="Comment"
-        component={CommentPage}
-        options={{
-          drawerIcon: () => (
-            <Icon name="comment" size={30} type="materialIcons" />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="Rated Recipes"
+        name="Liked Recipes"
         component={RatedPage}
         options={{
           drawerIcon: () => <Icon name="heart" size={30} type="antdesign" />,
@@ -63,6 +55,20 @@ export default function AppDrawer() {
         options={{
           drawerIcon: () => (
             <Icon name="stars" size={30} type="materialIcons" />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Settings"
+        component={SettingsPage}
+        options={{
+          drawerIcon: () => (
+            <Icon
+              name="player-settings"
+              size={30}
+              type="fontisto"
+              onPress={() => console.log('hhh')}
+            />
           ),
         }}
       />

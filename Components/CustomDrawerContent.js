@@ -78,7 +78,7 @@ export default function CustomDrawerContent(props) {
             borderTopWidth: 1.5,
             borderTopColor: 'lightgrey',
           }}>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={() => {
               console.log('go to settings page');
             }}>
@@ -98,7 +98,7 @@ export default function CustomDrawerContent(props) {
                 Settings
               </Text>
             </View>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           <TouchableOpacity onPress={handleSignOut}>
             <View
