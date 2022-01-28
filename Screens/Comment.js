@@ -141,8 +141,8 @@ export default function CommentPage({route, navigation}) {
         <ImageBackground
           source={recipeImage}
           style={{
-            width: '100%',
-            height: '60%',
+            width: 396,
+            height: 230,
             position: 'absolute',
           }}
           imageStyle={{
@@ -170,7 +170,7 @@ export default function CommentPage({route, navigation}) {
             source={require('../image/comment.gif')}
           /> */}
         </ImageBackground>
-        <View style={{alignContent: 'center'}}>
+        <View>
           <Text style={styles.title}>{recipeName}</Text>
         </View>
 
@@ -202,14 +202,13 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   title: {
-    color: 'black',
-    fontFamily: 'Quicksand-Italic',
-    fontSize: 30,
     position: 'absolute',
-    margin: '8%',
+    fontSize: 28,
+    color: '#ff6624',
+    fontFamily: 'Quicksand-Bold',
     alignSelf: 'center',
     textAlign: 'center',
-    paddingTop: '85%',
+    paddingTop: '60%',
   },
   lineStyle: {
     width: '90%',

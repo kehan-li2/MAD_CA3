@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Quicksand-Bold',
     position: 'absolute',
     left: 15,
-    top: 75,
+    top: 65,
   },
   lineStyle: {
     width: '95%',
