@@ -17,7 +17,7 @@ import {
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 import MyRatingBar from '../Components/RatingBar';
-import addComment, {commentData} from '../DATA/commentData';
+import addComment, {commentData} from '../DATA/CommentData';
 
 // import firebase
 import * as firebase from 'firebase';

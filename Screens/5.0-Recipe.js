@@ -57,7 +57,7 @@ export default function Recipe({route, navigation}) {
         resizeMode="cover"
         style={styles.background}
         imageStyle={{opacity: 0.1}}>
-        <View style={{alignSelf: 'flex-start', paddingLeft: '4%'}}>
+        <View style={{alignSelf: 'flex-start', paddingLeft: '5%'}}>
           {/* here should be link to another page*/}
           <Icon
             name="arrow-back"
