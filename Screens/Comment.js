@@ -11,70 +11,69 @@ import {
   Text,
   View,
   TouchableOpacity,
+  TextInput,
   FlatList,
   Image,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
-import {Rating, AirbnbRating} from 'react-native-ratings';
+import MyRatingBar from '../Components/RatingBar';
+import addComment, {commentData} from '../DATA/commentData';
 
 const background = require('../image/background.png');
 
 const Item = ({item}) => {
   return (
-    <TouchableOpacity style={styles.listItem}>
+    <View style={styles.listItem}>
       <View // each recipe
         style={{
-          height: 200,
+          alignItems: 'center',
+          flex: 1,
+          height: 100,
           flexDirection: 'row',
         }}>
-        <View style={{width: '40%'}}>
+        {/* name and profile image */}
+        <View style={{flex: 1}}>
           <Image
-            source={item.data.imagePath}
-            style={{width: '98%', height: '55%', borderRadius: 10}}
-          />
-          <View
+            source={item.data.userImage}
             style={{
-              borderRadius: 10,
-              backgroundColor: '#ffe9bf',
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: '45%',
+              width: '50%',
+              height: '60%',
+              marginHorizontal: 10,
+              marginTop: 5,
+            }}
+          />
+          <Text
+            style={{
+              width: '48%',
+              color: 'black',
+              fontSize: 17,
+              marginLeft: 21,
+              fontFamily: 'Quicksand-SemiBold',
             }}>
-            <Text
-              style={{
-                textAlign: 'center',
-                color: 'black',
-                fontSize: 17,
-                fontFamily: 'Quicksand-SemiBold',
-              }}>
-              {item.data.name}
-            </Text>
-          </View>
+            {item.data.name}
+          </Text>
         </View>
 
-        {/* comment */}
+        {/* time and comment */}
         <View
           style={{
-            flex: 1,
+            flex: 2,
+            alignContent: 'flex-start',
           }}>
-          <View
+          <Text style={{color: 'grey'}}>{item.data.time}</Text>
+          <Text
             style={{
-              alignItems: 'center',
-              justifyContent: 'center',
+              marginVertical: 10,
+              marginRight: 10,
+              color: 'black',
+              fontSize: 17,
+              fontFamily: 'Quicksand-Italic',
             }}>
-            <Text
-              style={{
-                margin: 10,
-                color: 'red',
-                fontSize: 17,
-                fontFamily: 'Quicksand-Italic',
-              }}>
-              {item.data.comment}
-            </Text>
-          </View>
+            {item.data.comment}
+          </Text>
         </View>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 
@@ -86,50 +85,30 @@ const Item = ({item}) => {
 // ])
 // data[0]
 // }
+
 export default function CommentPage({route, navigation}) {
-  // const [DATA, setDATA] = useState([
-  //   {
-  //     id: '1',
-  //     data: {
-  //       imagePath: require('../image/salmon.png'),
-  //       name: 'Salmon Fillet with Honey Spice Sauce',
-  //       comment:
-  //         'I love this recipe! I added garlic powder, Italian seasoning, a few flakes of nutritional yeast, half a bottle of kombucha, dried onion, and lemon grass to mine. Great idea!',
-  //     },
-  //   },
-  //   {
-  //     id: '2',
-  //     data: {
-  //       imagePath: require('../image/wrap.png'),
-  //       name: 'Vegetarian Wrap',
-  //       comment:
-  //         'Have someone considered making a version of this wrap for the readers who are trying to avoid gluten, dairy and nightshades?',
-  //     },
-  //   },
-  //   {
-  //     id: '3',
-  //     data: {
-  //       imagePath: require('../image/chicken.png'),
-  //       name: 'Tomato Herb Chicken',
-  //       serving: '4',
-  //       calories: '158 kcal',
-  //       comment:
-  //         'I am actually a supertaster, so I can’t eat anything that isn’t get the salt off the top of saltines, but this recipe really work for me!',
-  //     },
-  //   },
-  //   // {
-  //   //   id: '4',
-  //   //   data: {
-  //   //     imagePath: require('../image/yoghurt.png'),
-  //   //     name: 'Berry Yoghurt',
-  //   //     serving: '4',
-  //   //     calories: '58 kcal',
-  //   //     comment: 'Delicious to the core!',
-  //   //   },
-  //   // },
-  // ]);
+  const [DATA, setDATA] = useState(commentData);
+  const [comment, onChangecomment] = useState('');
   const {recipeName, recipeImage} = route.params;
 
+  /* allow user to send comment */
+  <View
+    style={{
+      alignItems: 'center',
+      justifyContent: 'center',
+      alignContent: 'center',
+      borderWidth: 1,
+      borderRadius: 5,
+      position: 'absolute',
+      top: '91%',
+    }}>
+    <TextInput
+      style={styles.input}
+      onChangeText={onChangecomment}
+      value={comment}
+      placeholder="Leave your comment for this recipe!"
+    />
+  </View>;
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -137,12 +116,12 @@ export default function CommentPage({route, navigation}) {
         resizeMode="cover"
         style={styles.background}
         imageStyle={{opacity: 0.1}}>
-        {/* <View style={[styles.lineStyle, {position: 'absolute', top: '14%'}]} /> */}
         <ImageBackground
           source={recipeImage}
           style={{
             width: 396,
-            height: 230,
+            height: 180,
+            opacity: 0.85,
             position: 'absolute',
           }}
           imageStyle={{
@@ -160,22 +139,24 @@ export default function CommentPage({route, navigation}) {
               onPress={() => navigation.goBack()}
             />
           </View>
-          {/* <Image
+          <Image
             style={{
               width: '30%',
               alignSelf: 'flex-start',
-              height: '20%',
-              top: 35,
+              height: '45%',
+              top: 20,
             }}
             source={require('../image/comment.gif')}
-          /> */}
+          />
         </ImageBackground>
         <View>
           <Text style={styles.title}>{recipeName}</Text>
         </View>
+        <MyRatingBar />
+        <View style={styles.lineStyle} />
 
-        {/* recipes display
-        <View style={{maxHeight: '80%', paddingTop: '22%'}}>
+        {/* recipes display */}
+        <View style={{maxHeight: '45%', paddingTop: '3%'}}>
           <FlatList
             persistentScrollbar={true}
             data={DATA}
@@ -185,7 +166,42 @@ export default function CommentPage({route, navigation}) {
               flexGrow: 1,
             }}
           />
-        </View> */}
+        </View>
+
+        {/* allow user to send comment */}
+        <View
+          style={{
+            backgroundColor: 'white',
+            borderRadius: 5,
+            borderWidth: 1,
+            position: 'absolute',
+            top: '90%',
+            width: '90%',
+            alignSelf: 'center',
+            flexDirection: 'row',
+          }}>
+          <TextInput
+            style={{fontSize: 16}}
+            onChangeText={onChangecomment}
+            value={comment}
+            placeholder="Leave your comment for this recipe!"
+          />
+          <TouchableOpacity style={{alignSelf: 'center', paddingLeft: 50}}>
+            <Icon
+              name="send"
+              size={32}
+              color="black"
+              type="fontAwesome"
+              onPress={() =>
+                addComment({
+                  name: 'Linda',
+                  time: new Date().toLocaleString(),
+                  comment: comment,
+                })
+              }
+            />
+          </TouchableOpacity>
+        </View>
       </ImageBackground>
     </View>
   );
@@ -201,6 +217,14 @@ const styles = StyleSheet.create({
   arrow: {
     paddingTop: 10,
   },
+  lineStyle: {
+    width: '88%',
+    borderWidth: 1,
+    alignSelf: 'center',
+    borderStyle: 'dashed',
+    borderColor: '#fab255',
+    marginTop: 10,
+  },
   title: {
     position: 'absolute',
     fontSize: 28,
@@ -208,20 +232,12 @@ const styles = StyleSheet.create({
     fontFamily: 'Quicksand-Bold',
     alignSelf: 'center',
     textAlign: 'center',
-    paddingTop: '60%',
+    paddingTop: '46%',
   },
-  lineStyle: {
-    width: '90%',
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderColor: 'grey',
-    alignSelf: 'center',
-  },
-
   listItem: {
     margin: 10,
-    backgroundColor: '#ffbe45',
-    width: '93%',
+    backgroundColor: '#ffe0b3',
+    width: '90%',
     alignSelf: 'center',
     borderRadius: 10,
   },

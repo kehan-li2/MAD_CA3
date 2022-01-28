@@ -71,13 +71,13 @@ export default function Recipe({route, navigation}) {
             width: '100%',
             height: '28%',
             position: 'absolute',
-            top: '18%',
+            top: '17%',
           }}
         />
 
         {/* Two Buttons */}
         <View
-          style={{flexDirection: 'row', position: 'absolute', top: '39.4%'}}>
+          style={{flexDirection: 'row', position: 'absolute', top: '38.2%'}}>
           <TouchableOpacity
             style={[
               styles.button,
@@ -119,7 +119,7 @@ export default function Recipe({route, navigation}) {
             width: '100%',
             maxHeight: 300,
             position: 'absolute',
-            top: '55%',
+            top: '54%',
           }}>
           {/* the content displayed by unorderedList*/}
           <View style={{width: '80%'}}>
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
   },
   title: {
     position: 'absolute',
-    margin: '8%',
+    marginHorizontal: '8%',
     fontSize: 30,
     color: '#ff6624',
     fontFamily: 'Quicksand-Bold',
