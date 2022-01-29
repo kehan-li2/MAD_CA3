@@ -18,7 +18,8 @@ import {
   SmallServings,
 } from '../DATA/ElaboratedData';
 
-import CustomButton from '../Components/CustomButton';
+// import CustomButton from '../Components/CustomButton';
+import {Icon} from 'react-native-elements';
 
 const Item = ({item}) => {
   return (
@@ -104,18 +105,17 @@ export default function Elaborated({navigation}) {
           opacity: 0.1,
           resizeMode: 'stretch',
         }}>
-        <TouchableOpacity>
-          <Image
-            source={require('../image/Icons/backArrow.png')}
-            resizeMode="contain"
-            style={{
-              width: 38,
-              height: 38,
-              marginTop: 15,
-              marginHorizontal: 15,
-            }}
+        <View
+          style={{alignSelf: 'flex-start', paddingLeft: '5%', paddingTop: 10}}>
+          {/* here should be link to another page*/}
+          <Icon
+            name="arrow-back"
+            size={38}
+            style={styles.arrow}
+            type="materialIcons"
+            onPress={() => navigation.navigate('CategoryFruits')}
           />
-        </TouchableOpacity>
+        </View>
         <View
           style={{
             justifyContent: 'center',

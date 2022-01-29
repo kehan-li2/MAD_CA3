@@ -8,8 +8,8 @@ import RecipePage from '../Screens/5.0-Recipe';
 import SettingsPage from '../Screens/8.0-SettingsPage';
 import BMIresult from '../Screens/4.1-BMIresult';
 import FoodList from '../Screens/6.0-Foodlist';
-import Category from '../Screens/6.1-Category';
-import Elaborated from '../Screens/6.2-Elaborated';
+import Category from '../Screens/6.1-CategoryFruits';
+import ElaboratedApple from '../Screens/6.2-ElaboratedApple';
 import CommentPage from '../Screens/Comment';
 // import MyDrawer from './MyDrawer';
 
@@ -69,8 +69,8 @@ const FoodListStack = () => {
         headerShown: false,
       }}>
       <Stack.Screen name="FoodListScreen" component={FoodList} />
-      <Stack.Screen name="CategoryScreen" component={Category} />
-      <Stack.Screen name="ElaboratedScreen" component={Elaborated} />
+      <Stack.Screen name="CategoryFruits" component={Category} />
+      <Stack.Screen name="ElaboratedApple" component={ElaboratedApple} />
     </Stack.Navigator>
   );
 };

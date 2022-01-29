@@ -12,6 +12,7 @@ import {
   SafeAreaView,
   ImageBackground,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 
@@ -21,9 +22,20 @@ export default function FoodList({navigation}) {
   const [userInput, onChangeText] = React.useState('');
 
   const ListItem = ({item}) => {
+    const handleNavigation = () => {
+      for (let i = 0; i < FoodListdb.length; i++) {
+        console.log(FoodListdb[i].data[i].category);
+        if (item.category === FoodListdb[i].data[i].category) {
+          navigation.navigate('Category' + item.category);
+          break;
+        } else {
+          Alert.alert('Error, Screen not found!');
+        }
+      }
+    };
     return (
       <View style={{margin: 10, alignItems: 'center'}}>
-        <TouchableOpacity onPress={() => navigation.navigate('CategoryScreen')}>
+        <TouchableOpacity onPress={handleNavigation}>
           <Image
             source={item.image}
             resizeMode="contain"
@@ -50,7 +62,8 @@ export default function FoodList({navigation}) {
           opacity: 0.1,
           resizeMode: 'cover',
         }}>
-        <View style={{alignSelf: 'flex-start', paddingLeft: '5%'}}>
+        <View
+          style={{alignSelf: 'flex-start', paddingLeft: '5%', paddingTop: 10}}>
           {/* here should be link to home page*/}
           <Icon
             name="arrow-back"
@@ -99,7 +112,9 @@ export default function FoodList({navigation}) {
                   <FlatList
                     horizontal
                     data={section.data}
-                    renderItem={({item}) => <ListItem item={item} />}
+                    renderItem={({item}) => (
+                      <ListItem item={item} navigation={navigation} />
+                    )}
                     showsHorizontalScrollIndicator={false}
                   />
                 ) : null}

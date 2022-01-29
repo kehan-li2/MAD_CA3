@@ -27,6 +27,14 @@ const Categorydb = [
     Description: 'Great source of fiber & potassium!',
     imagePath: require('../image/Icons/bananaIcon.png'),
   },
+  {
+    category: 'Watermelon',
+    GI: '80',
+    Calorie: '30kcal/100g',
+    Description: 'Excellent source of vitamin A to support eye health! ',
+    imagePath: require('../image/Icons/watermelonIcon.png'),
+    lastItem: true,
+  },
 ];
 
 export {Categorydb};
