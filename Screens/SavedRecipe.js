@@ -15,21 +15,98 @@ import {
   View,
   TouchableOpacity,
   ScrollView,
+  FlatList,
   Image,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
-import addSavedRecipe, {SavedRecipe} from '../DATA/SavedRecipe';
+import {delSavedRecipe, SavedRecipe} from '../DATA/SavedRecipeData';
 const background = require('../image/background.png');
 
 export default function Recipe({navigation}) {
   const [saved, setSaved] = useState(SavedRecipe);
 
-  const isSaved = () => {
-    if (saved) {
-      setSaved(false);
-    } else {
-      setSaved(true);
-    }
+  // use delete the pop up then del (only can delete at this page)
+  // const isSaved = () => {
+  //   if (saved) {
+  //     delSavedRecipe()
+  //     setSaved(false);
+  //   } else {
+  //     setSaved(true);
+  //   }
+  // };
+
+  const CustomRecipeCard = ({recipe}) => {
+    return (
+      <View
+        style={{
+          marginBottom: '10%',
+          borderWidth: 1,
+          borderRadius: 30,
+          borderColor: 'grey',
+          width: 165,
+          height: 250,
+          backgroundColor: 'white',
+        }}>
+        {/* recipe name */}
+        <Text
+          style={{
+            marginVertical: 5,
+            fontFamily: 'Quicksand-Bold',
+            color: 'black',
+            fontSize: 16,
+            textAlign: 'center',
+          }}>
+          {recipe.data.recipeName}
+        </Text>
+        <View style={styles.lineStyle} />
+
+        <View style={{flex: 1, paddingTop: 8}}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('RecipeScreen', {
+                recipeName: recipe.data.recipeName,
+                recipeImage: recipe.data.recipeImage,
+                ingredientsDATA: recipe.data.ingredients,
+                methodDATA: recipe.data.method,
+              });
+            }}>
+            <Image
+              style={{
+                width: '90%',
+                height: '95%',
+                alignSelf: 'center',
+                // notice a bit see if the radius is work as now the image got border
+                borderRadius: 30,
+              }}
+              source={recipe.data.recipeImage}
+            />
+          </TouchableOpacity>
+        </View>
+
+        {/* recipe info */}
+        <View
+          style={{
+            paddingBottom: 5,
+            alignItems: 'center',
+          }}>
+          <Text>Serving: 4</Text>
+          <Text>Calories: 123kcal</Text>
+        </View>
+        <Icon
+          name="delete"
+          size={30}
+          type="antDesign"
+          // style={{bottom: 10}}
+          onPress={() => handleDelete(recipe.data.recipeName)}
+        />
+      </View>
+    );
+  };
+  const handleDelete = recipeName => {
+    console.log('no sleep');
+    let changed = delSavedRecipe(recipeName);
+    console.log(changed);
+    setSaved(changed);
   };
 
   const NoSavedRecipe = () => {
@@ -64,6 +141,82 @@ export default function Recipe({navigation}) {
       </View>
     );
   };
+  const HaveSavedRecipe = () => {
+    return (
+      <View style={{top: '10%', maxHeight: '75%'}}>
+        {/* <Text>i GOT RECIPE SAVED! {SavedRecipe[1].data.recipeName}</Text> */}
+        {/* <CustomRecipeCard /> */}
+
+        <FlatList
+          data={saved}
+          renderItem={({item}) => {
+            return <CustomRecipeCard recipe={item} />;
+          }}
+          keyExtractor={item => item.id}
+          contentContainerStyle={{
+            flexGrow: 1,
+          }}
+          columnWrapperStyle={{justifyContent: 'space-evenly'}}
+          numColumns={2}
+        />
+      </View>
+    );
+  };
+
+  const DisplayScreen = ({saved}) => {
+    if (saved.length === 0) {
+      return (
+        <View>
+          <Image
+            style={{
+              width: '75%',
+              alignSelf: 'center',
+              height: '60%',
+              top: 30,
+            }}
+            source={require('../image/cookFood.gif')}
+          />
+          <Text
+            style={{
+              marginHorizontal: '5%',
+              width: '90%',
+              top: '10%',
+              textAlign: 'center',
+              fontSize: 30,
+              color: '#ff6624',
+              fontFamily: 'Quicksand-Italic',
+            }}>
+            No saved recipe yet! Click below to explore recipes!
+          </Text>
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={[styles.button, {backgroundColor: '#8de0df'}]}>
+            <Text style={styles.buttonText}>Explore my recipes!</Text>
+          </TouchableOpacity>
+        </View>
+      );
+    } else {
+      return (
+        <View style={{top: '10%', maxHeight: '75%'}}>
+          {/* <Text>i GOT RECIPE SAVED! {SavedRecipe[1].data.recipeName}</Text> */}
+          {/* <CustomRecipeCard /> */}
+
+          <FlatList
+            data={saved}
+            renderItem={({item}) => {
+              return <CustomRecipeCard recipe={item} />;
+            }}
+            keyExtractor={item => item.id}
+            contentContainerStyle={{
+              flexGrow: 1,
+            }}
+            columnWrapperStyle={{justifyContent: 'space-evenly'}}
+            numColumns={2}
+          />
+        </View>
+      );
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -88,7 +241,8 @@ export default function Recipe({navigation}) {
             Your saved Recipes
           </Text>
         </View>
-        <NoSavedRecipe />
+        {saved.length === 0 ? <NoSavedRecipe /> : <HaveSavedRecipe />}
+        {/* {DisplayScreen({saved})} */}
       </ImageBackground>
     </View>
   );
@@ -127,5 +281,13 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 22,
     fontFamily: 'Quicksand-Bold',
+  },
+  lineStyle: {
+    width: '88%',
+    borderWidth: 1,
+    alignSelf: 'center',
+    borderStyle: 'dashed',
+    borderColor: '#fab255',
+    marginTop: 5,
   },
 });
