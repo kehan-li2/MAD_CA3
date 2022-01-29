@@ -16,7 +16,7 @@ import {
   BigServing,
   MediumServing,
   SmallServings,
-} from '../DATA/6.2-ElaboratedAppledb';
+} from '../DATA/6.2-ElaboratedGrape';
 
 // import CustomButton from '../Components/CustomButton';
 import {Icon} from 'react-native-elements';
@@ -124,16 +124,16 @@ export default function Elaborated({navigation}) {
             marginRight: 25,
           }}>
           <Image
-            source={require('../image/Icons/appleIcon.png')}
+            source={require('../image/Icons/grapeIcon.png')}
             resizeMode="contain"
             style={{width: 100, height: 100}}
           />
           <View>
             <View style={{...styles.elaboratedDataText, marginBottom: 3}}>
               <Text style={{...styles.elaboratedDataName, marginTop: 2}}>
-                Apple
+                Grape
               </Text>
-              <Text style={styles.elaboratedDataInfo}>52kcal / 100g</Text>
+              <Text style={styles.elaboratedDataInfo}>67kcal / 100g</Text>
             </View>
             <View style={styles.elaboratedDataText}>
               <Text
@@ -144,7 +144,7 @@ export default function Elaborated({navigation}) {
                 }}>
                 GI
               </Text>
-              <Text style={styles.elaboratedDataInfo}>32</Text>
+              <Text style={styles.elaboratedDataInfo}>53</Text>
             </View>
           </View>
         </View>

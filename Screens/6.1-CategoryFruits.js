@@ -14,8 +14,6 @@ const Item = ({item, navigation}) => {
       if (item.category === Categorydb[i].category) {
         navigation.navigate('Elaborated' + item.category);
         break;
-      } else {
-        Alert.alert('Error, Screen not found!');
       }
     }
   };

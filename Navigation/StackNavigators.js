@@ -10,6 +10,7 @@ import BMIresult from '../Screens/4.1-BMIresult';
 import FoodList from '../Screens/6.0-Foodlist';
 import Category from '../Screens/6.1-CategoryFruits';
 import ElaboratedApple from '../Screens/6.2-ElaboratedApple';
+import ElaboratedGrape from '../Screens/6.2-ElaboratedGrape';
 import CommentPage from '../Screens/Comment';
 // import MyDrawer from './MyDrawer';
 
@@ -71,6 +72,7 @@ const FoodListStack = () => {
       <Stack.Screen name="FoodListScreen" component={FoodList} />
       <Stack.Screen name="CategoryFruits" component={Category} />
       <Stack.Screen name="ElaboratedApple" component={ElaboratedApple} />
+      <Stack.Screen name="ElaboratedGrape" component={ElaboratedGrape} />
     </Stack.Navigator>
   );
 };
