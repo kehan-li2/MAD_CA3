@@ -19,8 +19,6 @@ import {useNavigation} from '@react-navigation/native';
 import * as firebase from 'firebase';
 
 const ForgotPassWordScreen = () => {
-  const [code, setCode] = useState('');
-  const [newPassword, setNewPassword] = useState('');
   const [email, setEmail] = useState('');
 
   const navigation = useNavigation();
@@ -33,7 +31,7 @@ const ForgotPassWordScreen = () => {
     firebase
       .auth()
       .sendPasswordResetEmail(email)
-      .then(function (user) {
+      .then(function () {
         Alert.alert('Please check your email.');
         navigation.navigate('LoginScreen');
       })
@@ -52,21 +50,9 @@ const ForgotPassWordScreen = () => {
         }}>
         <View style={styles.root}>
           <Text style={styles.title}>Reset your password</Text>
-          <Text style={{...styles.textInputName, marginTop: 20}}>
+          <Text style={{...styles.textInputName, marginTop: 50}}>
             Confirmation Code
           </Text>
-          <CustomInput placeholder="" value={code} setValue={setCode} />
-
-          <Text style={{...styles.textInputName, marginTop: 20}}>
-            New Password
-          </Text>
-          <CustomInput
-            placeholder="Enter your new password"
-            value={newPassword}
-            setValue={setNewPassword}
-            secureTextEntry={true}
-            mode="none"
-          />
           <CustomInput
             placeholder="Enter your Email"
             value={email}
@@ -75,7 +61,7 @@ const ForgotPassWordScreen = () => {
             mode="none"
           />
 
-          <View style={{marginTop: 30, marginBottom: 30}}>
+          <View style={{marginTop: 40, marginBottom: 30}}>
             <CustomButton
               text="Change Password"
               onPress={resetPassword}
@@ -84,7 +70,7 @@ const ForgotPassWordScreen = () => {
           </View>
 
           <TouchableOpacity
-            style={{marginLeft: 35, marginBottom: 100, alignContent: 'center'}}
+            style={{marginLeft: 35, marginBottom: 380, alignContent: 'center'}}
             onPress={onSigninPressed}>
             <Text
               style={{
@@ -115,6 +101,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontFamily: 'Quicksand-Bold',
     margin: 10,
+    marginTop: 30,
     color: 'black',
   },
   text: {

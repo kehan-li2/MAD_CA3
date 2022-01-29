@@ -16,9 +16,10 @@ import {
   BigServing,
   MediumServing,
   SmallServings,
-} from '../DATA/ElaboratedData';
+} from '../DATA/6.1-CategoryMilkdb';
 
-import CustomButton from '../Components/CustomButton';
+// import CustomButton from '../Components/CustomButton';
+import {Icon} from 'react-native-elements';
 
 const Item = ({item}) => {
   return (
@@ -104,18 +105,17 @@ export default function Elaborated({navigation}) {
           opacity: 0.1,
           resizeMode: 'stretch',
         }}>
-        <TouchableOpacity>
-          <Image
-            source={require('../image/Icons/backArrow.png')}
-            resizeMode="contain"
-            style={{
-              width: 38,
-              height: 38,
-              marginTop: 15,
-              marginHorizontal: 15,
-            }}
+        <View
+          style={{alignSelf: 'flex-start', paddingLeft: '5%', paddingTop: 10}}>
+          {/* here should be link to another page*/}
+          <Icon
+            name="arrow-back"
+            size={38}
+            style={styles.arrow}
+            type="materialIcons"
+            onPress={() => navigation.navigate('FoodListScreen')}
           />
-        </TouchableOpacity>
+        </View>
         <View
           style={{
             justifyContent: 'center',
@@ -124,7 +124,7 @@ export default function Elaborated({navigation}) {
             marginRight: 25,
           }}>
           <Image
-            source={require('../image/Icons/appleIcon.png')}
+            source={require('../image/Icons/milkIcon.png')}
             resizeMode="contain"
             style={{width: 100, height: 100}}
           />

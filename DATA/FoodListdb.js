@@ -5,6 +5,13 @@ const FoodListdb = [
     data: [
       {
         key: '1',
+        category: 'Fruits',
+        text: 'Low GI - Fruits',
+        image: require('../image/FoodListScreen/fruits.jpg'),
+      },
+      {
+        key: '2',
+        category: 'MainFood',
         text: 'Low GI - Main Food',
         image: require('../image/FoodListScreen/chowMein.jpg'),
       },
@@ -13,11 +20,6 @@ const FoodListdb = [
       //   text: 'Low GI - Fruits',
       //   image: require('../assets/FoodListScreen/avocado.jpg'),
       // },
-      {
-        key: '3',
-        text: 'Low Calorie - Fruits',
-        image: require('../image/FoodListScreen/fruits.jpg'),
-      },
     ],
   },
   {
@@ -26,11 +28,13 @@ const FoodListdb = [
     data: [
       {
         key: '1',
+        category: 'Milk',
         text: 'Milk',
         image: require('../image/FoodListScreen/Milk.jpg'),
       },
       {
         key: '2',
+        category: 'Cheese',
         text: 'Cheese',
         image: require('../image/FoodListScreen/cheeseBoard.jpg'),
       },
