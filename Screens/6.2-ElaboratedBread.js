@@ -17,6 +17,8 @@ import {
   SmallServings,
 } from '../DATA/6.2-ElaboratedBreaddb.js';
 
+import {CategoryMainFooddb} from '../DATA/6.1-CategoryMainFoodsdb.js';
+
 // import CustomButton from '../Components/CustomButton';
 import {Icon} from 'react-native-elements';
 
@@ -130,7 +132,8 @@ export default function Elaborated({navigation}) {
           <View>
             <View style={{...styles.elaboratedDataText, marginBottom: 3}}>
               <Text style={{...styles.elaboratedDataName, marginTop: 2}}>
-                Bread
+                {/* Bread */}
+                {CategoryMainFooddb[3].category}
               </Text>
               <Text style={styles.elaboratedDataInfo}>266kcal / 100g</Text>
             </View>

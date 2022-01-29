@@ -17,6 +17,9 @@ import {
   SmallServings,
 } from '../DATA/6.2-ElaboratedRicedb';
 
+import {CategoryMainFooddb} from '../DATA/6.1-CategoryMainFoodsdb';
+// updated with dynamic database
+
 // import CustomButton from '../Components/CustomButton';
 import {Icon} from 'react-native-elements';
 
@@ -130,9 +133,12 @@ export default function Elaborated({navigation}) {
           <View>
             <View style={{...styles.elaboratedDataText, marginBottom: 3}}>
               <Text style={{...styles.elaboratedDataName, marginTop: 2}}>
-                Rice
+                {/* Rice */}
+                {CategoryMainFooddb[1].category}
               </Text>
-              <Text style={styles.elaboratedDataInfo}>129kcal / 100g</Text>
+              <Text style={styles.elaboratedDataInfo}>
+                {CategoryMainFooddb[1].Calorie}
+              </Text>
             </View>
             <View style={styles.elaboratedDataText}>
               <Text
@@ -143,7 +149,9 @@ export default function Elaborated({navigation}) {
                 }}>
                 GI
               </Text>
-              <Text style={styles.elaboratedDataInfo}>72</Text>
+              <Text style={styles.elaboratedDataInfo}>
+                {CategoryMainFooddb[1].GI}
+              </Text>
             </View>
           </View>
         </View>
