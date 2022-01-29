@@ -11,6 +11,7 @@ const FoodListdb = [
       },
       {
         key: '2',
+        category: 'MainFood',
         text: 'Low GI - Main Food',
         image: require('../image/FoodListScreen/chowMein.jpg'),
       },
@@ -27,11 +28,13 @@ const FoodListdb = [
     data: [
       {
         key: '1',
+        category: 'Milk',
         text: 'Milk',
         image: require('../image/FoodListScreen/Milk.jpg'),
       },
       {
         key: '2',
+        category: 'Cheese',
         text: 'Cheese',
         image: require('../image/FoodListScreen/cheeseBoard.jpg'),
       },

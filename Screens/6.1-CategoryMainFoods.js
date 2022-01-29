@@ -6,12 +6,12 @@ import {View, Text, StyleSheet, Image, Alert} from 'react-native';
 import {Icon} from 'react-native-elements';
 import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
 
-import {Categorydb} from '../DATA/6.1-CategoryFruits';
+import {CategoryMainFooddb} from '../DATA/6.1-CategoryMainFoodsdb';
 
 const Item = ({item, navigation}) => {
   const handleNavigation = () => {
-    for (let i = 0; i < Categorydb.length; i++) {
-      if (item.category === Categorydb[i].category) {
+    for (let i = 0; i < CategoryMainFooddb.length; i++) {
+      if (item.category === CategoryMainFooddb[i].category) {
         navigation.navigate('Elaborated' + item.category);
         break;
       }
@@ -93,11 +93,11 @@ export default function Category({navigation}) {
           type="materialIcons"
           onPress={() => navigation.goBack()}
         />
-        <Text style={styles.title}>Low GI Fruits</Text>
+        <Text style={styles.title}>Low GI - Main Food</Text>
       </View>
       <View style={{marginTop: 60}}>
         <FlatList
-          data={Categorydb}
+          data={CategoryMainFooddb}
           renderItem={({item}) => <Item item={item} navigation={navigation} />}
           contentContainerStyle={{flexGrow: 1}}
         />
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     color: '#ff6624',
     fontFamily: 'Quicksand-Bold',
     textAlign: 'center',
-    marginLeft: 100,
+    marginLeft: 59,
   },
   cat_info: {
     fontFamily: 'Quicksand-Regular',

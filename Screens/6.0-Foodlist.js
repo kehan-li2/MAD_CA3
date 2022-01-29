@@ -24,12 +24,11 @@ export default function FoodList({navigation}) {
   const ListItem = ({item}) => {
     const handleNavigation = () => {
       for (let i = 0; i < FoodListdb.length; i++) {
-        console.log(FoodListdb[i].data[i].category);
-        if (item.category === FoodListdb[i].data[i].category) {
-          navigation.navigate('Category' + item.category);
-          break;
-        } else {
-          Alert.alert('Error, Screen not found!');
+        for (let x = 0; x < FoodListdb[i].data.length; x++) {
+          if (item.category === FoodListdb[i].data[x].category) {
+            navigation.navigate('Category' + item.category);
+            break;
+          }
         }
       }
     };
