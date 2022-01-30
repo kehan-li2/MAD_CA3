@@ -18,6 +18,8 @@ import {
   SmallServings,
 } from '../DATA/6.2-ElaboratedAppledb';
 
+import {Categorydb} from '../DATA/6.1-CategoryFruits';
+
 // import CustomButton from '../Components/CustomButton';
 import {Icon} from 'react-native-elements';
 
@@ -124,16 +126,18 @@ export default function Elaborated({navigation}) {
             marginRight: 25,
           }}>
           <Image
-            source={require('../image/Icons/appleIcon.png')}
+            source={Categorydb[0].imagePath}
             resizeMode="contain"
             style={{width: 100, height: 100}}
           />
           <View>
             <View style={{...styles.elaboratedDataText, marginBottom: 3}}>
               <Text style={{...styles.elaboratedDataName, marginTop: 2}}>
-                Apple
+                {Categorydb[0].category}
               </Text>
-              <Text style={styles.elaboratedDataInfo}>52kcal / 100g</Text>
+              <Text style={styles.elaboratedDataInfo}>
+                {Categorydb[0].Calorie}
+              </Text>
             </View>
             <View style={styles.elaboratedDataText}>
               <Text
@@ -144,7 +148,7 @@ export default function Elaborated({navigation}) {
                 }}>
                 GI
               </Text>
-              <Text style={styles.elaboratedDataInfo}>32</Text>
+              <Text style={styles.elaboratedDataInfo}>{Categorydb[0].GI}</Text>
             </View>
           </View>
         </View>
@@ -303,7 +307,7 @@ const styles = StyleSheet.create({
   elaboratedDataName: {
     fontFamily: 'Quicksand-Bold',
     fontSize: 22,
-    paddingRight: 100,
+    paddingRight: 90,
     color: 'black',
     paddingBottom: 6,
   },

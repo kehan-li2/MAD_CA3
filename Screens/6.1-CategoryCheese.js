@@ -133,7 +133,7 @@ export default function Elaborated({navigation}) {
               <Text style={{...styles.elaboratedDataName, marginTop: 2}}>
                 Apple
               </Text>
-              <Text style={styles.elaboratedDataInfo}>52kcal / 100g</Text>
+              <Text style={styles.elaboratedDataInfo}>350kcal / 100g</Text>
             </View>
             <View style={styles.elaboratedDataText}>
               <Text
@@ -303,7 +303,7 @@ const styles = StyleSheet.create({
   elaboratedDataName: {
     fontFamily: 'Quicksand-Bold',
     fontSize: 22,
-    paddingRight: 100,
+    paddingRight: 70,
     color: 'black',
     paddingBottom: 6,
   },

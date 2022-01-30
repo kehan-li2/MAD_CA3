@@ -126,7 +126,7 @@ export default function Elaborated({navigation}) {
             marginRight: 25,
           }}>
           <Image
-            source={require('../image/Icons/riceIcon.png')}
+            source={CategoryMainFooddb[1].imagePath}
             resizeMode="contain"
             style={{width: 100, height: 100}}
           />

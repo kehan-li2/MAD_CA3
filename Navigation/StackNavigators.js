@@ -19,6 +19,9 @@ import CategoryCheese from '../Screens/6.1-CategoryCheese';
 import ElaboratedNoodle from '../Screens/6.2-ElaboratedNoodle';
 import CategoryMainFood from '../Screens/6.1-CategoryMainFoods';
 import ElaboratedRice from '../Screens/6.2-ElaboratedRice';
+import ElaboratedBread from '../Screens/6.2-ElaboratedBread';
+import ElaboratedOats from '../Screens/6.2-ElaboratedOats';
+import ElaboratedPotato from '../Screens/6.2-ElaboratedPotato';
 import CommentPage from '../Screens/Comment';
 // import MyDrawer from './MyDrawer';
 
@@ -92,6 +95,9 @@ const FoodListStack = () => {
       <Stack.Screen name="ElaboratedNoodle" component={ElaboratedNoodle} />
       <Stack.Screen name="ElaboratedRice" component={ElaboratedRice} />
       <Stack.Screen name="CategoryMainFood" component={CategoryMainFood} />
+      <Stack.Screen name="ElaboratedBread" component={ElaboratedBread} />
+      <Stack.Screen name="ElaboratedOats" component={ElaboratedOats} />
+      <Stack.Screen name="ElaboratedPotato" component={ElaboratedPotato} />
     </Stack.Navigator>
   );
 };
