@@ -22,7 +22,7 @@ import {CategoryMainFooddb} from '../DATA/6.1-CategoryMainFoodsdb';
 
 // import CustomButton from '../Components/CustomButton';
 import {Icon} from 'react-native-elements';
-import {Categorydb} from '../DATA/6.1-CategoryFruits';
+import {Categorydb} from '../DATA/6.1-CategoryFruitsdb';
 
 const Item = ({item}) => {
   return (

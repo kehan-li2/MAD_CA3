@@ -16,9 +16,9 @@ import {
   BigServing,
   MediumServing,
   SmallServings,
-} from '../DATA/6.2-ElaboratedBanana.js';
+} from '../DATA/6.2-ElaboratedBananadb.js';
 
-import {Categorydb} from '../DATA/6.1-CategoryFruits.js';
+import {Categorydb} from '../DATA/6.1-CategoryFruitsdb.js';
 
 // import CustomButton from '../Components/CustomButton';
 import {Icon} from 'react-native-elements';

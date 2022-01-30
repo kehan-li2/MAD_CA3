@@ -15,9 +15,9 @@ import {
   BigServing,
   MediumServing,
   SmallServings,
-} from '../DATA/6.2-ElaboratedWatermelon';
+} from '../DATA/6.2-ElaboratedWatermelondb';
 
-import {Categorydb} from '../DATA/6.1-CategoryFruits';
+import {Categorydb} from '../DATA/6.1-CategoryFruitsdb';
 
 // import CustomButton from '../Components/CustomButton';
 import {Icon} from 'react-native-elements';

@@ -22,6 +22,12 @@ import ElaboratedRice from '../Screens/6.2-ElaboratedRice';
 import ElaboratedBread from '../Screens/6.2-ElaboratedBread';
 import ElaboratedOats from '../Screens/6.2-ElaboratedOats';
 import ElaboratedPotato from '../Screens/6.2-ElaboratedPotato';
+import CategoryMeats from '../Screens/6.1-CategoryMeats';
+import ElaboratedBeef from '../Screens/6.2-ElaboratedBeef';
+import ElaboratedChicken from '../Screens/6.2-ElaboratedChicken';
+import ElaboratedPork from '../Screens/6.2-ElaboratedPork';
+import ElaboratedSalmon from '../Screens/6.2-ElaboratedSalmon';
+import ElaboratedRabbit from '../Screens/6.2-ElaboratedRabbit';
 import CommentPage from '../Screens/Comment';
 // import MyDrawer from './MyDrawer';
 
@@ -98,6 +104,12 @@ const FoodListStack = () => {
       <Stack.Screen name="ElaboratedBread" component={ElaboratedBread} />
       <Stack.Screen name="ElaboratedOats" component={ElaboratedOats} />
       <Stack.Screen name="ElaboratedPotato" component={ElaboratedPotato} />
+      <Stack.Screen name="CategoryMeats" component={CategoryMeats} />
+      <Stack.Screen name="ElaboratedBeef" component={ElaboratedBeef} />
+      <Stack.Screen name="ElaboratedChicken" component={ElaboratedChicken} />
+      <Stack.Screen name="ElaboratedPork" component={ElaboratedPork} />
+      <Stack.Screen name="ElaboratedSalmon" component={ElaboratedSalmon} />
+      <Stack.Screen name="ElaboratedRabbit" component={ElaboratedRabbit} />
     </Stack.Navigator>
   );
 };

@@ -18,7 +18,7 @@ import {
   SmallServings,
 } from '../DATA/6.2-ElaboratedAppledb';
 
-import {Categorydb} from '../DATA/6.1-CategoryFruits';
+import {Categorydb} from '../DATA/6.1-CategoryFruitsdb';
 
 // import CustomButton from '../Components/CustomButton';
 import {Icon} from 'react-native-elements';

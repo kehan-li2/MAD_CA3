@@ -15,9 +15,9 @@ import {
   BigServing,
   MediumServing,
   SmallServings,
-} from '../DATA/6.2-ElaboratedBreaddb.js';
+} from '../DATA/6.2-ElaboratedBeefdb.js';
 
-import {CategoryMainFooddb} from '../DATA/6.1-CategoryMainFoodsdb';
+import {ElaboratedMeatsdb} from '../DATA/6.1-CategoryMeatsdb';
 
 // import CustomButton from '../Components/CustomButton';
 import {Icon} from 'react-native-elements';
@@ -114,7 +114,7 @@ export default function Elaborated({navigation}) {
             size={38}
             style={styles.arrow}
             type="materialIcons"
-            onPress={() => navigation.navigate('CategoryMainFood')}
+            onPress={() => navigation.navigate('CategoryMeats')}
           />
         </View>
         <View
@@ -125,7 +125,7 @@ export default function Elaborated({navigation}) {
             marginRight: 25,
           }}>
           <Image
-            source={CategoryMainFooddb[2].imagePath}
+            source={ElaboratedMeatsdb[0].imagePath}
             resizeMode="contain"
             style={{width: 100, height: 100}}
           />
@@ -133,10 +133,10 @@ export default function Elaborated({navigation}) {
             <View style={{...styles.elaboratedDataText, marginBottom: 3}}>
               <Text style={{...styles.elaboratedDataName, marginTop: 2}}>
                 {/* Bread */}
-                {CategoryMainFooddb[2].category}
+                {ElaboratedMeatsdb[0].category}
               </Text>
               <Text style={styles.elaboratedDataInfo}>
-                {CategoryMainFooddb[2].Calorie}
+                {ElaboratedMeatsdb[0].Calorie}
               </Text>
             </View>
             <View style={styles.elaboratedDataText}>
@@ -149,7 +149,7 @@ export default function Elaborated({navigation}) {
                 GI
               </Text>
               <Text style={styles.elaboratedDataInfo}>
-                {CategoryMainFooddb[2].GI}
+                {ElaboratedMeatsdb[0].GI}
               </Text>
             </View>
           </View>

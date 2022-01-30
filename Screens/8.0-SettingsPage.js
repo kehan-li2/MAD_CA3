@@ -110,6 +110,7 @@ export default function SettingsPage({navigation}) {
           <Icon
             name="arrow-back"
             size={38}
+            iconStyle={{marginTop: 10}}
             type="materialIcons"
             onPress={() => navigation.navigate('HomeScreen')}
           />
