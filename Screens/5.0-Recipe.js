@@ -20,6 +20,7 @@ import {
 import {Icon} from 'react-native-elements';
 import {set} from 'react-native-reanimated';
 import UnorderedList from '../Components/UnorderedList';
+import {addSavedRecipe, delSavedRecipe} from '../DATA/SavedRecipeData';
 
 const background = require('../image/background.png');
 
@@ -38,8 +39,10 @@ export default function Recipe({route, navigation}) {
   const [saved, setSaved] = useState(false);
   const isSaved = () => {
     if (saved) {
+      delSavedRecipe(recipeName);
       setSaved(false);
     } else {
+      addSavedRecipe({name: recipeName, image: recipeImage});
       setSaved(true);
     }
   };
@@ -163,6 +166,8 @@ export default function Recipe({route, navigation}) {
                 navigation.navigate('CommentScreen', {
                   recipeName: recipeName,
                   recipeImage: recipeImage,
+                  ingredients: ingredientsDATA,
+                  method: methodDATA,
                 });
               }}
             />
