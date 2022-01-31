@@ -7,7 +7,6 @@ import {
   Image,
   FlatList,
   ImageBackground,
-  ScrollView,
   TouchableOpacity,
 } from 'react-native';
 
@@ -16,9 +15,9 @@ import {
   BigServing,
   MediumServing,
   SmallServings,
-} from '../DATA/6.1-CategoryMilkdb';
+} from '../DATA/6.2-ElaboratedSalmondb.js';
 
-import {FoodListdb} from '../DATA/FoodListdb';
+import {ElaboratedMeatsdb} from '../DATA/6.1-CategoryMeatsdb';
 
 // import CustomButton from '../Components/CustomButton';
 import {Icon} from 'react-native-elements';
@@ -115,7 +114,7 @@ export default function Elaborated({navigation}) {
             size={38}
             style={styles.arrow}
             type="materialIcons"
-            onPress={() => navigation.navigate('FoodListScreen')}
+            onPress={() => navigation.navigate('CategoryMeats')}
           />
         </View>
         <View
@@ -126,16 +125,19 @@ export default function Elaborated({navigation}) {
             marginRight: 25,
           }}>
           <Image
-            source={require('../image/Icons/milkIcon.png')}
+            source={ElaboratedMeatsdb[3].imagePath}
             resizeMode="contain"
             style={{width: 100, height: 100}}
           />
           <View>
             <View style={{...styles.elaboratedDataText, marginBottom: 3}}>
               <Text style={{...styles.elaboratedDataName, marginTop: 2}}>
-                {FoodListdb[1].data[0].category}
+                {/* Bread */}
+                {ElaboratedMeatsdb[3].category}
               </Text>
-              <Text style={styles.elaboratedDataInfo}>50kcal / 100g</Text>
+              <Text style={styles.elaboratedDataInfo}>
+                {ElaboratedMeatsdb[3].Calorie}
+              </Text>
             </View>
             <View style={styles.elaboratedDataText}>
               <Text
@@ -146,7 +148,9 @@ export default function Elaborated({navigation}) {
                 }}>
                 GI
               </Text>
-              <Text style={styles.elaboratedDataInfo}>32</Text>
+              <Text style={styles.elaboratedDataInfo}>
+                {ElaboratedMeatsdb[3].GI}
+              </Text>
             </View>
           </View>
         </View>
@@ -305,7 +309,7 @@ const styles = StyleSheet.create({
   elaboratedDataName: {
     fontFamily: 'Quicksand-Bold',
     fontSize: 22,
-    paddingRight: 100,
+    paddingRight: 60,
     color: 'black',
     paddingBottom: 6,
   },

@@ -163,7 +163,6 @@ export default function SignUp({navigation}) {
   };
 
   const onSigninPressed = () => {
-    console.warn('onSignUpPressed');
     navigation.navigate('LoginScreen');
   };
 

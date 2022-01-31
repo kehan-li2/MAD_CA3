@@ -22,6 +22,7 @@ import {CategoryMainFooddb} from '../DATA/6.1-CategoryMainFoodsdb';
 
 // import CustomButton from '../Components/CustomButton';
 import {Icon} from 'react-native-elements';
+import {Categorydb} from '../DATA/6.1-CategoryFruitsdb';
 
 const Item = ({item}) => {
   return (
@@ -126,7 +127,7 @@ export default function Elaborated({navigation}) {
             marginRight: 25,
           }}>
           <Image
-            source={require('../image/Icons/noodleIcon.png')}
+            source={Categorydb[0].imagePath}
             resizeMode="contain"
             style={{width: 100, height: 100}}
           />

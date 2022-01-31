@@ -15,10 +15,13 @@ import {
   BigServing,
   MediumServing,
   SmallServings,
-} from '../DATA/6.2-ElaboratedOrange';
+} from '../DATA/6.2-ElaboratedOrangedb';
+
+import {Categorydb} from '../DATA/6.1-CategoryFruitsdb';
 
 // import CustomButton from '../Components/CustomButton';
 import {Icon} from 'react-native-elements';
+import Category from './6.1-CategoryMainFoods';
 
 const Item = ({item}) => {
   return (
@@ -123,16 +126,18 @@ export default function Elaborated({navigation}) {
             marginRight: 25,
           }}>
           <Image
-            source={require('../image/Icons/orangeIcon.png')}
+            source={Categorydb[2].imagePath}
             resizeMode="contain"
             style={{width: 100, height: 100}}
           />
           <View>
             <View style={{...styles.elaboratedDataText, marginBottom: 3}}>
               <Text style={{...styles.elaboratedDataName, marginTop: 2}}>
-                Grape
+                {Categorydb[2].category}
               </Text>
-              <Text style={styles.elaboratedDataInfo}>67kcal / 100g</Text>
+              <Text style={styles.elaboratedDataInfo}>
+                {Categorydb[2].Calorie}
+              </Text>
             </View>
             <View style={styles.elaboratedDataText}>
               <Text
@@ -143,7 +148,7 @@ export default function Elaborated({navigation}) {
                 }}>
                 GI
               </Text>
-              <Text style={styles.elaboratedDataInfo}>53</Text>
+              <Text style={styles.elaboratedDataInfo}>{Categorydb[2].GI}</Text>
             </View>
           </View>
         </View>
@@ -302,7 +307,7 @@ const styles = StyleSheet.create({
   elaboratedDataName: {
     fontFamily: 'Quicksand-Bold',
     fontSize: 22,
-    paddingRight: 100,
+    paddingRight: 80,
     color: 'black',
     paddingBottom: 6,
   },

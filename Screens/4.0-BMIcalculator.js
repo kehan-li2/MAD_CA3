@@ -25,6 +25,9 @@ import {RadioButton} from 'react-native-paper';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+// Animated Error Messages
+import * as Animatable from 'react-native-animatable';
+
 const schema = yup.object({
   age: yup.number().positive().integer().required(),
   weight: yup.number().positive().required(),
@@ -343,6 +346,8 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     textDecorationLine: 'underline',
     fontStyle: 'italic',
+    borderRadius: 10,
+    padding: 2,
   },
   arrow: {
     paddingTop: 10,

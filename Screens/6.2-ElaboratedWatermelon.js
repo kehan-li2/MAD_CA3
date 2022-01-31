@@ -15,7 +15,9 @@ import {
   BigServing,
   MediumServing,
   SmallServings,
-} from '../DATA/6.2-ElaboratedWatermelon';
+} from '../DATA/6.2-ElaboratedWatermelondb';
+
+import {Categorydb} from '../DATA/6.1-CategoryFruitsdb';
 
 // import CustomButton from '../Components/CustomButton';
 import {Icon} from 'react-native-elements';
@@ -123,16 +125,18 @@ export default function Elaborated({navigation}) {
             marginRight: 25,
           }}>
           <Image
-            source={require('../image/Icons/watermelonIcon.png')}
+            source={Categorydb[4].imagePath}
             resizeMode="contain"
             style={{width: 100, height: 100}}
           />
           <View>
             <View style={{...styles.elaboratedDataText, marginBottom: 3}}>
               <Text style={{...styles.elaboratedDataName, marginTop: 2}}>
-                Grape
+                {Categorydb[4].category}
               </Text>
-              <Text style={styles.elaboratedDataInfo}>67kcal / 100g</Text>
+              <Text style={styles.elaboratedDataInfo}>
+                {Categorydb[4].Calorie}
+              </Text>
             </View>
             <View style={styles.elaboratedDataText}>
               <Text
@@ -143,7 +147,7 @@ export default function Elaborated({navigation}) {
                 }}>
                 GI
               </Text>
-              <Text style={styles.elaboratedDataInfo}>53</Text>
+              <Text style={styles.elaboratedDataInfo}>{Categorydb[4].GI}</Text>
             </View>
           </View>
         </View>
@@ -302,7 +306,7 @@ const styles = StyleSheet.create({
   elaboratedDataName: {
     fontFamily: 'Quicksand-Bold',
     fontSize: 22,
-    paddingRight: 100,
+    paddingRight: 20,
     color: 'black',
     paddingBottom: 6,
   },

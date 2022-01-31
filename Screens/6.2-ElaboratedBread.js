@@ -17,7 +17,7 @@ import {
   SmallServings,
 } from '../DATA/6.2-ElaboratedBreaddb.js';
 
-import {CategoryMainFooddb} from '../DATA/6.1-CategoryMainFoodsdb.js';
+import {CategoryMainFooddb} from '../DATA/6.1-CategoryMainFoodsdb';
 
 // import CustomButton from '../Components/CustomButton';
 import {Icon} from 'react-native-elements';
@@ -125,7 +125,7 @@ export default function Elaborated({navigation}) {
             marginRight: 25,
           }}>
           <Image
-            source={require('../image/Icons/breadIcon.png')}
+            source={CategoryMainFooddb[2].imagePath}
             resizeMode="contain"
             style={{width: 100, height: 100}}
           />
@@ -133,9 +133,11 @@ export default function Elaborated({navigation}) {
             <View style={{...styles.elaboratedDataText, marginBottom: 3}}>
               <Text style={{...styles.elaboratedDataName, marginTop: 2}}>
                 {/* Bread */}
-                {CategoryMainFooddb[3].category}
+                {CategoryMainFooddb[2].category}
               </Text>
-              <Text style={styles.elaboratedDataInfo}>266kcal / 100g</Text>
+              <Text style={styles.elaboratedDataInfo}>
+                {CategoryMainFooddb[2].Calorie}
+              </Text>
             </View>
             <View style={styles.elaboratedDataText}>
               <Text
@@ -146,7 +148,9 @@ export default function Elaborated({navigation}) {
                 }}>
                 GI
               </Text>
-              <Text style={styles.elaboratedDataInfo}>55</Text>
+              <Text style={styles.elaboratedDataInfo}>
+                {CategoryMainFooddb[2].GI}
+              </Text>
             </View>
           </View>
         </View>

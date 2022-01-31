@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles  */
 
 import * as React from 'react';
@@ -11,53 +12,39 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import {useMemo, useState} from 'react';
-
 import {Icon} from 'react-native-elements';
 
-const ResponsiveImage = props => {
-  const [containerWidth, setContainerWidth] = useState(0);
-  const _onViewLayoutChange = event => {
-    const {width} = event.nativeEvent.layout;
-    setContainerWidth(width);
-  };
+import ResponsiveImage from '../Components/ResponsiveImage';
 
-  const imageStyles = useMemo(() => {
-    const ratio = containerWidth / props.srcWidth;
-    return {
-      width: containerWidth,
-      height: props.srcHeight * ratio,
-    };
-  }, [containerWidth, props.srcHeight, props.srcWidth]);
-
-  return (
-    <View style={styles.container} onLayout={_onViewLayoutChange}>
-      <Image source={props.src} style={imageStyles} />
-    </View>
-  );
-};
+// imports for conditional rendering
+import {LowerThan20, HigherThan20} from '../DATA/4.1-BMIResultdb';
+import {breakfastDATA, lunchDATA, dinnerDATA} from '../DATA/RecipeData';
 
 export default function BMIResult({route, navigation}) {
+  const {recipeName, recipeImage, ingredientsDATA, methodDATA} = route.params;
+
   const {age, weight, height, gender, activityLevel} = route.params;
+
+  const BMI = (weight / Math.pow(height / 100, 2)).toFixed(1);
 
   // Codes for rendering FlatList Items
 
-  const db = [
-    {Category: 'Energy', value: '1,845kcal'},
-    {
-      Category: 'Carbohydrate',
-      value: '230g',
-    },
-    {
-      Category: 'Protein',
-      value: '50g',
-    },
-    {
-      Category: 'Fat',
-      value: '40g',
-      lastItem: true,
-    },
-  ];
+  // const db = [
+  //   {Category: 'Energy', value: '1,845kcal'},
+  //   {
+  //     Category: 'Carbohydrate',
+  //     value: '230g',
+  //   },
+  //   {
+  //     Category: 'Protein',
+  //     value: '50g',
+  //   },
+  //   {
+  //     Category: 'Fat',
+  //     value: '40g',
+  //     lastItem: true,
+  //   },
+  // ];
 
   const DisplayFlatlist = ({title, content, lastItem}) => (
     <View
@@ -129,7 +116,7 @@ export default function BMIResult({route, navigation}) {
               }}
             />
           </TouchableOpacity>
-          <Text style={styles.header}>Your BMI is: 19.5</Text>
+          <Text style={styles.header}>Your BMI Is: {BMI}</Text>
         </View>
         <View>
           <Image
@@ -151,32 +138,165 @@ export default function BMIResult({route, navigation}) {
           </Text>
         </View>
         <View style={{flex: 7}}>
-          <FlatList
-            data={db}
-            renderItem={renderItem}
-            keyExtractor={item => item.Category}
-            ItemSeparatorComponent={FlatListItemSeparator}
-          />
+          {BMI > 20 ? (
+            <FlatList
+              data={HigherThan20}
+              renderItem={renderItem}
+              keyExtractor={item => item.Category}
+              ItemSeparatorComponent={FlatListItemSeparator}
+            />
+          ) : (
+            <FlatList
+              data={LowerThan20}
+              renderItem={renderItem}
+              keyExtractor={item => item.Category}
+              ItemSeparatorComponent={FlatListItemSeparator}
+            />
+          )}
         </View>
         <View>
-          <TouchableOpacity onPress={console.log('link back to recipe page')}>
-            <ResponsiveImage
-              src={require('../image/BMI/BMIFood.png')}
-              srcWidth={926}
-              srcHeight={443}
-            />
-          </TouchableOpacity>
+          {/* <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
+            {BMI > 20 ? (
+              <ResponsiveImage
+                src={require('../image/BMI/salmon.png')}
+                srcWidth={926}
+                srcHeight={443}
+              />
+            ) : (
+              <ResponsiveImage
+                src={require('../image/BMI/vegetarianWrap.png')}
+                srcWidth={926}
+                srcHeight={443}
+              />
+            )}
+          </TouchableOpacity> */}
+          {BMI > 20 ? (
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate('RecipeScreen', {
+                  recipeName: lunchDATA[0].data.name,
+                  recipeImage: lunchDATA[0].data.imagePath,
+                  ingredientsDATA: lunchDATA[0].data.ingredients,
+                  methodDATA: lunchDATA[0].data.method,
+                })
+              }>
+              <ResponsiveImage
+                src={require('../image/BMI/salmon.png')}
+                srcWidth={926}
+                srcHeight={443}
+              />
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate('RecipeScreen', {
+                  recipeName: breakfastDATA[1].data.name,
+                  recipeImage: breakfastDATA[1].data.imagePath,
+                  ingredientsDATA: breakfastDATA[1].data.ingredients,
+                  methodDATA: breakfastDATA[1].data.method,
+                })
+              }>
+              <ResponsiveImage
+                src={require('../image/BMI/VegetarianWrap.png')}
+                srcWidth={926}
+                srcHeight={443}
+              />
+            </TouchableOpacity>
+          )}
 
           <View style={{position: 'absolute'}}>
-            <View
+            {/* <View
               style={{
                 width: 150,
                 marginLeft: 215,
                 marginTop: 30,
                 alignItems: 'center',
                 justifyContent: 'center',
-              }}>
-              <Text
+              }}> */}
+            {BMI > 20 ? (
+              <View
+                style={{
+                  width: 150,
+                  marginLeft: 215,
+                  marginTop: 30,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                <Text
+                  style={{
+                    fontFamily: 'Quicksand-Bold',
+                    fontSize: 16.3,
+                    color: 'white',
+                    marginBottom: 10,
+                    justifyContent: 'center',
+                    textAlign: 'center',
+                  }}>
+                  Salmon Fillet with Honey Spice Sauce
+                </Text>
+                <Text
+                  style={{
+                    fontFamily: 'Quicksand-Bold',
+                    fontSize: 13,
+                    color: 'white',
+                  }}>
+                  Juicy, succulent fish alongside a sweet spicy sauce
+                </Text>
+                <Text
+                  style={{
+                    textDecorationLine: 'underline',
+                    fontFamily: 'Quicksand-Bold',
+                    fontWeight: 'bold',
+                    fontStyle: 'italic',
+                    fontSize: 20,
+                    color: 'lightgreen',
+                    marginTop: 8,
+                  }}>
+                  Meals For You!
+                </Text>
+              </View>
+            ) : (
+              <View
+                style={{
+                  width: 150,
+                  marginLeft: 215,
+                  marginTop: 30,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                <Text
+                  style={{
+                    fontFamily: 'Quicksand-Bold',
+                    fontSize: 17,
+                    color: 'white',
+                    marginBottom: 10,
+                    justifyContent: 'center',
+                    textAlign: 'center',
+                  }}>
+                  Vegetarian Wrap
+                </Text>
+                <Text
+                  style={{
+                    fontFamily: 'Quicksand-Bold',
+                    fontSize: 13,
+                    color: 'white',
+                  }}>
+                  Savour the juicy vegetables along side {' '} a taut tortilla.
+                </Text>
+                <Text
+                  style={{
+                    textDecorationLine: 'underline',
+                    fontFamily: 'Quicksand-Bold',
+                    fontWeight: 'bold',
+                    fontStyle: 'italic',
+                    fontSize: 20,
+                    color: 'lightgreen',
+                    marginTop: 8,
+                  }}>
+                  Meals For You!
+                </Text>
+              </View>
+            )}
+            {/* <Text
                 style={{
                   fontFamily: 'Quicksand-Bold',
                   fontSize: 15,
@@ -185,7 +305,7 @@ export default function BMIResult({route, navigation}) {
                   justifyContent: 'center',
                   textAlign: 'center',
                 }}>
-                GRILLED ROSEMARY LEMON CHICKEN
+                Vegetarian Wrap
               </Text>
               <Text
                 style={{
@@ -209,7 +329,7 @@ export default function BMIResult({route, navigation}) {
                 }}>
                 Meals For You!
               </Text>
-            </View>
+            </View> */}
           </View>
         </View>
       </ImageBackground>
@@ -278,7 +398,4 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     paddingBottom: 10,
   },
-
-  // Styling for responsive Images
-  container: {width: '90%', marginHorizontal: 20, marginTop: 10},
 });

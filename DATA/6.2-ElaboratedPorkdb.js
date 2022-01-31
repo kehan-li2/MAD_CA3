@@ -3,22 +3,22 @@ const HundredGrams = [
   {
     id: '2',
     Category: 'Calorie',
-    value: '266cal',
+    value: '271cal',
   },
   {
     id: '3',
     Category: 'Carbohydrates',
-    value: '50.61g',
+    value: '0g',
   },
   {
     id: '4',
     Category: 'Protein',
-    value: '7.64g',
+    value: '27.34g',
   },
   {
     id: '5',
     Category: 'Fat',
-    value: '3.29g',
+    value: '17.04g',
   },
 ];
 
@@ -30,21 +30,21 @@ const BigServing = [
     header: true,
     value: 'One Serving (Big)',
   },
-  {id: '2', Category: 'Calorie', value: '80cal'},
+  {id: '2', Category: 'Calorie', value: '363cal'},
   {
     id: '3',
     Category: 'Carbohydrates',
-    value: '15.18g',
+    value: '0g',
   },
   {
     id: '4',
     Category: 'Protein',
-    value: '2.29g',
+    value: '36.64g',
   },
   {
     id: '5',
     Category: 'Fat',
-    value: '0.99g',
+    value: '22.83g',
   },
 ];
 
@@ -56,21 +56,21 @@ const MediumServing = [
     header: true,
     value: 'One Serving  (Medium)',
   },
-  {id: '2', Category: 'Calorie', value: '93cal'},
+  {id: '2', Category: 'Calorie', value: '77cal'},
   {
     id: '3',
     Category: 'Carbohydrates',
-    value: '17.71g',
+    value: '0g',
   },
   {
     id: '4',
     Category: 'Protein',
-    value: '2.67g',
+    value: '7.75g',
   },
   {
     id: '5',
     Category: 'Fat',
-    value: '1.15g',
+    value: '4.83g',
   },
 ];
 
@@ -82,21 +82,21 @@ const SmallServings = [
     header: true,
     value: 'One Serving  (Small)',
   },
-  {id: '2', Category: 'Calorie', value: '66cal'},
+  {id: '2', Category: 'Calorie', value: '41cal'},
   {
     id: '3',
     Category: 'Carbohydrates',
-    value: '12.65g',
+    value: '0g',
   },
   {
     id: '4',
     Category: 'Protein',
-    value: '1.91g',
+    value: '4.1g',
   },
   {
     id: '5',
     Category: 'Fat',
-    value: '0.82g',
+    value: '2.56g',
   },
 ];
 
