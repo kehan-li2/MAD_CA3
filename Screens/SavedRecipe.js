@@ -19,21 +19,13 @@ import {
   Image,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
+import {set} from 'react-native-reanimated';
 import {delSavedRecipe, SavedRecipe} from '../DATA/SavedRecipeData';
 const background = require('../image/background.png');
 
 export default function Recipe({navigation}) {
   const [saved, setSaved] = useState(SavedRecipe);
-
-  // use delete the pop up then del (only can delete at this page)
-  // const isSaved = () => {
-  //   if (saved) {
-  //     delSavedRecipe()
-  //     setSaved(false);
-  //   } else {
-  //     setSaved(true);
-  //   }
-  // };
+  const [rerender, setRerender] = useState(false);
 
   const CustomRecipeCard = ({recipe}) => {
     return (
@@ -97,16 +89,19 @@ export default function Recipe({navigation}) {
           size={30}
           type="antDesign"
           // style={{bottom: 10}}
-          onPress={() => handleDelete(recipe.data.recipeName)}
+          onPress={async () => handleDelete(recipe.data.recipeName)}
         />
       </View>
     );
   };
+
   const handleDelete = recipeName => {
+    setRerender(false);
     console.log('no sleep');
     let changed = delSavedRecipe(recipeName);
     console.log(changed);
     setSaved(changed);
+    setRerender(true);
   };
 
   const NoSavedRecipe = () => {
@@ -163,7 +158,7 @@ export default function Recipe({navigation}) {
     );
   };
 
-  const DisplayScreen = ({saved}) => {
+  const DisplayScreen = () => {
     if (saved.length === 0) {
       return (
         <View>
@@ -241,8 +236,9 @@ export default function Recipe({navigation}) {
             Your saved Recipes
           </Text>
         </View>
+        {/* {saved.length === 0 ? <NoSavedRecipe /> : <HaveSavedRecipe />} */}
+        {/* <DisplayScreen /> */}
         {saved.length === 0 ? <NoSavedRecipe /> : <HaveSavedRecipe />}
-        {/* {DisplayScreen({saved})} */}
       </ImageBackground>
     </View>
   );
@@ -291,3 +287,11 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
 });
+
+//------------------------------------
+// const handleDelete = recipeName => {
+//   console.log('no sleep');
+//   let changed = delSavedRecipe(recipeName);
+//   console.log(changed);
+//   setSaved(changed);
+// };

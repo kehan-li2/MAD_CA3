@@ -17,7 +17,7 @@ import {
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 import MyRatingBar from '../Components/RatingBar';
-import addComment, {commentData} from '../DATA/commentData';
+import addComment, {commentData} from '../DATA/CommentData';
 
 // import firebase
 import * as firebase from 'firebase';
@@ -194,7 +194,7 @@ export default function CommentPage({route, navigation}) {
             style={{fontSize: 16}}
             onChangeText={onChangecomment}
             value={comment}
-            placeholder="Leave your comment for this recipe!"
+            placeholder="Leave your comment here!"
           />
           <TouchableOpacity style={{alignSelf: 'center', paddingLeft: 50}}>
             <Icon
