@@ -70,34 +70,6 @@ export default function Homepage({navigation}) {
     setDATA(mealDATA);
   };
 
-  // const renderRecipeDATA = async function (ingredientsDATA, methodDATA) {
-  //   try {
-  //     // console.log(name);
-  //     // console.log(password);
-  //     await AsyncStorage.setItem(STORGAE_INGREDIENTS_KEY, ingredientsDATA); // wait it to finish store the data
-  //     await AsyncStorage.setItem(STORAGE_METHOD_KEY, methodDATA);
-  //     // alert('Data saved!');
-  //     // console.log(STORAGE_METHOD_KEY);
-  //     // return {
-  //     //   ingredientsDATA: STORGAE_INGREDIENTS_KEY,
-  //     //   methodDATA: STORAGE_METHOD_KEY,
-  //     // };
-  //     const RTingredientsDATA = await AsyncStorage.getItem(
-  //       STORGAE_INGREDIENTS_KEY,
-  //     );
-  //     const RTmethodDATA = await AsyncStorage.getItem(STORAGE_METHOD_KEY);
-  //     console.log(RTingredientsDATA);
-  //     console.log(RTmethodDATA);
-
-  //     var obj = {ingredientsDATA: RTingredientsDATA, methodDATA: RTmethodDATA};
-  //     console.log(typeof obj);
-  //     return obj;
-  //   } catch (e) {
-  //     console.log(e);
-  //     alert('Could not save data in storage');
-  //   }
-  // };
-
   return (
     <View style={styles.container}>
       <ImageBackground

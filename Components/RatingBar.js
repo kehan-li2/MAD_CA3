@@ -40,7 +40,7 @@ const MyRatingBar = () => {
 
   return (
     /* View to hold our hearts */
-    <View style={styles.container}>
+    <View style={{paddingBottom: 10}}>
       <RatingBar />
       <Text style={styles.textStyle}>
         {/* To show the user's rating for the recipe*/}

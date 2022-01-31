@@ -1,3 +1,7 @@
+// P2111575
+// LI KEHAN
+// DIT1B04
+// CustomDrawerContent.js
 /* eslint-disable react-native/no-inline-styles  */
 import * as React from 'react';
 import {
@@ -16,9 +20,6 @@ import {
 } from 'react-native';
 const background = require('../image/background.png');
 import {useNavigation} from '@react-navigation/native'; //useNavigation() returns the navigation prop of the screen it's inside.
-// import HomeStack from '../Navigation/StackNavigators';
-// import SettingsPage from '../Screens/8.0-SettingsPage';
-
 // import firebase
 import {authentication} from '../firebase';
 import * as firebase from 'firebase';
@@ -78,28 +79,6 @@ export default function CustomDrawerContent(props) {
             borderTopWidth: 1.5,
             borderTopColor: 'lightgrey',
           }}>
-          {/* <TouchableOpacity
-            onPress={() => {
-              console.log('go to settings page');
-            }}>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                paddingVertical: 10,
-              }}>
-              <Icon name="player-settings" size={30} type="fontisto" />
-              <Text
-                style={{
-                  fontFamily: 'Quicksand-Bold',
-                  fontSize: 15,
-                  marginLeft: 10,
-                }}>
-                Settings
-              </Text>
-            </View>
-          </TouchableOpacity> */}
-
           <TouchableOpacity onPress={handleSignOut}>
             <View
               style={{
