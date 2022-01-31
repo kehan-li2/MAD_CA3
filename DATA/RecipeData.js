@@ -29,7 +29,7 @@ const breakfastDATA = [
     id: '3',
     data: {
       imagePath: require('../image/salad.png'),
-      name: 'Low-Fat Waldorf Salad',
+      name: 'Waldorf Salad',
       serving: '4',
       calories: '163 kcal',
       ingredients:
@@ -42,7 +42,7 @@ const breakfastDATA = [
     id: '4',
     data: {
       imagePath: require('../image/pancake.png'),
-      name: 'Berry Yoghurt',
+      name: 'Oat pancake',
       serving: '4',
       calories: '58 kcal',
       ingredients:
@@ -70,7 +70,7 @@ const lunchDATA = [
     id: '2',
     data: {
       imagePath: require('../image/pesta.png'),
-      name: 'Vegetarian Wrap',
+      name: 'Vegetarian Pesta',
       serving: '4',
       calories: '150 kcal',
       ingredients:
@@ -96,7 +96,7 @@ const lunchDATA = [
     id: '4',
     data: {
       imagePath: require('../image/sandwich.png'),
-      name: 'Berry Yoghurt',
+      name: 'Tasty Sandwich',
       serving: '4',
       calories: '58 kcal',
       ingredients:
@@ -111,7 +111,7 @@ const dinnerDATA = [
     id: '1',
     data: {
       imagePath: require('../image/spaghetti.png'),
-      name: 'Salmon Fillet with Honey Spice Sauce',
+      name: 'Brocoli Spaghetti',
       serving: '4',
       calories: '205 kcal',
       ingredients:
@@ -124,7 +124,7 @@ const dinnerDATA = [
     id: '2',
     data: {
       imagePath: require('../image/potatocake.png'),
-      name: 'Vegetrap',
+      name: 'Potato cake',
       serving: '4',
       calories: '150 kcal',
       ingredients:
@@ -137,7 +137,7 @@ const dinnerDATA = [
     id: '3',
     data: {
       imagePath: require('../image/pasta.png'),
-      name: 'Tomato Herb Chicken',
+      name: 'Great Pasta',
       serving: '4',
       calories: '158 kcal',
       ingredients:
@@ -150,7 +150,7 @@ const dinnerDATA = [
     id: '4',
     data: {
       imagePath: require('../image/curry.png'),
-      name: 'Berry Yoghurt',
+      name: 'Curry rice',
       serving: '4',
       calories: '58 kcal',
       ingredients:

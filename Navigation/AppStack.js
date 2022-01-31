@@ -42,13 +42,13 @@ export default function AppDrawer() {
           drawerIcon: () => <Icon name="home" size={35} type="ionicons" />,
         }}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name="Liked Recipes"
         component={RatedPage}
         options={{
           drawerIcon: () => <Icon name="heart" size={30} type="antdesign" />,
         }}
-      />
+      /> */}
       <Drawer.Screen
         name="Saved Recipes"
         component={SavedPage}
