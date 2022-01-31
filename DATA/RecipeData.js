@@ -137,7 +137,7 @@ const dinnerDATA = [
     id: '3',
     data: {
       imagePath: require('../image/pasta.png'),
-      name: 'Great Pasta',
+      name: 'Greate Pasta',
       serving: '4',
       calories: '158 kcal',
       ingredients:
