@@ -17,11 +17,12 @@ import {
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 import MyRatingBar from '../Components/RatingBar';
-import addComment, {commentData} from '../DATA/commentData.js';
+import addComment, {commentData} from '../DATA/CommentData';
 
 // import firebase
 import * as firebase from 'firebase';
 import Mydivider from '../Components/Divider';
+import {Form} from 'react-native-form-component';
 
 const background = require('../image/background.png');
 

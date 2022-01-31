@@ -87,9 +87,9 @@ const lunchDATA = [
       serving: '4',
       calories: '158 kcal',
       ingredients:
-        '400g of whole chicken breasts;3 tbsp of lemon juice;2 tomatoes, thinly sliced;20g of chopped parsley;1 tbsp of olive oil*;Salt and pepper, to taste',
+        'Salmon fillet, 100g-120g each 4;Honey, ready in bottle 3 tbsp;Garlic powder ½tsp;Olive oil 1 tbsp;Hot water 2 tbsp;Lemon peel, grated 1 tsp;Lemon, sliced 12;Spring Onion, shredded;Salt & pepper, to taste',
       method:
-        'Put the chicken breasts into an oven-proof dish and brush them with lemon juice and olive oil.;Season lightly with salt and pepper.;Cover and leave aside to marinate for 30 mins.;In a pre-heated oven at 130°C, bake the chicken breasts for about 20 minutes.;Top with thinly sliced tomatoes and bake for another 5 minutes.;Garnish with fresh, chopped parsley and serve immediately.',
+        'Place honey, lemon peel, garlic powder and hot water in a small bowl and whisk until well blended.;Brush the mixture to coat the salmon fillets on both sides.;Marinate for 45 minutes in the refrigerator.;Season the salmon fillets with salt and pepper. • Heat olive oil in a skillet over medium heat.;Carefully place the salmon fillets on the skillet and cook for 4–5 minutes.;Using tongs, turn the salmon fillets.;Reduce heat to medium-low if necessary. Cook salmon fillets until they flake easily using a fork.;Garnish salmon fillets with shredded spring onion and sliced lemon. Serve hot.',
     },
   },
   {
