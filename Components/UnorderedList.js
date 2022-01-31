@@ -1,11 +1,12 @@
+// P2111575
+// LI KEHAN
+// DIT1B04
+// UnorderedList.js
+/* eslint-disable react-native/no-inline-styles  */
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Text, StyleSheet} from 'react-native';
 import Unorderedlist from 'react-native-unordered-list';
-
-// let recipeDATA =
-//   'Salmon fillet, 100g-120g each 4;Honey, ready in bottle 3 tbsp;Garlic powder ½tsp;Olive oil 1 tbsp;Hot water 2 tbsp;Lemon peel, grated 1 tsp;Lemon, sliced 12;Spring Onion, shredded;Salt & pepper, to taste';
-// recipeDATA = recipeDATA.split(';');
 
 function renderList(recipeDATA) {
   console.log(recipeDATA);
@@ -27,15 +28,12 @@ function renderList(recipeDATA) {
 
 export default class UnorderedList extends Component {
   render() {
-    // const {bulletUnicode, color, text} = this.props;
     const {recipeDATA} = this.props;
     return renderList(recipeDATA);
   }
 }
 
 UnorderedList.propTypes = {
-  //   bulletUnicode: PropTypes.number.isRequired,
-  //   color: PropTypes.string.isRequired,
   recipeDATA: PropTypes.string.isRequired,
 };
 
@@ -53,13 +51,3 @@ const styles = StyleSheet.create({
     lineHeight: 30,
   },
 });
-
-// render() {
-//     // const {bulletUnicode, color, text} = this.props;
-//     const {text} = this.props;
-//     return (
-//       <Unorderedlist bulletUnicode={0x2765} color="black" style={styles.bullet}>
-//         <Text style={styles.bulletTxt}>{text}</Text>
-//       </Unorderedlist>
-//     );
-//   }

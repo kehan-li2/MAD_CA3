@@ -21,6 +21,7 @@ import addComment, {commentData} from '../DATA/CommentData';
 
 // import firebase
 import * as firebase from 'firebase';
+import Mydivider from '../Components/Divider';
 
 const background = require('../image/background.png');
 
@@ -162,8 +163,7 @@ export default function CommentPage({route, navigation}) {
           <Text style={styles.title}>{recipeName}</Text>
         </View>
         <MyRatingBar />
-        <View style={styles.lineStyle} />
-
+        <Mydivider />
         {/* recipes display */}
         <View style={{maxHeight: '45%', paddingTop: '3%'}}>
           <FlatList
@@ -190,24 +190,25 @@ export default function CommentPage({route, navigation}) {
             flexDirection: 'row',
           }}>
           <TextInput
-            maxLength={30}
+            maxLength={22}
             style={{fontSize: 16}}
             onChangeText={onChangecomment}
             value={comment}
             placeholder="Leave your comment here!"
           />
-          <TouchableOpacity style={{alignSelf: 'center', paddingLeft: 50}}>
+          <TouchableOpacity style={{alignSelf: 'center', marginLeft: 110}}>
             <Icon
               name="send"
               size={32}
               color="black"
               type="fontAwesome"
-              onPress={() =>
+              onPress={
+                (() => onChangecomment(''),
                 addComment({
                   name: displayName,
                   time: new Date().toLocaleString(),
                   comment: comment,
-                })
+                }))
               }
             />
           </TouchableOpacity>
