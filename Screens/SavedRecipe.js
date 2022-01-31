@@ -25,7 +25,18 @@ const background = require('../image/background.png');
 
 export default function Recipe({navigation}) {
   const [saved, setSaved] = useState(SavedRecipe);
-  const [rerender, setRerender] = useState(false);
+  const [rerender, setRerender] = useState();
+
+  React.useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      console.log('Running');
+      setSaved(SavedRecipe);
+      SavedRecipe.length === 0
+        ? setRerender(NoSavedRecipe)
+        : setRerender(HaveSavedRecipe);
+    });
+    return unsubscribe;
+  }, [navigation]);
 
   const CustomRecipeCard = ({recipe}) => {
     return (
@@ -89,7 +100,7 @@ export default function Recipe({navigation}) {
           size={30}
           type="antDesign"
           // style={{bottom: 10}}
-          onPress={async () => handleDelete(recipe.data.recipeName)}
+          onPress={() => handleDelete(recipe.data.recipeName)}
         />
       </View>
     );
@@ -101,7 +112,10 @@ export default function Recipe({navigation}) {
     let changed = delSavedRecipe(recipeName);
     console.log(changed);
     setSaved(changed);
-    setRerender(true);
+    setRerender(HaveSavedRecipe);
+    if (changed.length === 0) {
+      setRerender(NoSavedRecipe);
+    }
   };
 
   const NoSavedRecipe = () => {
@@ -159,6 +173,7 @@ export default function Recipe({navigation}) {
   };
 
   const DisplayScreen = () => {
+    console.log(saved);
     if (saved.length === 0) {
       return (
         <View>
@@ -238,7 +253,7 @@ export default function Recipe({navigation}) {
         </View>
         {/* {saved.length === 0 ? <NoSavedRecipe /> : <HaveSavedRecipe />} */}
         {/* <DisplayScreen /> */}
-        {saved.length === 0 ? <NoSavedRecipe /> : <HaveSavedRecipe />}
+        {rerender}
       </ImageBackground>
     </View>
   );
