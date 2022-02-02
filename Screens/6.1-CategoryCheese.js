@@ -18,6 +18,7 @@ import {
   SmallServings,
 } from '../DATA/6.1-CategoryCheesedb';
 
+import {GoBackButton} from '../Components/BackButton';
 // import CustomButton from '../Components/CustomButton';
 import {Icon} from 'react-native-elements';
 
@@ -105,17 +106,7 @@ export default function Elaborated({navigation}) {
           opacity: 0.1,
           resizeMode: 'stretch',
         }}>
-        <View
-          style={{alignSelf: 'flex-start', paddingLeft: '5%', paddingTop: 10}}>
-          {/* here should be link to another page*/}
-          <Icon
-            name="arrow-back"
-            size={38}
-            style={styles.arrow}
-            type="materialIcons"
-            onPress={() => navigation.navigate('FoodListScreen')}
-          />
-        </View>
+        <GoBackButton navigation={navigation} />
         <View
           style={{
             justifyContent: 'center',

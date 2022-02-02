@@ -5,7 +5,7 @@ import {View, Text, StyleSheet, Image, Alert} from 'react-native';
 
 import {Icon} from 'react-native-elements';
 import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
-
+import {GoBackButton} from '../Components/BackButton';
 import {ElaboratedMeatsdb} from '../DATA/6.1-CategoryMeatsdb';
 
 const Item = ({item, navigation}) => {
@@ -83,16 +83,8 @@ export default function Category({navigation}) {
     //   <Text>Category</Text>
     // </View>
     <View style={{flex: 1, alignContent: 'center'}}>
-      <View
-        style={{alignSelf: 'flex-start', paddingLeft: '5%', paddingTop: 10}}>
-        {/* here should be link to home page*/}
-        <Icon
-          name="arrow-back"
-          size={38}
-          style={styles.arrow}
-          type="materialIcons"
-          onPress={() => navigation.goBack()}
-        />
+      <View>
+        <GoBackButton navigation={navigation} />
         <Text style={styles.title}>Low GI - Main Food</Text>
       </View>
       <View style={{marginTop: 60}}>

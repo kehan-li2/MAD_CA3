@@ -15,7 +15,7 @@ import {
   Alert,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
-
+import {GoBackHome} from '../Components/BackButton';
 import {FoodListdb} from '../DATA/FoodListdb';
 
 export default function FoodList({navigation}) {
@@ -61,17 +61,7 @@ export default function FoodList({navigation}) {
           opacity: 0.1,
           resizeMode: 'cover',
         }}>
-        <View
-          style={{alignSelf: 'flex-start', paddingLeft: '5%', paddingTop: 10}}>
-          {/* here should be link to home page*/}
-          <Icon
-            name="arrow-back"
-            size={38}
-            style={styles.arrow}
-            type="materialIcons"
-            onPress={() => navigation.navigate('HomeScreen')}
-          />
-        </View>
+        <GoBackHome navigation={navigation} />
 
         <View style={styles.TextInput}>
           <Image

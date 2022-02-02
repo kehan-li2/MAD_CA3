@@ -40,11 +40,13 @@
     "react-native-gesture-handler": "^2.1.1",
     "react-native-icon-button": "^1.0.0",
     "react-native-icons": "^0.7.1",
+    "react-native-onboarding-swiper": "^1.2.0",
     "react-native-paper": "^4.11.1",
     "react-native-reanimated": "2.2.4",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.10.1",
     "react-native-social-buttons": "^1.2.0",
+    "react-native-splash-screen": "^3.3.0",
     "react-native-unordered-list": "^1.0.4",
     "react-native-vector-icons": "^9.0.0",
     "yup": "^0.32.11"

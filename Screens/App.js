@@ -6,13 +6,17 @@
 
 import {LogBox} from 'react-native';
 LogBox.ignoreLogs(['Reanimated 2']);
-
+import SplashScreen from 'react-native-splash-screen';
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 
 import WholeStack from '../Navigation/WholeStack';
 
 export default function App() {
+  React.useEffect(() => {
+    SplashScreen.hide();
+  });
+
   return (
     <NavigationContainer>
       <WholeStack />

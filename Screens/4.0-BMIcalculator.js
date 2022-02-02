@@ -24,6 +24,7 @@ import {Picker} from '@react-native-picker/picker';
 import {RadioButton} from 'react-native-paper';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import {GoBackHome} from '../Components/BackButton';
 
 // Animated Error Messages
 import * as Animatable from 'react-native-animatable';
@@ -77,16 +78,7 @@ export default function BMIcalculator({navigation}) {
         resizeMode="cover"
         style={styles.background}
         imageStyle={{opacity: 0.1}}>
-        <View style={{alignSelf: 'flex-start', paddingLeft: '5%'}}>
-          {/* here should be link to another page*/}
-          <Icon
-            name="arrow-back"
-            size={38}
-            style={styles.arrow}
-            type="materialIcons"
-            onPress={() => navigation.navigate('HomeScreen')}
-          />
-        </View>
+        <GoBackHome navigation={navigation} />
         <Text style={styles.title}>BMI Calculator</Text>
         <Text style={styles.description}>
           Our calculator will provide you with daily recommended calories intake
@@ -281,7 +273,7 @@ export default function BMIcalculator({navigation}) {
           style={{
             width: '100%',
             position: 'absolute',
-            top: '26%',
+            top: '26.7%',
             flexDirection: 'row',
             justifyContent: 'space-around',
             paddingHorizontal: 20,

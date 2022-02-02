@@ -23,7 +23,7 @@ import addComment, {commentData} from '../DATA/commentData';
 import * as firebase from 'firebase';
 import Mydivider from '../Components/Divider';
 import {Form} from 'react-native-form-component';
-
+import {GoBackButton} from '../Components/BackButton';
 const background = require('../image/background.png');
 
 const Item = ({item}) => {
@@ -139,17 +139,8 @@ export default function CommentPage({route, navigation}) {
             borderBottomLeftRadius: 60,
             borderBottomRightRadius: 60,
           }}>
-          <View style={{alignSelf: 'flex-start', paddingLeft: '4%'}}>
-            {/* here should be link to another page*/}
-            <Icon
-              name="arrow-back"
-              size={38}
-              color="black"
-              style={styles.arrow}
-              type="materialIcons"
-              onPress={() => navigation.goBack()}
-            />
-          </View>
+          <GoBackButton navigation={navigation} />
+
           <Image
             style={{
               width: '30%',
@@ -205,11 +196,12 @@ export default function CommentPage({route, navigation}) {
               type="fontAwesome"
               onPress={
                 (() => onChangecomment(''),
-                addComment({
-                  name: displayName,
-                  time: new Date().toLocaleString(),
-                  comment: comment,
-                }))
+                () =>
+                  addComment({
+                    name: displayName,
+                    time: new Date().toLocaleString(),
+                    comment: comment,
+                  }))
               }
             />
           </TouchableOpacity>
