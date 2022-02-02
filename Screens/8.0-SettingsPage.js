@@ -14,6 +14,8 @@ import {
 
 import {Icon} from 'react-native-elements';
 const background = require('../image/background.png');
+// importing of back button
+import CustomBackButton from '../Components/CustomBackButton';
 
 // should use sectionlist
 export default function SettingsPage({navigation}) {
@@ -114,6 +116,10 @@ export default function SettingsPage({navigation}) {
             type="materialIcons"
             onPress={() => navigation.navigate('HomeScreen')}
           />
+          {/* <CustomBackButton
+            style={{paddingTop: 10}}
+            onpress={navigation.navigate('HomeScreen')}
+          /> */}
         </View>
         <Text
           style={{

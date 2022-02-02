@@ -2,24 +2,24 @@
 // LI KEHAN
 // DIT1B04
 // Saved Recipe.js
+
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles  */
 
 // realm storage to store comment(advance feature)
 // and the json to store those recipe fixed data
 
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
   ImageBackground,
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
-  ScrollView,
   FlatList,
   Image,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
-import {set} from 'react-native-reanimated';
 import {delSavedRecipe, SavedRecipe} from '../DATA/SavedRecipeData';
 const background = require('../image/background.png');
 
