@@ -12,8 +12,6 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import {Icon} from 'react-native-elements';
 
 import BottomTabNavigator from './TabNavigator';
-import CommentPage from '../Screens/Comment';
-import RatedPage from '../Screens/Rated';
 import SavedPage from '../Screens/SavedRecipe';
 import CustomDrawerContent from '../Components/CustomDrawerContent';
 import SettingsPage from '../Screens/8.0-SettingsPage';

@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 
 import {Icon} from 'react-native-elements';
+import {GoBackButton} from '../Components/BackButton';
 
 import ResponsiveImage from '../Components/ResponsiveImage';
 
@@ -103,19 +104,7 @@ export default function BMIResult({route, navigation}) {
           width: '100%',
         }}>
         <View style={{flexDirection: 'row'}}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('BMICalculatorScreen')}>
-            <Image
-              source={require('../image/Icons/backArrow.png')}
-              resizeMode="contain"
-              style={{
-                width: 38,
-                height: 38,
-                marginTop: 15,
-                marginHorizontal: 15,
-              }}
-            />
-          </TouchableOpacity>
+          <GoBackButton navigation={navigation} />
           <Text style={styles.header}>Your BMI Is: {BMI}</Text>
         </View>
         <View>
@@ -280,7 +269,7 @@ export default function BMIResult({route, navigation}) {
                     fontSize: 13,
                     color: 'white',
                   }}>
-                  Savour the juicy vegetables along side {' '} a taut tortilla.
+                  Savour the juicy vegetables along side a taut tortilla.
                 </Text>
                 <Text
                   style={{
@@ -364,7 +353,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontFamily: 'Quicksand-Bold',
     marginTop: 40,
-    marginLeft: 10,
+    marginLeft: 28,
     justifyContent: 'center',
     textAlign: 'center',
   },

@@ -12,6 +12,7 @@ import {
   Button,
 } from 'react-native';
 
+import {GoBackHome} from '../Components/BackButton';
 import {Icon} from 'react-native-elements';
 const background = require('../image/background.png');
 
@@ -105,16 +106,7 @@ export default function SettingsPage({navigation}) {
         resizeMode="cover"
         style={styles.background}
         imageStyle={{opacity: 0.1}}>
-        <View style={{alignSelf: 'flex-start', paddingLeft: '4.5%'}}>
-          {/* here should be link to another page*/}
-          <Icon
-            name="arrow-back"
-            size={38}
-            iconStyle={{marginTop: 10}}
-            type="materialIcons"
-            onPress={() => navigation.navigate('HomeScreen')}
-          />
-        </View>
+        <GoBackHome navigation={navigation} />
         <Text
           style={{
             fontFamily: 'Quicksand-Bold',

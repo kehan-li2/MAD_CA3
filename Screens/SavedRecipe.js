@@ -20,6 +20,7 @@ import {
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 import {set} from 'react-native-reanimated';
+import {GoBackButton} from '../Components/BackButton';
 import {delSavedRecipe, SavedRecipe} from '../DATA/SavedRecipeData';
 const background = require('../image/background.png');
 
@@ -38,7 +39,7 @@ export default function Recipe({navigation}) {
     return unsubscribe;
   }, [navigation]);
 
-  const CustomRecipeCard = ({recipe}) => {
+  const CustomRecipeCard = ({recipe, navigation}) => {
     return (
       <View
         style={{
@@ -235,16 +236,8 @@ export default function Recipe({navigation}) {
         resizeMode="cover"
         style={styles.background}
         imageStyle={{opacity: 0.1}}>
-        <View style={{alignSelf: 'flex-start', paddingLeft: '5%'}}>
-          {/* here should be link to another page*/}
-          <Icon
-            name="arrow-back"
-            size={38}
-            style={styles.arrow}
-            type="materialIcons"
-            onPress={() => navigation.goBack()}
-          />
-        </View>
+        <GoBackButton navigation={navigation} />
+
         <View style={{alignContent: 'center'}}>
           <Text
             style={[styles.title, {textAlign: 'center', alignSelf: 'center'}]}>
