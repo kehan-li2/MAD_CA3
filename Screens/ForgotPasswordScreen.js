@@ -4,7 +4,7 @@
 // ForgotPasswordScreen.js
 
 /* eslint-disable react-native/no-inline-styles */
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,

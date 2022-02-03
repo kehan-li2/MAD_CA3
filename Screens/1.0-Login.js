@@ -6,7 +6,7 @@
 
 /* eslint-disable react-native/no-inline-styles  */
 
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {
   View,
   Text,
@@ -16,7 +16,6 @@ import {
   ScrollView,
   ImageBackground,
   Image,
-  Button,
 } from 'react-native';
 
 import CustomInput from '../Components/CustomInput';
@@ -27,32 +26,12 @@ import {TwitterSocialButton} from 'react-native-social-buttons';
 import {FacebookSocialButton} from 'react-native-social-buttons';
 
 // import firebase
-// import {auth} from '../firebase';
+
 import {authentication} from '../firebase';
-// import {signInWithPopup, GoogleAuthProvider} from 'firebase/auth';
 
 import * as Animatable from 'react-native-animatable';
 
-// import auth from '@react-native-firebase/auth';
-// import {GoogleSignin} from '@react-native-google-signin/google-signin';
-
 export default function LoginPage({navigation}) {
-  // GoogleSignin.configure({
-  //   webClientId:
-  //     '577222033697-ssnh0fusb7ndl0v819o2i4ad085gkils.apps.googleusercontent.com',
-  // });
-
-  // async function onGoogleButtonPress() {
-  //   // Get the users ID token
-  //   const {idToken} = await GoogleSignin.signIn();
-
-  //   // Create a Google credential with the token
-  //   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-
-  //   // Sign-in the user with the credential
-  //   return auth().signInWithCredential(googleCredential);
-  // }
-
   const [data, setData] = React.useState({
     email: '',
     password: '',
@@ -202,9 +181,6 @@ export default function LoginPage({navigation}) {
 
           <CustomButton text="Sign In" onPress={handleLogin} type="PRIMARY" />
 
-          {/* <TouchableOpacity onPress={handleLogin}>
-            <Text> Sign in</Text>
-          </TouchableOpacity> */}
           <View
             style={{flexDirection: 'row', marginTop: 30, marginHorizontal: 36}}>
             <TwitterSocialButton
@@ -215,7 +191,6 @@ export default function LoginPage({navigation}) {
                 paddingBottom: 6,
               }}
               buttonViewStyle={{width: 150}}
-              // onPress={signInWithGoogleAsync}
             />
             <FacebookSocialButton
               buttonText={'Facebook'}
@@ -225,9 +200,6 @@ export default function LoginPage({navigation}) {
                 paddingBottom: 6,
               }}
               buttonViewStyle={{width: 150}}
-              onPress={() => {
-                Alert.alert('Logged In Using Facebook');
-              }}
             />
           </View>
           <View

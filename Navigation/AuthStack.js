@@ -6,8 +6,8 @@
 import React, {useState, useEffect} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import SignUp from '../Screens/SignUp';
-import Login from '../Screens/Login';
+import SignUp from '../Screens/2.0-SignUp';
+import Login from '../Screens/1.0-Login';
 import ForgotPassWordScreen from '../Screens/ForgotPasswordScreen';
 import OnboardingScreen from '../Screens/OnboardingScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';

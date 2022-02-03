@@ -22,7 +22,6 @@ import addComment, {commentData} from '../DATA/commentData';
 // import firebase
 import * as firebase from 'firebase';
 import Mydivider from '../Components/Divider';
-import {Form} from 'react-native-form-component';
 import {GoBackButton} from '../Components/BackButton';
 const background = require('../image/background.png');
 
@@ -83,15 +82,6 @@ const Item = ({item}) => {
     </View>
   );
 };
-
-// const CommentPage = ({navigation}) => {
-//  const [data, setData] = useState([
-//   arrayElement1,
-//   element2,
-//   element3
-// ])
-// data[0]
-// }
 
 export default function CommentPage({route, navigation}) {
   const [DATA, setDATA] = useState(commentData);

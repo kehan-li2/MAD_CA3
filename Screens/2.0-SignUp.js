@@ -29,18 +29,6 @@ import {authentication} from '../firebase';
 import * as firebase from 'firebase';
 
 export default function SignUp({navigation}) {
-  // const [username, setUsername] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [passwordRepeat, setPasswordRepeat] = useState('');
-
-  // const initialValues = {
-  //   username,
-  //   email,
-  //   password,
-  //   passwordRepeat,
-  // };
-
   const [checkboxState, setCheckboxState] = React.useState(false);
 
   const [data, setData] = React.useState({
@@ -116,37 +104,6 @@ export default function SignUp({navigation}) {
     }
   };
 
-  // const [formValues, setFormValues] = useState(initialValues);
-  // const [formErrors, setFormErrors] = useState({});
-  // const [isSubmit, setIsSubmit] = useState(false);
-
-  // const handleSubmit = e => {
-  //   setFormErrors(validate(formValues));
-  //   setIsSubmit(true);
-  // };
-
-  // useEffect(() => {
-  //   console.log(formErrors);
-  //   if (Object.keys(formErrors).length === 0 && isSubmit) {
-  //     console.log(formValues);
-  //   }
-  // }, [formErrors, formValues, isSubmit]);
-
-  // const validate = values => {
-  //   const errors = {};
-  //   const regex = /^[^\s@]+@[^\s@]+\.[^\@]{2,}$/i;
-  //   if (!values.username) {
-  //     errors.username = 'Username is required!';
-  //   }
-  //   if (!values.email) {
-  //     errors.email = 'Email is required!';
-  //   }
-  //   if (!values.password) {
-  //     errors.password = 'Password is required!';
-  //   }
-  //   return errors;
-  // };
-
   const handleSignUp = () => {
     if (checkboxState) {
       authentication
@@ -172,14 +129,6 @@ export default function SignUp({navigation}) {
   };
 
   return (
-    // <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-    //   <Text>Sign up</Text>
-    //   <Button
-    //     title="Login after Sign Up"
-    //     onPress={() => navigation.navigate('LoginScreen')}>
-    //     Login after Sign Up
-    //   </Button>
-    // </View>
     <ScrollView>
       <ImageBackground
         source={require('../image/background.png')}
@@ -239,12 +188,6 @@ export default function SignUp({navigation}) {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            {/* <CheckBox
-              value={isSelected}
-              onValueChange={setSelection}
-              require="required"
-              style={{marginRight: 10}}
-            /> */}
             <BouncyCheckbox
               iconStyle={{
                 borderRadius: 6,

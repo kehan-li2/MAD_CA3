@@ -16,18 +16,13 @@ import {
   Image,
   Dimensions,
   ScrollView,
-  useEffect,
 } from 'react-native';
-import {Icon} from 'react-native-elements';
 import {useForm, Controller} from 'react-hook-form';
 import {Picker} from '@react-native-picker/picker';
 import {RadioButton} from 'react-native-paper';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import {GoBackHome} from '../Components/BackButton';
-
-// Animated Error Messages
-import * as Animatable from 'react-native-animatable';
 
 const schema = yup.object({
   age: yup.number().positive().integer().required(),

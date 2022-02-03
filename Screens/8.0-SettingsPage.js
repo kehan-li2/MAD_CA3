@@ -13,8 +13,6 @@ import {
   View,
   TouchableOpacity,
   FlatList,
-  Image,
-  Button,
 } from 'react-native';
 
 import {GoBackHome} from '../Components/BackButton';
@@ -135,9 +133,6 @@ export default function SettingsPage({navigation}) {
           <FlatListItemSeparator />
         </View>
         <FlatList data={db} renderItem={renderItem} />
-        {/* <Button title="go back" onPress={() => navigation.navigate('HomeScreen')}>
-        Go back
-      </Button> */}
       </ImageBackground>
     </View>
   );
