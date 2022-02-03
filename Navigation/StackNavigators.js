@@ -41,28 +41,13 @@ const Stack = createNativeStackNavigator(); // create stack navigator
 const HomeStack = () => {
   return (
     <Stack.Navigator
+      initialRouteName="HomeScreen"
       screenOptions={{
         headerShown: false,
-        headerTransparent: true,
-        headerShadowVisible: false, // to hide shadow when header is set to transparent
-        headerTitle: '', // to set title as empty
-        // header:layout,back
       }}>
-      <Stack.Screen
-        name="HomeScreen"
-        component={Homepage}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="RecipeScreen"
-        component={RecipePage}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="CommentScreen"
-        component={CommentPage}
-        options={{headerShown: false}}
-      />
+      <Stack.Screen name="HomeScreen" component={Homepage} />
+      <Stack.Screen name="RecipeScreen" component={RecipePage} />
+      <Stack.Screen name="CommentScreen" component={CommentPage} />
       <Stack.Screen name="SettingsScreen" component={SettingsPage} />
     </Stack.Navigator>
   );

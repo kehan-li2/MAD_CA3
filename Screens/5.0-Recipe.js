@@ -17,7 +17,7 @@ import {
 import {Icon} from 'react-native-elements';
 import UnorderedList from '../Components/UnorderedList';
 import {addSavedRecipe, delSavedRecipe} from '../DATA/SavedRecipeData';
-import {GoBackButton} from '../Components/BackButton';
+import {GoBackHome} from '../Components/BackButton';
 
 const background = require('../image/background.png');
 
@@ -62,7 +62,7 @@ export default function Recipe({route, navigation}) {
         resizeMode="cover"
         style={styles.background}
         imageStyle={{opacity: 0.1}}>
-        <GoBackButton navigation={navigation} />
+        <GoBackHome navigation={navigation} />
         <View style={{alignContent: 'center'}}>
           <Text
             style={[styles.title, {textAlign: 'center', alignSelf: 'center'}]}>
