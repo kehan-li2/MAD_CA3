@@ -76,7 +76,6 @@ export default function Recipe({navigation}) {
                 width: '90%',
                 height: '95%',
                 alignSelf: 'center',
-                // notice a bit see if the radius is work as now the image got border
                 borderRadius: 30,
               }}
               source={recipe.data.recipeImage}
@@ -182,8 +181,6 @@ export default function Recipe({navigation}) {
             Your saved Recipes
           </Text>
         </View>
-        {/* {saved.length === 0 ? <NoSavedRecipe /> : <HaveSavedRecipe />} */}
-        {/* <DisplayScreen /> */}
         {rerender}
       </ImageBackground>
     </View>
@@ -204,10 +201,6 @@ const styles = StyleSheet.create({
     color: '#ff6624',
     fontFamily: 'Quicksand-Bold',
   },
-  arrow: {
-    paddingTop: 10,
-  },
-
   button: {
     flex: 1,
     width: '70%',
@@ -233,11 +226,3 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
 });
-
-//------------------------------------
-// const handleDelete = recipeName => {
-//   console.log('no sleep');
-//   let changed = delSavedRecipe(recipeName);
-//   console.log(changed);
-//   setSaved(changed);
-// };

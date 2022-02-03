@@ -218,6 +218,3 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
 });
-
-// Problem need to solve
-// 1. custom font

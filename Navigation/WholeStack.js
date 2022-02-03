@@ -21,6 +21,3 @@ const WholeStack = () => {
 };
 
 export default WholeStack;
-
-// wholeStack : auth+app
-// appStack: {drawer:{whole bootomTab stack}, comment, saved, rated}

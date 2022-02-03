@@ -4,12 +4,10 @@
 // TabNavigator.js
 
 // Tab navigator
-
 import * as React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-// import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {HomeStack, CalculatorStack, FoodListStack} from './StackNavigators';
@@ -24,7 +22,6 @@ export default function TabNavigator() {
         headerShown: false,
         tabBarShowLabel: false, // to hide the label
         tabBarHideOnKeyboard: true, // hide the bottom tab when keyboard open
-        // tabBarStyle: {backgroundColor: '#ffe9d4'},
         tabBarInactiveTintColor: 'black',
         tabBarActiveTintColor: 'tomato',
       }}>
@@ -59,14 +56,3 @@ export default function TabNavigator() {
     </Tab.Navigator>
   );
 }
-
-// const getTabBarVisibility = route => {
-//   // console.log(route);
-//   const routeName = getFocusedRouteNameFromRoute(route) ?? 'Feed';
-//   // console.log(routeName);
-
-//   if (routeName === 'Login') {
-//     return 'none';
-//   }
-//   return 'flex';
-// };

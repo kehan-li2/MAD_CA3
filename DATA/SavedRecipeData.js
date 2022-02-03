@@ -3,17 +3,7 @@
 // DIT1B04
 // SavedRecipeData.js
 
-let SavedRecipe = [
-  // {
-  //   id: '1',
-  //   data: {
-  //     recipeName: 'yogurt',
-  //     recipeImage: require('../image/user2.png'),
-  //     ingredients: 'sahdjgk;sdasd;sdasds;ad;sadsa;dsa;dsa;dsa;dasd;',
-  //     methods: 'dsasadsdsa;sadsadsadsad;sdsadsdsadsa;sadsadas;',
-  //   },
-  // },
-];
+let SavedRecipe = [];
 
 const addSavedRecipe = newRecipe => {
   SavedRecipe.push({
@@ -43,4 +33,3 @@ const delSavedRecipe = delRecipeName => {
 };
 
 export {addSavedRecipe, delSavedRecipe, SavedRecipe};
-// export default addSavedRecipe;

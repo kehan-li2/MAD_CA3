@@ -53,15 +53,6 @@ const addComment = newComment => {
     },
   });
 };
-// addComment({
-//   // id: '4',
-//   // data: {
-//   // userImage: require('../image/user5.png'),
-//   name: 'Harry',
-//   time: '01-01-2022 4:23pm',
-//   comment: 'Delicious to the core!',
-// });
 
-// console.log(commentData);
 export {commentData};
 export default addComment;

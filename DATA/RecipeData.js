@@ -166,28 +166,4 @@ const dinnerDATA = [
   },
 ];
 
-// const STORGAE_BREAKFAST_KEY = '@save_breakfast';
-// const STORGAE_LUNCH_KEY = '@save_lunch';
-// const STORGAE_DINNER_KEY = '@save_dinner';
-
-// const saveRecipe = async () => {
-//   try {
-//     // wait it to finish store the data
-//     await AsyncStorage.setItem(
-//       STORGAE_BREAKFAST_KEY,
-//       JSON.stringify(breakfastDATA),
-//     );
-//     await AsyncStorage.setItem(STORGAE_LUNCH_KEY, JSON.stringify(lunchDATA));
-//     await AsyncStorage.setItem(STORGAE_DINNER_KEY, JSON.stringify(dinnerDATA));
-
-//     alert('Data saved!');
-//   } catch (e) {
-//     console.log(e);
-//     alert('Could not save data in storage');
-//   }
-// };
-
-// saveRecipe();
-// console.log(STORGAE_BREAKFAST_KEY);
-// export {STORGAE_BREAKFAST_KEY, STORGAE_LUNCH_KEY, STORGAE_DINNER_KEY};
 export {breakfastDATA, lunchDATA, dinnerDATA};

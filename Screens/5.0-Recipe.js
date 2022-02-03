@@ -4,9 +4,6 @@
 // 5.0-Recipe.js
 /* eslint-disable react-native/no-inline-styles  */
 
-// realm storage to store comment(advance feature)
-// and the json to store those recipe fixed data
-
 import React, {useState} from 'react';
 import {
   ImageBackground,
@@ -195,10 +192,6 @@ const styles = StyleSheet.create({
     color: '#ff6624',
     fontFamily: 'Quicksand-Bold',
   },
-  arrow: {
-    paddingTop: 10,
-  },
-
   button: {
     flex: 1,
     width: '28%',
@@ -214,16 +207,4 @@ const styles = StyleSheet.create({
     fontSize: 19,
     fontFamily: 'Quicksand-Bold',
   },
-  // bulletTxt: {
-  //   lineHeight: 30,
-  //   left: 50,
-  //   fontSize: 18,
-  //   color: 'black',
-  //   fontFamily: 'Quicksand-SemiBold',
-  // },
-  // bullet: {
-  //   fontSize: 20,
-  //   left: 50,
-  //   lineHeight: 30,
-  // },
 });

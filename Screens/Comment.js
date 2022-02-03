@@ -208,17 +208,6 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
   },
-  arrow: {
-    paddingTop: 10,
-  },
-  lineStyle: {
-    width: '88%',
-    borderWidth: 1,
-    alignSelf: 'center',
-    borderStyle: 'dashed',
-    borderColor: '#fab255',
-    marginTop: 10,
-  },
   title: {
     position: 'absolute',
     fontSize: 28,

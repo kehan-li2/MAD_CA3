@@ -23,6 +23,7 @@ import {RadioButton} from 'react-native-paper';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import {GoBackHome} from '../Components/BackButton';
+import Mydivider from '../Components/Divider';
 
 const schema = yup.object({
   age: yup.number().positive().integer().required(),
@@ -79,14 +80,14 @@ export default function BMIcalculator({navigation}) {
           Our calculator will provide you with daily recommended calories intake
           based on your personal information.
         </Text>
-        <View style={styles.lineStyle} />
-
+        <Mydivider />
         <ScrollView
           style={{
             flex: 1,
             width: '100%',
             maxHeight: '55%',
             paddingHorizontal: 30,
+            marginBottom: 20,
             alignSelf: 'center',
           }}>
           <View
@@ -261,7 +262,7 @@ export default function BMIcalculator({navigation}) {
             </View>
           </View>
         </ScrollView>
-        <View style={styles.lineStyle} />
+        <Mydivider />
 
         {/* Two Buttons */}
         <View
@@ -305,14 +306,6 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
   },
-  lineStyle: {
-    width: '88%',
-    borderWidth: 1,
-    alignSelf: 'center',
-    borderStyle: 'dashed',
-    borderColor: '#fab255',
-    marginTop: 20,
-  },
   title: {
     position: 'absolute',
     margin: '8%',
@@ -329,15 +322,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9fb',
     marginHorizontal: '8%',
     marginTop: '8%',
-    paddingTop: 10,
+    paddingVertical: 10,
     fontWeight: '500',
     textDecorationLine: 'underline',
     fontStyle: 'italic',
     borderRadius: 10,
     padding: 2,
-  },
-  arrow: {
-    paddingTop: 10,
   },
   button: {
     backgroundColor: '#e8e8e8', //#8cffe8
