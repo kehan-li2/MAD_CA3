@@ -3,7 +3,6 @@
 // DIT1B04
 // CustomInput.js
 
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 

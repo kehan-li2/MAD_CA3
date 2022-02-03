@@ -3,8 +3,6 @@
 // DIT1B04
 // CustomButton.js
 
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import {Text, StyleSheet, TouchableOpacity} from 'react-native';
 
