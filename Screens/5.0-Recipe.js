@@ -7,7 +7,7 @@
 // realm storage to store comment(advance feature)
 // and the json to store those recipe fixed data
 
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
   ImageBackground,
   StyleSheet,
@@ -18,7 +18,6 @@ import {
   Image,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
-import {set} from 'react-native-reanimated';
 import UnorderedList from '../Components/UnorderedList';
 import {addSavedRecipe, delSavedRecipe} from '../DATA/SavedRecipeData';
 import {GoBackButton} from '../Components/BackButton';
@@ -223,7 +222,3 @@ const styles = StyleSheet.create({
   //   lineHeight: 30,
   // },
 });
-
-// Problem need to solve
-// 1. custom font
-//            <Icon name="player-settings" size={40} type="fontisto" onPress={()=> console.log("hhh")}/>

@@ -6,9 +6,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles  */
 
-// realm storage to store comment(advance feature)
-// and the json to store those recipe fixed data
-
 import React, {useState} from 'react';
 import {
   ImageBackground,
@@ -20,7 +17,6 @@ import {
   Image,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
-import {set} from 'react-native-reanimated';
 import {GoBackButton} from '../Components/BackButton';
 import {delSavedRecipe, SavedRecipe} from '../DATA/SavedRecipeData';
 const background = require('../image/background.png');
@@ -155,9 +151,6 @@ export default function Recipe({navigation}) {
   const HaveSavedRecipe = () => {
     return (
       <View style={{top: '10%', maxHeight: '75%'}}>
-        {/* <Text>i GOT RECIPE SAVED! {SavedRecipe[1].data.recipeName}</Text> */}
-        {/* <CustomRecipeCard /> */}
-
         <FlatList
           data={saved}
           renderItem={({item}) => {
@@ -172,62 +165,6 @@ export default function Recipe({navigation}) {
         />
       </View>
     );
-  };
-
-  const DisplayScreen = () => {
-    console.log(saved);
-    if (saved.length === 0) {
-      return (
-        <View>
-          <Image
-            style={{
-              width: '75%',
-              alignSelf: 'center',
-              height: '60%',
-              top: 30,
-            }}
-            source={require('../image/cookFood.gif')}
-          />
-          <Text
-            style={{
-              marginHorizontal: '5%',
-              width: '90%',
-              top: '10%',
-              textAlign: 'center',
-              fontSize: 30,
-              color: '#ff6624',
-              fontFamily: 'Quicksand-Italic',
-            }}>
-            No saved recipe yet! Click below to explore recipes!
-          </Text>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={[styles.button, {backgroundColor: '#8de0df'}]}>
-            <Text style={styles.buttonText}>Explore my recipes!</Text>
-          </TouchableOpacity>
-        </View>
-      );
-    } else {
-      return (
-        <View style={{top: '10%', maxHeight: '75%'}}>
-          {/* <Text>i GOT RECIPE SAVED! {SavedRecipe[1].data.recipeName}</Text> */}
-          {/* <CustomRecipeCard /> */}
-
-          <FlatList
-            data={saved}
-            renderItem={({item}) => {
-              return <CustomRecipeCard recipe={item} />;
-            }}
-            keyExtractor={item => item.id}
-            contentContainerStyle={{
-              flexGrow: 1,
-            }}
-            columnWrapperStyle={{justifyContent: 'space-evenly'}}
-            numColumns={2}
-          />
-        </View>
-      );
-    }
   };
 
   return (

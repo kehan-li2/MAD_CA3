@@ -3,8 +3,8 @@
 // DIT1B04
 // BMIresult.js
 
-/* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles  */
+/* eslint-disable prettier/prettier */
 
 import * as React from 'react';
 import {
@@ -199,14 +199,6 @@ export default function BMIResult({route, navigation}) {
           )}
 
           <View style={{position: 'absolute'}}>
-            {/* <View
-              style={{
-                width: 150,
-                marginLeft: 215,
-                marginTop: 30,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}> */}
             {BMI > 20 ? (
               <View
                 style={{
@@ -290,56 +282,10 @@ export default function BMIResult({route, navigation}) {
                 </Text>
               </View>
             )}
-            {/* <Text
-                style={{
-                  fontFamily: 'Quicksand-Bold',
-                  fontSize: 15,
-                  color: 'white',
-                  marginBottom: 10,
-                  justifyContent: 'center',
-                  textAlign: 'center',
-                }}>
-                Vegetarian Wrap
-              </Text>
-              <Text
-                style={{
-                  fontFamily: 'Quicksand-Bold',
-                  fontSize: 13,
-                  color: 'white',
-                  justifyContent: 'center',
-                }}>
-                Savour the exceptional flavours of zesty lemon on grilled
-                chicken.
-              </Text>
-              <Text
-                style={{
-                  textDecorationLine: 'underline',
-                  fontFamily: 'Quicksand-Bold',
-                  fontWeight: 'bold',
-                  fontStyle: 'italic',
-                  fontSize: 20,
-                  color: 'lightgreen',
-                  marginTop: 8,
-                }}>
-                Meals For You!
-              </Text>
-            </View> */}
           </View>
         </View>
       </ImageBackground>
     </View>
-
-    // <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-    //   <Text>Foohhhhd List</Text>
-
-    //   <Text>
-    //     {age}
-    //     {weight}
-    //     {height}
-    //     {gender}
-    //     {activityLevel}
-    //   </Text>
-    // </View>
   );
 }
 

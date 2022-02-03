@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, TextInput} from 'react-native';
+import {TextInput} from 'react-native';
 
 class Input extends Component {
   handleValidation(value) {

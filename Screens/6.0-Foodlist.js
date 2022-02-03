@@ -16,9 +16,7 @@ import {
   SafeAreaView,
   ImageBackground,
   TouchableOpacity,
-  Alert,
 } from 'react-native';
-import {Icon} from 'react-native-elements';
 import {GoBackHome} from '../Components/BackButton';
 import {FoodListdb} from '../DATA/FoodListdb';
 

@@ -6,9 +6,8 @@
 /* eslint-disable react-native/no-inline-styles  */
 
 import * as React from 'react';
-import {View, Text, StyleSheet, Image, Alert} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 
-import {Icon} from 'react-native-elements';
 import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
 import {GoBackButton} from '../Components/BackButton';
 
@@ -85,9 +84,6 @@ const Item = ({item, navigation}) => {
 
 export default function Category({navigation}) {
   return (
-    // <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-    //   <Text>Category</Text>
-    // </View>
     <View style={{flex: 1, alignContent: 'center'}}>
       <View>
         <GoBackButton navigation={navigation} />

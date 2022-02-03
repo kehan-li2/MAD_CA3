@@ -25,8 +25,6 @@ import {
 import {CategoryMainFooddb} from '../DATA/6.1-CategoryMainFoodsdb';
 // updated with dynamic database
 
-// import CustomButton from '../Components/CustomButton';
-import {Icon} from 'react-native-elements';
 import {Categorydb} from '../DATA/6.1-CategoryFruitsdb';
 import {GoBackButton} from '../Components/BackButton';
 const Item = ({item}) => {
@@ -102,10 +100,6 @@ export default function Elaborated({navigation}) {
   };
 
   return (
-    // <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-    //   <Text>Elaborated</Text>
-    // </View>
-
     <View style={{flex: 1}}>
       <ImageBackground
         source={require('../image/background.png')}
@@ -233,19 +227,6 @@ export default function Elaborated({navigation}) {
           />
         </View>
 
-        {/* <MyTabs />
-          <View style={{alignItems: 'center', marginTop: 20}}>
-            <Button mode="contained" color="turquoise" style={{width: 200}}>
-              Load More
-            </Button>
-          </View> */}
-        {/* <View style={{alignItems: 'center', marginTop: 20}}>
-          <CustomButton
-            text="Load More"
-            type="quaternary"
-            onPress={() => console.log('Loading...')}
-          />
-        </View> */}
         <View
           style={{
             flexDirection: 'row',

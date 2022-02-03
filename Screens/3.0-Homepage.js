@@ -15,10 +15,7 @@ import {
   Image,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
-// import saveRecipe from '../DATA/RecipeData';
 import {breakfastDATA, lunchDATA, dinnerDATA} from '../DATA/RecipeData';
-import {auth} from '../firebase';
 const background = require('../image/background.png');
 const Item = ({item}) => {
   return (
