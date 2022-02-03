@@ -87,6 +87,16 @@ export default function CommentPage({route, navigation}) {
   const [DATA, setDATA] = useState(commentData);
   const [comment, onChangecomment] = useState('');
   const {recipeName, recipeImage} = route.params;
+  // to submit the comment
+  const Submit = () => {
+    onChangecomment('');
+
+    addComment({
+      name: displayName,
+      time: new Date().toLocaleString(),
+      comment: comment,
+    });
+  };
 
   const user = firebase.auth().currentUser;
 
@@ -167,13 +177,7 @@ export default function CommentPage({route, navigation}) {
               size={32}
               color="black"
               type="fontAwesome"
-              onPress={() =>
-                addComment({
-                  name: displayName,
-                  time: new Date().toLocaleString(),
-                  comment: comment,
-                })
-              }
+              onPress={() => Submit()}
             />
           </TouchableOpacity>
         </View>
