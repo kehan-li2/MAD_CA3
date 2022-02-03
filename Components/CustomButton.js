@@ -1,3 +1,8 @@
+// P2129509
+// Lee Wee Teck
+// DIT1B04
+// CustomButton.js
+
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React from 'react';

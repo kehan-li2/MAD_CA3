@@ -1,3 +1,8 @@
+// P2129509
+// Lee Wee Teck
+// DIT1B04
+// BMIresult.js
+
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles  */
 

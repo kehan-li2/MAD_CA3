@@ -1,3 +1,8 @@
+// P2111575
+// LI KEHAN
+// DIT1B04
+// WholeStack.js
+
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 

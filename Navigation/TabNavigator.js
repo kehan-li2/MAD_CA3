@@ -1,3 +1,8 @@
+// P2111575
+// LI KEHAN
+// DIT1B04
+// TabNavigator.js
+
 // Tab navigator
 
 import * as React from 'react';

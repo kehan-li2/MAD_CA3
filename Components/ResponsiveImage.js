@@ -1,3 +1,8 @@
+// P2129509
+// Lee Wee Teck
+// DIT1B04
+// ResponsiveImage.js
+
 import React from 'react';
 import {useMemo, useState} from 'react';
 import {View, StyleSheet, Image} from 'react-native';

@@ -1,3 +1,8 @@
+// P2129509
+// Lee Wee Teck
+// DIT1B04
+// ElaboratedBanana.js
+
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 import {

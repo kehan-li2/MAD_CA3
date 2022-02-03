@@ -1,3 +1,8 @@
+// P2129509
+// Lee Wee Teck
+// DIT1B04
+// SettingsPage.js
+
 /* eslint-disable react-native/no-inline-styles  */
 
 import React from 'react';

@@ -1,3 +1,8 @@
+// P2129509
+// Lee Wee Teck
+// DIT1B04
+// CustomInput.js
+
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {Alert} from 'react-native';
