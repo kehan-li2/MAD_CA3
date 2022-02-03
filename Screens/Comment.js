@@ -93,23 +93,6 @@ export default function CommentPage({route, navigation}) {
   // The user object has basic properties such as display name, email, etc.
   const displayName = user.displayName;
 
-  /* allow user to send comment */
-  <View
-    style={{
-      alignItems: 'center',
-      justifyContent: 'center',
-      alignContent: 'center',
-      borderWidth: 1,
-      borderRadius: 5,
-      position: 'absolute',
-      top: '91%',
-    }}>
-    <TextInput
-      onChangeText={onChangecomment}
-      value={comment}
-      placeholder="Leave your comment for this recipe!"
-    />
-  </View>;
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -184,14 +167,12 @@ export default function CommentPage({route, navigation}) {
               size={32}
               color="black"
               type="fontAwesome"
-              onPress={
-                (() => onChangecomment(''),
-                () =>
-                  addComment({
-                    name: displayName,
-                    time: new Date().toLocaleString(),
-                    comment: comment,
-                  }))
+              onPress={() =>
+                addComment({
+                  name: displayName,
+                  time: new Date().toLocaleString(),
+                  comment: comment,
+                })
               }
             />
           </TouchableOpacity>

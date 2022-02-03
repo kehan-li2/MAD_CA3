@@ -149,21 +149,6 @@ export default function BMIResult({route, navigation}) {
           )}
         </View>
         <View>
-          {/* <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
-            {BMI > 20 ? (
-              <ResponsiveImage
-                src={require('../image/BMI/salmon.png')}
-                srcWidth={926}
-                srcHeight={443}
-              />
-            ) : (
-              <ResponsiveImage
-                src={require('../image/BMI/vegetarianWrap.png')}
-                srcWidth={926}
-                srcHeight={443}
-              />
-            )}
-          </TouchableOpacity> */}
           {BMI > 20 ? (
             <TouchableOpacity
               onPress={() =>
