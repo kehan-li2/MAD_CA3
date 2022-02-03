@@ -39,7 +39,7 @@ export default function Recipe({navigation}) {
     return unsubscribe;
   }, [navigation]);
 
-  const CustomRecipeCard = ({recipe, navigation}) => {
+  const CustomRecipeCard = ({recipe}) => {
     return (
       <View
         style={{
