@@ -20,7 +20,6 @@ import {
   Image,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
-import {set} from 'react-native-reanimated';
 import {GoBackButton} from '../Components/BackButton';
 import {delSavedRecipe, SavedRecipe} from '../DATA/SavedRecipeData';
 const background = require('../image/background.png');
@@ -72,7 +71,7 @@ export default function Recipe({navigation}) {
                 recipeName: recipe.data.recipeName,
                 recipeImage: recipe.data.recipeImage,
                 ingredientsDATA: recipe.data.ingredients,
-                methodDATA: recipe.data.method,
+                methodDATA: recipe.data.methods,
               });
             }}>
             <Image

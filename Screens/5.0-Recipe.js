@@ -43,7 +43,12 @@ export default function Recipe({route, navigation}) {
       delSavedRecipe(recipeName);
       setSaved(false);
     } else {
-      addSavedRecipe({name: recipeName, image: recipeImage});
+      addSavedRecipe({
+        name: recipeName,
+        image: recipeImage,
+        ingredients: ingredientsDATA,
+        methods: methodDATA,
+      });
       setSaved(true);
     }
   };
