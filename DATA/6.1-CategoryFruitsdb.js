@@ -1,3 +1,8 @@
+// P2129509
+// Lee Wee Teck
+// DIT1B04
+// CategoryFruitsdb.js
+
 const Categorydb = [
   {
     category: 'Apple',

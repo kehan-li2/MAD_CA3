@@ -1,3 +1,8 @@
+// P2129509
+// Lee Wee Teck
+// DIT1B04
+// ElaboratedRabbitdb.js
+
 const HundredGrams = [
   {id: '1', Category: 'Nutrition Value', header: true, value: '100g'},
   {

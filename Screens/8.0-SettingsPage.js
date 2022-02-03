@@ -1,3 +1,8 @@
+// P2129509
+// Lee Wee Teck
+// DIT1B04
+// SettingsPage.js
+
 /* eslint-disable react-native/no-inline-styles  */
 
 import React from 'react';
@@ -15,8 +20,6 @@ import {
 import {GoBackHome} from '../Components/BackButton';
 import {Icon} from 'react-native-elements';
 const background = require('../image/background.png');
-// importing of back button
-import CustomBackButton from '../Components/CustomBackButton';
 
 // should use sectionlist
 export default function SettingsPage({navigation}) {

@@ -1,29 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-// /* eslint-disable react-native/no-inline-styles  */
-
-// import * as React from 'react';
-// import {View, Text, Button} from 'react-native';
-
-// export default function LoginPage({navigation}) {
-
-//   return (
-//     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-//       <Text>Login</Text>
-//       <Button
-//         title="No account -- SignUp"
-//         onPress={() => navigation.navigate('SignUpScreen')}>
-//         No account -- SignUp
-//       </Button>
-//       <View style={{paddingTop: 50}}>
-//         <Button
-//           title="have account -- Login to homepage"
-//           onPress={() => navigation.navigate('AppStackScreen')}>
-//           No account -- SignUp
-//         </Button>
-//       </View>
-//     </View>
-//   );
-// }
+// P2129509
+// Lee Wee Teck
+// DIT1B04
+// Login.js
 
 /* eslint-disable react-native/no-inline-styles  */
 

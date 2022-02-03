@@ -1,3 +1,8 @@
+// P2111575
+// LI KEHAN
+// DIT1B04
+// AuthStack.js
+
 import React, {useState, useEffect} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 

@@ -1,3 +1,8 @@
+// P2129509
+// Lee Wee Teck
+// DIT1B04
+// CategoryMainFoodsdb.js
+
 const CategoryMainFooddb = [
   {
     category: 'Noodle',
